@@ -141,23 +141,24 @@ p{margin:0}
 .pager-next{justify-self:end}
 .pager-code{display:inline-grid;place-items:center;min-width:1.7em;height:1.7em;border:1.5px solid var(--accent);border-radius:3px;font:700 13px/1 var(--font-display)}
 
-/* コメント */
-.comment-list{list-style:none;margin:0;padding:4px 20px;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
-.comment-list>li{padding-block:14px}
+/* コメント（一覧の各カードの下） */
+.list-note{margin-bottom:12px;font-size:13px;color:var(--ink-2)}
+.card-comments{display:grid;gap:10px;padding-top:18px;border-top:1px solid var(--rule);min-width:0}
+.card-comments h3{font-size:16px;letter-spacing:.04em}
+.comment-list{list-style:none;margin:0;padding:2px 16px;background:var(--paper);border:1px solid var(--rule);border-radius:4px}
+.comment-list>li{padding-block:10px}
 .comment-list>li+li{border-top:1px solid var(--rule)}
 .comment-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px}
 .comment-name{font-weight:700;font-size:15px;overflow-wrap:anywhere}
 .comment-time{font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
-.comment-body{margin-top:4px;font-size:15px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}
-.comment-empty{color:var(--ink-2);font-size:15px}
-.comment-form{display:grid;gap:14px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 20px 20px}
-.comment-note{font-size:13px;color:var(--ink-2)}
+.comment-body{margin-top:2px;font-size:15px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}
+.comment-empty{color:var(--ink-2);font-size:14px}
+.comment-form{display:grid;gap:10px}
 .field{display:grid;gap:4px}
 .field label{font-size:13px;color:var(--ink-2);letter-spacing:.03em}
-.field input,.field textarea{display:block;width:100%;margin:0;font:inherit;font-size:16px;line-height:1.7;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:8px 12px}
-.field input{max-width:24em}
-.field textarea{min-height:7.5em;resize:vertical}
-.field input:focus-visible,.field textarea:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+.field-hint{margin-left:.2em}
+.field textarea{display:block;width:100%;margin:0;font:inherit;font-size:16px;line-height:1.7;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:8px 12px;min-height:5.4em;resize:vertical}
+.field textarea:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
 .comment-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
 .comment-status{font-size:14px;color:var(--ink-2)}
 .comment-status.is-error{color:var(--ink);font-weight:700}
@@ -178,7 +179,7 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   .spec>div,.card .spec>div{grid-template-columns:6.8em minmax(0,1fr);gap:12px}
   .spec-full>div:nth-child(2){border-top:1px solid var(--rule)}
   .spec-full{padding-inline:14px}
-  .comment-list,.comment-form{padding-inline:14px}
+  .comment-list{padding-inline:12px}
   .photo-grid{grid-template-columns:minmax(0,1fr)}
   .pager{grid-template-columns:minmax(0,1fr)}
   .pager-next{justify-self:start}
@@ -199,6 +200,7 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
         <li>2026年9月時点の販売資料より</li>
       </ul>
     </header>
+    <p class="list-note">書いたコメントは、このページを見る方すべてに表示されます。</p>
     <div class="cards">
 <article class="card" id="card-a" aria-labelledby="h-a-2">
   <div class="head"><span class="code" aria-label="物件記号 A">A</span><div class="title"><p class="kind"><span>アパート（一棟）</span><span class="tag">新耐震</span></p><h2 id="h-a-2">西成区 鶴見橋2丁目</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">52<small>万円</small></span><span class="rent-calc">1室4万円 × 想定13室</span></div></div>
@@ -209,6 +211,22 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
       <a class="btn" href="#a">間取り図・写真を見る<span aria-hidden="true">→</span></a>
     </div>
   </div>
+  <section class="card-comments" aria-labelledby="comments-a">
+    <h3 id="comments-a">コメント</h3>
+    <ol class="comment-list" id="comment-list-a" data-property="a">
+      <li class="comment-empty">コメントを読み込んでいます…</li>
+    </ol>
+    <form class="comment-form" data-property="a">
+      <div class="field">
+        <label for="body-a">コメントを書く<span class="field-hint">（お名前も本文に書いてください）</span></label>
+        <textarea id="body-a" name="body" rows="3" required></textarea>
+      </div>
+      <div class="comment-actions">
+        <button class="btn" type="submit">コメントを保存</button>
+        <p class="comment-status" role="status"></p>
+      </div>
+    </form>
+  </section>
 </article>
 <article class="card" id="card-b" aria-labelledby="h-b-2">
   <div class="head"><span class="code" aria-label="物件記号 B">B</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-b-2">鶴見区 鶴見3丁目</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">24<small>万円</small></span><span class="rent-calc">1室4万円 × 想定6室</span></div></div>
@@ -219,6 +237,22 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
       <a class="btn" href="#b">間取り図・写真を見る<span aria-hidden="true">→</span></a>
     </div>
   </div>
+  <section class="card-comments" aria-labelledby="comments-b">
+    <h3 id="comments-b">コメント</h3>
+    <ol class="comment-list" id="comment-list-b" data-property="b">
+      <li class="comment-empty">コメントを読み込んでいます…</li>
+    </ol>
+    <form class="comment-form" data-property="b">
+      <div class="field">
+        <label for="body-b">コメントを書く<span class="field-hint">（お名前も本文に書いてください）</span></label>
+        <textarea id="body-b" name="body" rows="3" required></textarea>
+      </div>
+      <div class="comment-actions">
+        <button class="btn" type="submit">コメントを保存</button>
+        <p class="comment-status" role="status"></p>
+      </div>
+    </form>
+  </section>
 </article>
 <article class="card" id="card-c" aria-labelledby="h-c-2">
   <div class="head"><span class="code" aria-label="物件記号 C">C</span><div class="title"><p class="kind"><span>テラスハウス</span><span class="tag">新耐震</span></p><h2 id="h-c-2">生野区 巽北1丁目</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">28<small>万円</small></span><span class="rent-calc">1室4万円 × 想定7室</span></div></div>
@@ -229,6 +263,22 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
       <a class="btn" href="#c">間取り図・写真を見る<span aria-hidden="true">→</span></a>
     </div>
   </div>
+  <section class="card-comments" aria-labelledby="comments-c">
+    <h3 id="comments-c">コメント</h3>
+    <ol class="comment-list" id="comment-list-c" data-property="c">
+      <li class="comment-empty">コメントを読み込んでいます…</li>
+    </ol>
+    <form class="comment-form" data-property="c">
+      <div class="field">
+        <label for="body-c">コメントを書く<span class="field-hint">（お名前も本文に書いてください）</span></label>
+        <textarea id="body-c" name="body" rows="3" required></textarea>
+      </div>
+      <div class="comment-actions">
+        <button class="btn" type="submit">コメントを保存</button>
+        <p class="comment-status" role="status"></p>
+      </div>
+    </form>
+  </section>
 </article>
 <article class="card" id="card-d" aria-labelledby="h-d-2">
   <div class="head"><span class="code" aria-label="物件記号 D">D</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-d-2">西淀川区 中島1丁目</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">36<small>万円</small></span><span class="rent-calc">1室4万円 × 想定9室</span></div></div>
@@ -239,6 +289,22 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
       <a class="btn" href="#d">間取り図・写真を見る<span aria-hidden="true">→</span></a>
     </div>
   </div>
+  <section class="card-comments" aria-labelledby="comments-d">
+    <h3 id="comments-d">コメント</h3>
+    <ol class="comment-list" id="comment-list-d" data-property="d">
+      <li class="comment-empty">コメントを読み込んでいます…</li>
+    </ol>
+    <form class="comment-form" data-property="d">
+      <div class="field">
+        <label for="body-d">コメントを書く<span class="field-hint">（お名前も本文に書いてください）</span></label>
+        <textarea id="body-d" name="body" rows="3" required></textarea>
+      </div>
+      <div class="comment-actions">
+        <button class="btn" type="submit">コメントを保存</button>
+        <p class="comment-status" role="status"></p>
+      </div>
+    </form>
+  </section>
 </article>
     </div>
     <footer class="notes">
@@ -248,7 +314,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
         <li>賃料の目安と想定居室数は、こちらで置いた想定です。使い方や条件はご相談ください。</li>
         <li>いずれも取得を検討している段階の物件で、取得が決まったものではありません。</li>
         <li>ご意見は各物件のコメント欄か、このページをお送りした担当者までお知らせください。</li>
-        <li>コメント欄は、このページを見る方すべてに表示されます。</li>
       </ul>
     </footer>
   </section>
@@ -269,27 +334,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   <section class="block" aria-labelledby="spec-a">
     <h2 id="spec-a">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>大阪市西成区鶴見橋2丁目</dd></div><div><dt>種別</dt><dd>アパート（一棟）</dd></div><div class="wide"><dt>交通</dt><dd>大阪メトロ四つ橋線 花園町駅 徒歩6分（約450m）<br>南海高野線 萩ノ茶屋駅 徒歩9分（約700m）<br>南海汐見橋線 津守駅 徒歩12分（約900m）</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1999年（平成11年）<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>141.84㎡（42.90坪）</dd></div><div><dt>延床面積</dt><dd>175.50㎡（53.08坪）<span class="note">1階 85.05㎡ ／ 2階 90.45㎡</span></dd></div><div><dt>間取り</dt><dd>1R（図面上 14室）</dd></div><div><dt>想定居室数</dt><dd>13室</dd></div><div><dt>用途地域</dt><dd>準工業地域</dd></div><div><dt>建ぺい率／容積率</dt><dd>80% ／ 300%</dd></div><div><dt>駐車場</dt><dd>敷地内なし（近隣あり 16,500円/月・約400m）</dd></div><div><dt>現況</dt><dd>空き</dd></div><div class="wide"><dt>設備</dt><dd>都市ガス・公営水道・公共下水／シャワールーム・共同バス・トイレ／全室フローリング・収納</dd></div><div class="wide"><dt>備考</dt><dd>再建築不可</dd></div></dl>
-  </section>
-  <section class="block comments" aria-labelledby="comments-a">
-    <h2 id="comments-a">コメント</h2>
-    <ol class="comment-list" id="comment-list-a" data-property="a">
-      <li class="comment-empty">コメントを読み込んでいます…</li>
-    </ol>
-    <form class="comment-form" data-property="a">
-      <p class="comment-note">書いたコメントは、このページを見る方すべてに表示されます。</p>
-      <div class="field">
-        <label for="name-a">お名前</label>
-        <input id="name-a" name="name" type="text" autocomplete="name" maxlength="40" required>
-      </div>
-      <div class="field">
-        <label for="body-a">コメント</label>
-        <textarea id="body-a" name="body" rows="4" required></textarea>
-      </div>
-      <div class="comment-actions">
-        <button class="btn" type="submit">コメントを保存</button>
-        <p class="comment-status" role="status"></p>
-      </div>
-    </form>
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <span></span>
@@ -314,27 +358,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-b">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>大阪市鶴見区鶴見3丁目</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>大阪メトロ長堀鶴見緑地線 今福鶴見駅 徒歩4分（約270m）<br>大阪メトロ長堀鶴見緑地線 横堤駅 徒歩14分（約1,100m）<br>JRおおさか東線 放出駅 徒歩22分（約1,700m）</dd></div><div><dt>構造</dt><dd>木造（一部RC） 3階建</dd></div><div><dt>築年月</dt><dd>1990年（平成2年）11月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>44.58㎡（13.48坪）<span class="note">ほかに私道 18.66㎡の持分 1/4</span></dd></div><div><dt>延床面積</dt><dd>106.38㎡（32.17坪）<span class="note">1階 35.10㎡ ／ 2階 35.64㎡ ／ 3階 35.64㎡</span></dd></div><div><dt>間取り</dt><dd>5LDK</dd></div><div><dt>想定居室数</dt><dd>6室</dd></div><div><dt>用途地域</dt><dd>第一種住居地域</dd></div><div><dt>建ぺい率／容積率</dt><dd>80% ／ 200%</dd></div><div><dt>駐車場</dt><dd>1階に車庫（図面上）</dd></div><div><dt>現況</dt><dd>居住中</dd></div><div class="wide"><dt>設備</dt><dd>公営水道・公共下水／トイレ・浴室</dd></div><div class="wide"><dt>備考</dt><dd>再建築不可</dd></div></dl>
   </section>
-  <section class="block comments" aria-labelledby="comments-b">
-    <h2 id="comments-b">コメント</h2>
-    <ol class="comment-list" id="comment-list-b" data-property="b">
-      <li class="comment-empty">コメントを読み込んでいます…</li>
-    </ol>
-    <form class="comment-form" data-property="b">
-      <p class="comment-note">書いたコメントは、このページを見る方すべてに表示されます。</p>
-      <div class="field">
-        <label for="name-b">お名前</label>
-        <input id="name-b" name="name" type="text" autocomplete="name" maxlength="40" required>
-      </div>
-      <div class="field">
-        <label for="body-b">コメント</label>
-        <textarea id="body-b" name="body" rows="4" required></textarea>
-      </div>
-      <div class="comment-actions">
-        <button class="btn" type="submit">コメントを保存</button>
-        <p class="comment-status" role="status"></p>
-      </div>
-    </form>
-  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#a" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">A</span>西成区 鶴見橋2丁目</a>
     <a class="pager-next" href="#c" rel="next"><span class="pager-code">C</span>生野区 巽北1丁目<span aria-hidden="true">→</span></a>
@@ -357,27 +380,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   <section class="block" aria-labelledby="spec-c">
     <h2 id="spec-c">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>大阪市生野区巽北1丁目</dd></div><div><dt>種別</dt><dd>テラスハウス</dd></div><div class="wide"><dt>交通</dt><dd>大阪メトロ千日前線 北巽駅 徒歩15分<br>近鉄大阪線 今里駅 徒歩21分</dd></div><div><dt>構造</dt><dd>鉄骨造 4階建</dd></div><div><dt>築年月</dt><dd>1984年（昭和59年）2月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>58.11㎡（17.57坪）<span class="note">ほかに私道負担 8.00㎡</span></dd></div><div><dt>延床面積</dt><dd>134.10㎡（40.56坪）</dd></div><div><dt>間取り</dt><dd>10DK</dd></div><div><dt>想定居室数</dt><dd>7室</dd></div><div><dt>用途地域</dt><dd>準工業地域</dd></div><div><dt>建ぺい率／容積率</dt><dd>80% ／ 200%</dd></div><div><dt>駐車場</dt><dd>なし</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>都市ガス・上水道／トイレ2か所・浴室・シャワールーム／ルーフバルコニー</dd></div><div class="wide"><dt>備考</dt><dd>現状は容積率オーバー（指定容積率 200%）</dd></div></dl>
-  </section>
-  <section class="block comments" aria-labelledby="comments-c">
-    <h2 id="comments-c">コメント</h2>
-    <ol class="comment-list" id="comment-list-c" data-property="c">
-      <li class="comment-empty">コメントを読み込んでいます…</li>
-    </ol>
-    <form class="comment-form" data-property="c">
-      <p class="comment-note">書いたコメントは、このページを見る方すべてに表示されます。</p>
-      <div class="field">
-        <label for="name-c">お名前</label>
-        <input id="name-c" name="name" type="text" autocomplete="name" maxlength="40" required>
-      </div>
-      <div class="field">
-        <label for="body-c">コメント</label>
-        <textarea id="body-c" name="body" rows="4" required></textarea>
-      </div>
-      <div class="comment-actions">
-        <button class="btn" type="submit">コメントを保存</button>
-        <p class="comment-status" role="status"></p>
-      </div>
-    </form>
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#b" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">B</span>鶴見区 鶴見3丁目</a>
@@ -402,27 +404,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-d">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>大阪市西淀川区中島1丁目</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>阪神なんば線 出来島駅 徒歩15分<br>JR東西線 御幣島駅からバス14分「中島一丁目」停 徒歩3分</dd></div><div><dt>構造</dt><dd>鉄骨造 2階建</dd></div><div><dt>築年月</dt><dd>1984年（昭和59年）6月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>155.05㎡（46.90坪）</dd></div><div><dt>延床面積</dt><dd>243.98㎡（73.80坪）<span class="note">1階 128.62㎡ ／ 2階 115.36㎡</span></dd></div><div><dt>間取り</dt><dd>7DK</dd></div><div><dt>想定居室数</dt><dd>9室</dd></div><div><dt>用途地域</dt><dd>第一種住居地域</dd></div><div><dt>建ぺい率／容積率</dt><dd>80% ／ 200%</dd></div><div><dt>駐車場</dt><dd>なし</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>都市ガス・公営水道・本下水</dd></div></dl>
   </section>
-  <section class="block comments" aria-labelledby="comments-d">
-    <h2 id="comments-d">コメント</h2>
-    <ol class="comment-list" id="comment-list-d" data-property="d">
-      <li class="comment-empty">コメントを読み込んでいます…</li>
-    </ol>
-    <form class="comment-form" data-property="d">
-      <p class="comment-note">書いたコメントは、このページを見る方すべてに表示されます。</p>
-      <div class="field">
-        <label for="name-d">お名前</label>
-        <input id="name-d" name="name" type="text" autocomplete="name" maxlength="40" required>
-      </div>
-      <div class="field">
-        <label for="body-d">コメント</label>
-        <textarea id="body-d" name="body" rows="4" required></textarea>
-      </div>
-      <div class="comment-actions">
-        <button class="btn" type="submit">コメントを保存</button>
-        <p class="comment-status" role="status"></p>
-      </div>
-    </form>
-  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#c" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">C</span>生野区 巽北1丁目</a>
     <span></span>
@@ -432,7 +413,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
 <script>
 (() => {
   const API = "https://bukken.arshe1719.workers.dev/api/comments";
-  const NAME_KEY = "bukken-comment-name";
   const SAVE_FAILED = "保存できませんでした。通信状況を確かめて、もう一度お試しください。";
   const jst = new Intl.DateTimeFormat("ja-JP", {
     timeZone: "Asia/Tokyo", year: "numeric", month: "numeric", day: "numeric",
@@ -454,7 +434,8 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     const meta = el("p", "comment-meta");
     const time = el("time", "comment-time", when(c.created_at));
     time.dateTime = c.created_at;
-    meta.append(el("span", "comment-name", c.name), time);
+    if (c.name) meta.append(el("span", "comment-name", c.name));
+    meta.append(time);
     li.append(meta, el("p", "comment-body", c.body));
     return li;
   }
@@ -467,17 +448,11 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     lists[list.dataset.property] = list;
   });
 
-  let savedName = "";
-  try { savedName = localStorage.getItem(NAME_KEY) || ""; } catch (e) {}
-
-  const forms = Array.from(document.querySelectorAll(".comment-form"));
-  forms.forEach((form) => {
+  document.querySelectorAll(".comment-form").forEach((form) => {
     const pid = form.dataset.property;
-    const nameInput = form.elements.name;
     const bodyInput = form.elements.body;
     const button = form.querySelector("button");
     const status = form.querySelector(".comment-status");
-    if (savedName) nameInput.value = savedName;
     form.addEventListener("submit", async (ev) => {
       ev.preventDefault();
       button.disabled = true;
@@ -487,7 +462,7 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
         const res = await fetch(API, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ property: pid, name: nameInput.value, body: bodyInput.value })
+          body: JSON.stringify({ property: pid, body: bodyInput.value })
         });
         let data = null;
         try { data = await res.json(); } catch (e) {}
@@ -502,8 +477,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
         list.append(commentItem(data));
         bodyInput.value = "";
         status.textContent = "保存しました";
-        try { localStorage.setItem(NAME_KEY, data.name); } catch (e) {}
-        forms.forEach((f) => { if (!f.elements.name.value) f.elements.name.value = data.name; });
       } catch (e) {
         status.classList.add("is-error");
         status.textContent = SAVE_FAILED;

@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Kaku+Gothic+New:wght@700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
 :root{
   --paper:#F1F4F4;
@@ -202,6 +204,10 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
 @media (max-width: 600px){
   .area-tab{padding:12px 14px}
 }
+
+.map-wrap{position:relative;min-width:0}
+.map{height:280px;border-radius:6px;border:1px solid var(--rule);background:var(--paper)}
+.map-fallback{margin:0;padding:14px 16px;color:var(--ink-2);font-size:14px;background:var(--surface);border:1px dashed var(--rule);border-radius:6px}
 </style>
 </head>
 <body>
@@ -475,6 +481,14 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-i">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>東大阪市東石切町6丁目</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄難波・奈良線 石切駅 徒歩8分<br>近鉄難波・奈良線 額田駅 徒歩20分<br>近鉄けいはんな線 新石切駅 徒歩23分</dd></div><div><dt>構造</dt><dd>木造 2階建 地下1階</dd></div><div><dt>築年月</dt><dd>1986年（昭和61年）8月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>117.08㎡（35.42坪）</dd></div><div><dt>延床面積</dt><dd>200.92㎡（60.78坪）</dd></div><div><dt>間取り</dt><dd>5LDK</dd></div><div><dt>想定居室数</dt><dd>5室</dd></div><div><dt>用途地域</dt><dd>第一種低層住居専用地域</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 150%</dd></div><div><dt>駐車場</dt><dd>あり（無料）</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>都市ガス・上水道・下水／トイレ2か所・浴室（窓あり）・2口コンロ・システムキッチン・グリル・ウォークインクローゼット・照明器具</dd></div><div class="wide"><dt>備考</dt><dd>南側の私道（幅員約4.0m）にのみ接道</dd></div></dl>
   </section>
+  <section class="block" aria-labelledby="map-i">
+    <h2 id="map-i">場所</h2>
+    <div class="map-wrap">
+      <div class="map" id="map-box-i" data-lat="34.687733" data-lng="135.652512"></div>
+      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
+    </div>
+    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
+  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#h" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">H</span>平野区 加美鞍作2丁目</a>
     <a class="pager-next" href="#j" rel="next"><span class="pager-code">J</span>東大阪市 上六万寺町<span aria-hidden="true">→</span></a>
@@ -497,6 +511,14 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   <section class="block" aria-labelledby="spec-j">
     <h2 id="spec-j">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>東大阪市上六万寺町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄難波・奈良線 瓢箪山駅 徒歩27分</dd></div><div><dt>構造</dt><dd>木造（スレート・かわらぶき） 地上3階建</dd></div><div><dt>築年月</dt><dd>1983年（昭和58年）4月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>105.40㎡（31.88坪）</dd></div><div><dt>延床面積</dt><dd>147.32㎡（44.56坪）<span class="note">1階 45.61㎡ ／ 2階 66.83㎡ ／ 3階 34.88㎡</span></dd></div><div><dt>間取り</dt><dd>5LDK</dd></div><div><dt>想定居室数</dt><dd>6室</dd></div><div><dt>用途地域</dt><dd>第一種低層住居専用地域</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 150%</dd></div><div><dt>駐車場</dt><dd>あり</dd></div><div><dt>現況</dt><dd>居住中</dd></div><div class="wide"><dt>設備</dt><dd>公営水道・都市ガス・公共下水・雑排水／食洗機・TVモニターホン・トイレ2箇所・温水洗浄便座／中庭・太陽光発電</dd></div></dl>
+  </section>
+  <section class="block" aria-labelledby="map-j">
+    <h2 id="map-j">場所</h2>
+    <div class="map-wrap">
+      <div class="map" id="map-box-j" data-lat="34.65509" data-lng="135.654877"></div>
+      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
+    </div>
+    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#i" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">I</span>東大阪市 東石切町6丁目</a>
@@ -521,6 +543,14 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-k">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>東大阪市玉串町西1丁目</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄難波・奈良線 河内花園駅 徒歩14分</dd></div><div><dt>構造</dt><dd>鉄骨造 3階建</dd></div><div><dt>築年月</dt><dd>2003年（平成15年）1月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>75.01㎡（22.69坪）</dd></div><div><dt>延床面積</dt><dd>134.70㎡（40.74坪）<span class="note">1階 44.90㎡ ／ 2階 44.90㎡ ／ 3階 44.90㎡</span></dd></div><div><dt>間取り</dt><dd>6LDK</dd></div><div><dt>想定居室数</dt><dd>6室</dd></div><div><dt>用途地域</dt><dd>第一種中高層住居専用地域</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 200%</dd></div><div><dt>駐車場</dt><dd>あり</dd></div><div><dt>現況</dt><dd>居住中</dd></div><div class="wide"><dt>設備</dt><dd>都市ガス・公営水道・公共下水・雑排水／各階トイレ・ホームエレベーター・1階ミニキッチン／屋上（約38.20㎡）</dd></div></dl>
   </section>
+  <section class="block" aria-labelledby="map-k">
+    <h2 id="map-k">場所</h2>
+    <div class="map-wrap">
+      <div class="map" id="map-box-k" data-lat="34.656452" data-lng="135.615601"></div>
+      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
+    </div>
+    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
+  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#j" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">J</span>東大阪市 上六万寺町</a>
     <a class="pager-next" href="#l" rel="next"><span class="pager-code">L</span>東大阪市 西岩田1丁目<span aria-hidden="true">→</span></a>
@@ -544,6 +574,14 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-l">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>東大阪市西岩田1丁目</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄難波・奈良線 若江岩田駅 徒歩7分</dd></div><div><dt>構造</dt><dd>鉄骨造 3階建</dd></div><div><dt>築年月</dt><dd>1983年（昭和58年）11月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>64.97㎡（19.65坪）<span class="note">ほかに私道負担 11㎡</span></dd></div><div><dt>延床面積</dt><dd>129.41㎡（39.14坪）<span class="note">1階 44.86㎡ ／ 2階 46.57㎡ ／ 3階 37.98㎡</span></dd></div><div><dt>間取り</dt><dd>5LDK</dd></div><div><dt>想定居室数</dt><dd>5室</dd></div><div><dt>用途地域</dt><dd>第一種住居地域</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 160%</dd></div><div><dt>駐車場</dt><dd>なし</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>都市ガス・上水道・公共下水・雑排水／トイレ・洗面2箇所／浴室・脱衣室</dd></div><div class="wide"><dt>備考</dt><dd>現況は建ぺい率・容積率オーバー。接面道路は私道（幅員約3.5m）にのみ接道</dd></div></dl>
   </section>
+  <section class="block" aria-labelledby="map-l">
+    <h2 id="map-l">場所</h2>
+    <div class="map-wrap">
+      <div class="map" id="map-box-l" data-lat="34.664978" data-lng="135.603226"></div>
+      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
+    </div>
+    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
+  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#k" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">K</span>東大阪市 玉串町西1丁目</a>
     <a class="pager-next" href="#m" rel="next"><span class="pager-code">M</span>東大阪市 上石切町1丁目<span aria-hidden="true">→</span></a>
@@ -566,6 +604,14 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   <section class="block" aria-labelledby="spec-m">
     <h2 id="spec-m">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>東大阪市上石切町1丁目</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄難波・奈良線 石切駅 徒歩8分</dd></div><div><dt>構造</dt><dd>鉄骨造 地上3階建</dd></div><div><dt>築年月</dt><dd>1993年（平成5年）7月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>78.07㎡（23.62坪）<span class="note">私道負担 有（面積記載なし）</span></dd></div><div><dt>延床面積</dt><dd>129.63㎡（39.21坪）<span class="note">1階 42.40㎡ ／ 2階 44.83㎡ ／ 3階 42.40㎡</span></dd></div><div><dt>間取り</dt><dd>5LDK</dd></div><div><dt>想定居室数</dt><dd>5室</dd></div><div><dt>用途地域</dt><dd>第一種低層住居専用地域</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 150%</dd></div><div><dt>駐車場</dt><dd>あり</dd></div><div><dt>現況</dt><dd>居住中</dd></div><div class="wide"><dt>設備</dt><dd>トイレ2箇所・洗面脱衣・浴室／収納多数</dd></div></dl>
+  </section>
+  <section class="block" aria-labelledby="map-m">
+    <h2 id="map-m">場所</h2>
+    <div class="map-wrap">
+      <div class="map" id="map-box-m" data-lat="34.681587" data-lng="135.654633"></div>
+      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
+    </div>
+    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#l" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">L</span>東大阪市 西岩田1丁目</a>
@@ -669,6 +715,34 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
         showMessage(list, "コメントを読み込めませんでした。時間をおいて、ページを読み込み直してください。");
       });
     });
+})();
+
+(() => {
+  function initMap(box) {
+    if (box.dataset.done) return;
+    const wrap = box.closest(".map-wrap");
+    const fallback = wrap && wrap.querySelector(".map-fallback");
+    if (!window.L) {
+      box.hidden = true;
+      if (fallback) fallback.hidden = false;
+      return;
+    }
+    box.dataset.done = "1";
+    const lat = parseFloat(box.dataset.lat), lng = parseFloat(box.dataset.lng);
+    const map = L.map(box).setView([lat, lng], 14);
+    L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png", {
+      attribution: "地図: 国土地理院", maxZoom: 18
+    }).addTo(map);
+    L.circle([lat, lng], { radius: 500, color: "#1B5B86", fillColor: "#1B5B86", fillOpacity: 0.12 }).addTo(map);
+  }
+  function checkMap() {
+    const id = location.hash.slice(1);
+    if (!id) return;
+    const box = document.getElementById("map-box-" + id);
+    if (box) initMap(box);
+  }
+  window.addEventListener("hashchange", checkMap);
+  checkMap();
 })();
 </script>
 </body>

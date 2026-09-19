@@ -207,7 +207,9 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
 
 .map-wrap{position:relative;min-width:0}
 .map{height:280px;border-radius:6px;border:1px solid var(--rule);background:var(--paper)}
+.map.area-map{height:360px;margin-bottom:8px}
 .map-fallback{margin:0;padding:14px 16px;color:var(--ink-2);font-size:14px;background:var(--surface);border:1px dashed var(--rule);border-radius:6px}
+.area-map-label{display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff;background:#1B5B86;border-radius:4px;padding:2px 6px;box-shadow:0 1px 3px rgba(0,0,0,.3);white-space:nowrap;cursor:pointer}
 </style>
 </head>
 <body>
@@ -221,6 +223,12 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
         <li>2026年9月時点の販売資料より</li>
       </ul>
     </header>
+    
+    <div class="map-wrap">
+      <div class="map area-map" id="area-map" data-points='[{&quot;id&quot;: &quot;n&quot;, &quot;code&quot;: &quot;N&quot;, &quot;lat&quot;: 34.615204, &quot;lng&quot;: 135.956833}, {&quot;id&quot;: &quot;o&quot;, &quot;code&quot;: &quot;O&quot;, &quot;lat&quot;: 34.695126, &quot;lng&quot;: 135.974655}, {&quot;id&quot;: &quot;p&quot;, &quot;code&quot;: &quot;P&quot;, &quot;lat&quot;: 34.640381, &quot;lng&quot;: 135.819382}, {&quot;id&quot;: &quot;q&quot;, &quot;code&quot;: &quot;Q&quot;, &quot;lat&quot;: 34.67577, &quot;lng&quot;: 135.736618}, {&quot;id&quot;: &quot;r&quot;, &quot;code&quot;: &quot;R&quot;, &quot;lat&quot;: 34.713257, &quot;lng&quot;: 135.912064}, {&quot;id&quot;: &quot;s&quot;, &quot;code&quot;: &quot;S&quot;, &quot;lat&quot;: 34.715286, &quot;lng&quot;: 135.80545}, {&quot;id&quot;: &quot;t&quot;, &quot;code&quot;: &quot;T&quot;, &quot;lat&quot;: 34.572533, &quot;lng&quot;: 135.968353}, {&quot;id&quot;: &quot;u&quot;, &quot;code&quot;: &quot;U&quot;, &quot;lat&quot;: 34.632126, &quot;lng&quot;: 135.952316}, {&quot;id&quot;: &quot;v&quot;, &quot;code&quot;: &quot;V&quot;, &quot;lat&quot;: 34.580929, &quot;lng&quot;: 135.83815}, {&quot;id&quot;: &quot;w&quot;, &quot;code&quot;: &quot;W&quot;, &quot;lat&quot;: 34.619671, &quot;lng&quot;: 135.827454}, {&quot;id&quot;: &quot;x&quot;, &quot;code&quot;: &quot;X&quot;, &quot;lat&quot;: 34.555737, &quot;lng&quot;: 135.847702}]'></div>
+      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
+    </div>
+    <p class="block-note">おおよその場所（町の中心あたり）を示しています。押すとその物件の詳細に移動します。</p>
     <p class="list-note">書いたコメントは、このページを見る方すべてに表示されます。</p>
     <div class="cards">
 <article class="card" id="card-n" aria-labelledby="h-n-2">
@@ -538,14 +546,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-n">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市針町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄大阪線 榛原駅 バス33分+針郵便局バス停 徒歩4分<br>近鉄天理線 天理駅 バス35分+都祁中学校バス停 徒歩11分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1992年（平成4年）2月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>409.91㎡（約123.99坪）</dd></div><div><dt>延床面積</dt><dd>297.76㎡（約90.07坪）<span class="note">1階 195.00㎡ ／ 2階 102.76㎡</span></dd></div><div><dt>間取り</dt><dd>12LDK</dd></div><div><dt>想定居室数</dt><dd>12室</dd></div><div><dt>用途地域</dt><dd>無指定（都市計画区域外）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>居住中</dd></div><div class="wide"><dt>設備</dt><dd>公営水道・汚水個別浄化槽・雑排水個別浄化槽・電気・IHクッキングヒーター</dd></div><div class="wide"><dt>備考</dt><dd>西側に未登記建物あり（約57.6㎡）</dd></div></dl>
   </section>
-  <section class="block" aria-labelledby="map-n">
-    <h2 id="map-n">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-n" data-lat="34.615204" data-lng="135.956833"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
-  </section>
   <nav class="pager" aria-label="ほかの物件">
     <span></span>
     <a class="pager-next" href="#o" rel="next"><span class="pager-code">O</span>奈良市 北野山町<span aria-hidden="true">→</span></a>
@@ -568,14 +568,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   <section class="block" aria-labelledby="spec-o">
     <h2 id="spec-o">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市北野山町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄難波・奈良線 近鉄奈良駅 バス31分+邑地中村停 徒歩45分（約3,600m）</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1995年（平成7年）5月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>198.34㎡（約59.99坪）</dd></div><div><dt>延床面積</dt><dd>231.86㎡（約70.13坪）<span class="note">1階 115.93㎡ ／ 2階 115.93㎡</span></dd></div><div><dt>間取り</dt><dd>5LDK</dd></div><div><dt>想定居室数</dt><dd>5室</dd></div><div><dt>用途地域</dt><dd>指定無（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>70% ／ 400%</dd></div><div><dt>駐車場</dt><dd>なし</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>電気・公営水道・浄化槽（個別浄化槽）・給湯</dd></div><div class="wide"><dt>備考</dt><dd>市街化調整区域（宅地造成工事規制区域）のため建替え・増改築に制限の可能性あり</dd></div></dl>
-  </section>
-  <section class="block" aria-labelledby="map-o">
-    <h2 id="map-o">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-o" data-lat="34.695126" data-lng="135.974655"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#n" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">N</span>奈良市 針町</a>
@@ -600,14 +592,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-p">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市池田町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>JR桜井線 帯解駅 徒歩13分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1982年（昭和57年）1月</dd></div><div><dt>土地面積</dt><dd>719.52㎡（217.65坪）<span class="note">土地一部飛び地あり</span></dd></div><div><dt>延床面積</dt><dd>201.65㎡（61.00坪）</dd></div><div><dt>間取り</dt><dd>13DK</dd></div><div><dt>想定居室数</dt><dd>13室</dd></div><div><dt>用途地域</dt><dd>指定無（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd></dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd></dd></div><div class="wide"><dt>備考</dt><dd>建物未登記／市街化調整区域のため建替え・増改築に制限の可能性あり</dd></div></dl>
   </section>
-  <section class="block" aria-labelledby="map-p">
-    <h2 id="map-p">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-p" data-lat="34.640381" data-lng="135.819382"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
-  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#o" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">O</span>奈良市 北野山町</a>
     <a class="pager-next" href="#q" rel="next"><span class="pager-code">Q</span>奈良市 富雄泉ヶ丘<span aria-hidden="true">→</span></a>
@@ -630,14 +614,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   <section class="block" aria-labelledby="spec-q">
     <h2 id="spec-q">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市富雄泉ヶ丘</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄奈良線 富雄駅<br>奈良交通 バス7分+富雄泉ヶ丘停 徒歩1分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>2005年（平成17年）5月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>260.59㎡（78.83坪）</dd></div><div><dt>延床面積</dt><dd>135.44㎡（40.97坪）<span class="note">1階 72.00㎡ ／ 2階 63.44㎡</span></dd></div><div><dt>間取り</dt><dd>4LDK+納戸</dd></div><div><dt>想定居室数</dt><dd>4室</dd></div><div><dt>用途地域</dt><dd>第一種低層住居専用地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>50% ／ 80%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>上水道・公共下水</dd></div><div class="wide"><dt>備考</dt><dd>土地は定期借地（一般定期借地・2054年11月30日まで）。期間満了時は建物を解体して土地を返還</dd></div></dl>
-  </section>
-  <section class="block" aria-labelledby="map-q">
-    <h2 id="map-q">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-q" data-lat="34.67577" data-lng="135.736618"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#p" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">P</span>奈良市 池田町</a>
@@ -662,14 +638,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-r">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市須川町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄難波・奈良線 近鉄奈良駅 バス30分+須川停 徒歩1分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1989年（平成元年）10月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>330㎡（約99.82坪）</dd></div><div><dt>延床面積</dt><dd>131.65㎡（39.82坪）</dd></div><div><dt>間取り</dt><dd>6LDK</dd></div><div><dt>想定居室数</dt><dd>6室</dd></div><div><dt>用途地域</dt><dd>指定なし（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>70% ／ 400%</dd></div><div><dt>駐車場</dt><dd>無</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>ガス個別プロパン・水道公営水道・汚水公共下水・雑排水公共下水・トイレ2ヶ所・バルコニー（南面）</dd></div><div class="wide"><dt>備考</dt><dd>再建築不可／市街化調整区域のため建替え・増改築に制限の可能性あり／接道は公道幅員3.0m（一方のみ）</dd></div></dl>
   </section>
-  <section class="block" aria-labelledby="map-r">
-    <h2 id="map-r">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-r" data-lat="34.713257" data-lng="135.912064"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
-  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#q" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">Q</span>奈良市 富雄泉ヶ丘</a>
     <a class="pager-next" href="#s" rel="next"><span class="pager-code">S</span>奈良市 左京3丁目<span aria-hidden="true">→</span></a>
@@ -692,14 +660,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   <section class="block" aria-labelledby="spec-s">
     <h2 id="spec-s">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市左京3丁目</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄京都線 高の原駅<br>奈良交通 バス4分+左京4丁目停 徒歩4分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1996年（平成8年）4月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>211㎡（63.83坪）</dd></div><div><dt>延床面積</dt><dd>125.86㎡（38.07坪）<span class="note">1階 66.24㎡ ／ 2階 59.62㎡</span></dd></div><div><dt>間取り</dt><dd>4LDK</dd></div><div><dt>想定居室数</dt><dd>4室</dd></div><div><dt>用途地域</dt><dd>第一種低層住居専用地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>40% ／ 60%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>居住中</dd></div><div class="wide"><dt>設備</dt><dd>上水道・公共下水・電気・都市ガス</dd></div><div class="wide"><dt>備考</dt><dd>土地は定期借地（一般定期借地・2046年5月31日まで）。期間満了時は建物を解体して土地を返還</dd></div></dl>
-  </section>
-  <section class="block" aria-labelledby="map-s">
-    <h2 id="map-s">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-s" data-lat="34.715286" data-lng="135.80545"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#r" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">R</span>奈良市 須川町</a>
@@ -724,14 +684,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-t">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市都祁こぶしが丘</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄大阪線 榛原駅 バス13分+吐山停 徒歩10分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1999年（平成11年）4月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>214.45㎡（64.87坪）</dd></div><div><dt>延床面積</dt><dd>125㎡（37.81坪）</dd></div><div><dt>間取り</dt><dd>4LDK</dd></div><div><dt>想定居室数</dt><dd>4室</dd></div><div><dt>用途地域</dt><dd>指定なし（都市計画区域外）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd>有（カーポート2台可）</dd></div><div><dt>現況</dt><dd>居住中</dd></div><div class="wide"><dt>設備</dt><dd>ガス集中プロパン・水道公営水道・汚水個別浄化槽・雑排水浄化槽・トイレ2ヶ所・浴室乾燥機・バルコニー有・床暖房</dd></div></dl>
   </section>
-  <section class="block" aria-labelledby="map-t">
-    <h2 id="map-t">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-t" data-lat="34.572533" data-lng="135.968353"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
-  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#s" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">S</span>奈良市 左京3丁目</a>
     <a class="pager-next" href="#u" rel="next"><span class="pager-code">U</span>奈良市 都祁馬場町<span aria-hidden="true">→</span></a>
@@ -754,14 +706,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   <section class="block" aria-labelledby="spec-u">
     <h2 id="spec-u">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市都祁馬場町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄大阪線 榛原駅 車24分（約15km）</dd></div><div><dt>構造</dt><dd>木造スレート葺 2階建</dd></div><div><dt>築年月</dt><dd>1994年（平成6年）4月（日不詳）<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>244.07㎡（73.83坪）<span class="note">西側は私道（未舗装・幅員約3.0m）</span></dd></div><div><dt>延床面積</dt><dd>124.00㎡（37.51坪）<span class="note">1階 61.00㎡ ／ 2階 63.00㎡</span></dd></div><div><dt>間取り</dt><dd>4LDK</dd></div><div><dt>想定居室数</dt><dd>4室</dd></div><div><dt>用途地域</dt><dd>無指定（都市計画区域指定なし）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd>無し</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>ガスプロパンガス・飲用水井戸水・汚水汲み取り・雑排水汲み取り</dd></div><div class="wide"><dt>備考</dt><dd>私道のみの接道（西側・未舗装・幅員約3.0m）</dd></div></dl>
-  </section>
-  <section class="block" aria-labelledby="map-u">
-    <h2 id="map-u">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-u" data-lat="34.632126" data-lng="135.952316"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#t" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">T</span>奈良市 都祁こぶしが丘</a>
@@ -786,14 +730,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-v">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>天理市三昧田町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>JR桜井線（万葉まほろば線） 長柄駅 徒歩10分</dd></div><div><dt>構造</dt><dd>軽量鉄骨 2階建</dd></div><div><dt>築年月</dt><dd>1992年（平成4年）9月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>400.35㎡（約121.1坪）</dd></div><div><dt>延床面積</dt><dd>204.36㎡（61.82坪）<span class="note">1階 110.21㎡ ／ 2階 94.15㎡</span></dd></div><div><dt>間取り</dt><dd>6SLDK</dd></div><div><dt>想定居室数</dt><dd>6室</dd></div><div><dt>用途地域</dt><dd>無指定（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>70% ／ 400%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>公営水道・個別浄化槽・個別LP</dd></div><div class="wide"><dt>備考</dt><dd>再建築不可／市街化調整区域のため建替え・増改築に制限の可能性あり／道路斜線制限・隣地斜線制限あり</dd></div></dl>
   </section>
-  <section class="block" aria-labelledby="map-v">
-    <h2 id="map-v">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-v" data-lat="34.580929" data-lng="135.83815"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
-  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#u" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">U</span>奈良市 都祁馬場町</a>
     <a class="pager-next" href="#w" rel="next"><span class="pager-code">W</span>天理市 櫟本町<span aria-hidden="true">→</span></a>
@@ -817,14 +753,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <h2 id="spec-w">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>天理市櫟本町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>桜井線 櫟本駅 徒歩4分<br>近鉄天理線 天理駅 徒歩35分<br>桜井線 帯解駅 徒歩35分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1981年（昭和56年）12月</dd></div><div><dt>土地面積</dt><dd>115.4㎡（約34.9坪）</dd></div><div><dt>延床面積</dt><dd>129.71㎡（約39.23坪）<span class="note">1階 68.00㎡ ／ 2階 61.71㎡</span></dd></div><div><dt>間取り</dt><dd>5SLDK</dd></div><div><dt>想定居室数</dt><dd>5室</dd></div><div><dt>用途地域</dt><dd>第一種住居地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 160%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>公営水道・側溝・汚水個別浄化槽・個別PG・電気・温水洗浄便座・給湯</dd></div><div class="wide"><dt>備考</dt><dd>建物未登記のため築年月・床面積は建築計画概要書に基づく記載</dd></div></dl>
   </section>
-  <section class="block" aria-labelledby="map-w">
-    <h2 id="map-w">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-w" data-lat="34.619671" data-lng="135.827454"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
-  </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#v" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">V</span>天理市 三昧田町</a>
     <a class="pager-next" href="#x" rel="next"><span class="pager-code">X</span>天理市 柳本町<span aria-hidden="true">→</span></a>
@@ -847,14 +775,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   <section class="block" aria-labelledby="spec-x">
     <h2 id="spec-x">物件概要</h2>
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>天理市柳本町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>JR桜井線 柳本駅 徒歩10分</dd></div><div><dt>構造</dt><dd>木造瓦葺 2階建</dd></div><div><dt>築年月</dt><dd>1983年（昭和58年）<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>442.39㎡（133.82坪）</dd></div><div><dt>延床面積</dt><dd>216.33㎡（65.44坪）<span class="note">1階 125.17㎡ ／ 2階 91.16㎡</span></dd></div><div><dt>間取り</dt><dd>10DK</dd></div><div><dt>想定居室数</dt><dd>10室</dd></div><div><dt>用途地域</dt><dd>近隣商業／第一種住居地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 200%</dd></div><div><dt>駐車場</dt><dd>無し</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>電気・下水道・上水道・プロパンガス</dd></div></dl>
-  </section>
-  <section class="block" aria-labelledby="map-x">
-    <h2 id="map-x">場所</h2>
-    <div class="map-wrap">
-      <div class="map" id="map-box-x" data-lat="34.555737" data-lng="135.847702"></div>
-      <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
-    </div>
-    <p class="block-note">おおよその場所（町の中心あたり）を示しています。</p>
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#w" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">W</span>天理市 櫟本町</a>
@@ -961,8 +881,9 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
 })();
 
 (() => {
-  function initMap(box) {
-    if (box.dataset.done) return;
+  function initAreaMap() {
+    const box = document.getElementById("area-map");
+    if (!box) return;
     const wrap = box.closest(".map-wrap");
     const fallback = wrap && wrap.querySelector(".map-fallback");
     if (!window.L) {
@@ -970,22 +891,26 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
       if (fallback) fallback.hidden = false;
       return;
     }
-    box.dataset.done = "1";
-    const lat = parseFloat(box.dataset.lat), lng = parseFloat(box.dataset.lng);
-    const map = L.map(box).setView([lat, lng], 14);
+    let points = [];
+    try { points = JSON.parse(box.dataset.points); } catch (e) { points = []; }
+    if (!points.length) return;
+    const map = L.map(box);
     L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png", {
       attribution: "地図: 国土地理院", maxZoom: 18
     }).addTo(map);
-    L.circle([lat, lng], { radius: 500, color: "#1B5B86", fillColor: "#1B5B86", fillOpacity: 0.12 }).addTo(map);
+    const bounds = [];
+    points.forEach((pt) => {
+      const goTo = () => { location.hash = pt.id; };
+      L.circle([pt.lat, pt.lng], { radius: 500, color: "#1B5B86", fillColor: "#1B5B86", fillOpacity: 0.12 })
+        .addTo(map).on("click", goTo);
+      L.marker([pt.lat, pt.lng], {
+        icon: L.divIcon({ className: "area-map-label", html: pt.code, iconSize: [28, 20] })
+      }).addTo(map).on("click", goTo);
+      bounds.push([pt.lat, pt.lng]);
+    });
+    map.fitBounds(bounds, { padding: [24, 24] });
   }
-  function checkMap() {
-    const id = location.hash.slice(1);
-    if (!id) return;
-    const box = document.getElementById("map-box-" + id);
-    if (box) initMap(box);
-  }
-  window.addEventListener("hashchange", checkMap);
-  checkMap();
+  initAreaMap();
 })();
 </script>
 </body>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>奈良県物件｜グループホーム一棟借上げ物件</title>
-<meta name="description" content="奈良市・天理市11物件の概要と間取り図。グループホームとしての一棟借上げをご検討いただくためのページです。">
+<meta name="description" content="奈良市・天理市6物件の概要と間取り図。グループホームとしての一棟借上げをご検討いただくためのページです。">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +80,7 @@ p{margin:0}
 /* 物件カード */
 .cards{display:grid;gap:22px}
 .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:22px 24px 24px;display:grid;gap:20px;scroll-margin-top:16px}
-.head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px 18px}
+.head{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:8px 18px}
 .code{display:grid;place-items:center;width:50px;height:50px;border:1.5px solid var(--accent);border-radius:4px;color:var(--accent);font:700 26px/1 var(--font-display)}
 .title{display:grid;gap:2px;min-width:0}
 .kind{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:13px;color:var(--ink-2);letter-spacing:.03em}
@@ -93,6 +93,10 @@ p{margin:0}
 .rent-calc{font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
 .card-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:28px;align-items:start}
 .card-side{display:grid;gap:12px}
+.fav-toggle{all:unset;cursor:pointer;font-size:26px;line-height:1;color:var(--accent);padding:4px}
+.fav-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.fav-filter-row{margin:0 0 14px;font-size:14px}
+.fav-filter-row label{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
 
 /* 概要の表 */
 .spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;margin:0}
@@ -216,23 +220,24 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
 <main class="wrap">
   <section id="list">
     <header class="masthead">
-      <nav class="area-tabs" aria-label="地域"><a class="area-tab" href="../">大阪府物件<span class="tab-count">7件を見る<span aria-hidden="true"> →</span></span></a><a class="area-tab" href="./" aria-current="page">奈良県物件<span class="tab-count">11件</span></a></nav>
+      <nav class="area-tabs" aria-label="地域"><a class="area-tab" href="../">大阪府物件<span class="tab-count">7件を見る<span aria-hidden="true"> →</span></span></a><a class="area-tab" href="./" aria-current="page">奈良県物件<span class="tab-count">6件</span></a></nav>
       <ul class="facts">
-        <li>奈良市・天理市 11物件</li>
+        <li>奈良市・天理市 6物件</li>
         <li>賃料の目安 1室 月4万円</li>
         <li>2026年9月時点の販売資料より</li>
       </ul>
     </header>
     
     <div class="map-wrap">
-      <div class="map area-map" id="area-map" data-points='[{&quot;id&quot;: &quot;n&quot;, &quot;code&quot;: &quot;N&quot;, &quot;lat&quot;: 34.615204, &quot;lng&quot;: 135.956833}, {&quot;id&quot;: &quot;o&quot;, &quot;code&quot;: &quot;O&quot;, &quot;lat&quot;: 34.695126, &quot;lng&quot;: 135.974655}, {&quot;id&quot;: &quot;p&quot;, &quot;code&quot;: &quot;P&quot;, &quot;lat&quot;: 34.640381, &quot;lng&quot;: 135.819382}, {&quot;id&quot;: &quot;q&quot;, &quot;code&quot;: &quot;Q&quot;, &quot;lat&quot;: 34.67577, &quot;lng&quot;: 135.736618}, {&quot;id&quot;: &quot;r&quot;, &quot;code&quot;: &quot;R&quot;, &quot;lat&quot;: 34.713257, &quot;lng&quot;: 135.912064}, {&quot;id&quot;: &quot;s&quot;, &quot;code&quot;: &quot;S&quot;, &quot;lat&quot;: 34.715286, &quot;lng&quot;: 135.80545}, {&quot;id&quot;: &quot;t&quot;, &quot;code&quot;: &quot;T&quot;, &quot;lat&quot;: 34.572533, &quot;lng&quot;: 135.968353}, {&quot;id&quot;: &quot;u&quot;, &quot;code&quot;: &quot;U&quot;, &quot;lat&quot;: 34.632126, &quot;lng&quot;: 135.952316}, {&quot;id&quot;: &quot;v&quot;, &quot;code&quot;: &quot;V&quot;, &quot;lat&quot;: 34.580929, &quot;lng&quot;: 135.83815}, {&quot;id&quot;: &quot;w&quot;, &quot;code&quot;: &quot;W&quot;, &quot;lat&quot;: 34.619671, &quot;lng&quot;: 135.827454}, {&quot;id&quot;: &quot;x&quot;, &quot;code&quot;: &quot;X&quot;, &quot;lat&quot;: 34.555737, &quot;lng&quot;: 135.847702}]'></div>
+      <div class="map area-map" id="area-map" data-points='[{&quot;id&quot;: &quot;n&quot;, &quot;code&quot;: &quot;N&quot;, &quot;lat&quot;: 34.615204, &quot;lng&quot;: 135.956833}, {&quot;id&quot;: &quot;o&quot;, &quot;code&quot;: &quot;O&quot;, &quot;lat&quot;: 34.695126, &quot;lng&quot;: 135.974655}, {&quot;id&quot;: &quot;p&quot;, &quot;code&quot;: &quot;P&quot;, &quot;lat&quot;: 34.640381, &quot;lng&quot;: 135.819382}, {&quot;id&quot;: &quot;r&quot;, &quot;code&quot;: &quot;R&quot;, &quot;lat&quot;: 34.713257, &quot;lng&quot;: 135.912064}, {&quot;id&quot;: &quot;v&quot;, &quot;code&quot;: &quot;V&quot;, &quot;lat&quot;: 34.580929, &quot;lng&quot;: 135.83815}, {&quot;id&quot;: &quot;x&quot;, &quot;code&quot;: &quot;X&quot;, &quot;lat&quot;: 34.555737, &quot;lng&quot;: 135.847702}]'></div>
       <p class="map-fallback" hidden>地図を読み込めませんでした。</p>
     </div>
     <p class="block-note">おおよその場所（町の中心あたり）を示しています。押すとその物件の詳細に移動します。</p>
+    <p class="fav-filter-row"><label><input type="checkbox" data-fav-filter> 星を付けたものだけ表示</label></p>
     <p class="list-note">書いたコメントは、このページを見る方すべてに表示されます。</p>
     <div class="cards">
-<article class="card" id="card-n" aria-labelledby="h-n-2">
-  <div class="head"><span class="code" aria-label="物件記号 N">N</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-n-2">奈良市 針町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">48<small>万円</small></span><span class="rent-calc">1室4万円 × 想定12室</span></div></div>
+<article class="card" id="card-n" data-fav-card="n" aria-labelledby="h-n-2">
+  <div class="head"><span class="code" aria-label="物件記号 N">N</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-n-2">奈良市 針町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">48<small>万円</small></span><span class="rent-calc">1室4万円 × 想定12室</span></div><button type="button" class="fav-toggle" data-fav="n" aria-pressed="false" aria-label="物件Nをお気に入りに追加">☆</button></div>
   <div class="card-body">
     <dl class="spec"><div><dt>最寄駅</dt><dd>榛原駅 バス33分+徒歩4分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1992年（平成4年）2月</dd></div><div><dt>間取り</dt><dd>12LDK</dd></div><div><dt>土地面積</dt><dd>409.91㎡（約123.99坪）</dd></div><div><dt>延床面積</dt><dd>297.76㎡（約90.07坪）</dd></div><div><dt>用途地域</dt><dd>無指定（都市計画区域外）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>居住中</dd></div></dl>
     <div class="card-side">
@@ -257,8 +262,8 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     </form>
   </section>
 </article>
-<article class="card" id="card-o" aria-labelledby="h-o-2">
-  <div class="head"><span class="code" aria-label="物件記号 O">O</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-o-2">奈良市 北野山町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">40<small>万円</small></span><span class="rent-calc">1室4万円 × 想定10室</span></div></div>
+<article class="card" id="card-o" data-fav-card="o" aria-labelledby="h-o-2">
+  <div class="head"><span class="code" aria-label="物件記号 O">O</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-o-2">奈良市 北野山町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">40<small>万円</small></span><span class="rent-calc">1室4万円 × 想定10室</span></div><button type="button" class="fav-toggle" data-fav="o" aria-pressed="false" aria-label="物件Oをお気に入りに追加">☆</button></div>
   <div class="card-body">
     <dl class="spec"><div><dt>最寄駅</dt><dd>近鉄奈良駅 バス31分+徒歩45分（約3,600m）</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1995年（平成7年）5月</dd></div><div><dt>間取り</dt><dd>5LDK</dd></div><div><dt>土地面積</dt><dd>198.34㎡（約59.99坪）</dd></div><div><dt>延床面積</dt><dd>231.86㎡（約70.13坪）</dd></div><div><dt>用途地域</dt><dd>指定無（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>70% ／ 400%</dd></div><div><dt>駐車場</dt><dd>なし</dd></div><div><dt>現況</dt><dd>空家</dd></div></dl>
     <div class="card-side">
@@ -283,8 +288,8 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     </form>
   </section>
 </article>
-<article class="card" id="card-p" aria-labelledby="h-p-2">
-  <div class="head"><span class="code" aria-label="物件記号 P">P</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">耐震 要確認</span></p><h2 id="h-p-2">奈良市 池田町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">56<small>万円</small></span><span class="rent-calc">1室4万円 × 想定14室</span></div></div>
+<article class="card" id="card-p" data-fav-card="p" aria-labelledby="h-p-2">
+  <div class="head"><span class="code" aria-label="物件記号 P">P</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">耐震 要確認</span></p><h2 id="h-p-2">奈良市 池田町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">56<small>万円</small></span><span class="rent-calc">1室4万円 × 想定14室</span></div><button type="button" class="fav-toggle" data-fav="p" aria-pressed="false" aria-label="物件Pをお気に入りに追加">☆</button></div>
   <div class="card-body">
     <dl class="spec"><div><dt>最寄駅</dt><dd>帯解駅 徒歩13分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1982年（昭和57年）1月</dd></div><div><dt>間取り</dt><dd>13DK</dd></div><div><dt>土地面積</dt><dd>719.52㎡（217.65坪）</dd></div><div><dt>延床面積</dt><dd>201.65㎡（61.00坪）</dd></div><div><dt>用途地域</dt><dd>指定無（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd></dd></div><div><dt>現況</dt><dd>空家</dd></div></dl>
     <div class="card-side">
@@ -309,34 +314,8 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     </form>
   </section>
 </article>
-<article class="card" id="card-q" aria-labelledby="h-q-2">
-  <div class="head"><span class="code" aria-label="物件記号 Q">Q</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-q-2">奈良市 富雄泉ヶ丘</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">20<small>万円</small></span><span class="rent-calc">1室4万円 × 想定5室</span></div></div>
-  <div class="card-body">
-    <dl class="spec"><div><dt>最寄駅</dt><dd>富雄泉ヶ丘停 バス7分+徒歩1分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>2005年（平成17年）5月</dd></div><div><dt>間取り</dt><dd>4LDK+納戸</dd></div><div><dt>土地面積</dt><dd>260.59㎡（78.83坪）</dd></div><div><dt>延床面積</dt><dd>135.44㎡（40.97坪）</dd></div><div><dt>用途地域</dt><dd>第一種低層住居専用地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>50% ／ 80%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>空家</dd></div></dl>
-    <div class="card-side">
-      <a class="sheet sheet-thumb" href="#q" aria-label="物件Qの間取り図を大きく見る"><img src="../img/plan17.webp" width="1000" height="1090" alt="物件Q（奈良市 富雄泉ヶ丘）の間取り図（縮小）" loading="lazy" decoding="async"></a>
-      <a class="btn" href="#q">間取り図・写真を見る<span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-  <section class="card-comments" aria-labelledby="comments-q">
-    <h3 id="comments-q">コメント</h3>
-    <ol class="comment-list" id="comment-list-q" data-property="q">
-      <li class="comment-empty">コメントを読み込んでいます…</li>
-    </ol>
-    <form class="comment-form" data-property="q">
-      <div class="field">
-        <label for="body-q">コメントを書く<span class="field-hint">（お名前も本文に書いてください）</span></label>
-        <textarea id="body-q" name="body" rows="3" required></textarea>
-      </div>
-      <div class="comment-actions">
-        <button class="btn" type="submit">コメントを保存</button>
-        <p class="comment-status" role="status"></p>
-      </div>
-    </form>
-  </section>
-</article>
-<article class="card" id="card-r" aria-labelledby="h-r-2">
-  <div class="head"><span class="code" aria-label="物件記号 R">R</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-r-2">奈良市 須川町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">36<small>万円</small></span><span class="rent-calc">1室4万円 × 想定9室</span></div></div>
+<article class="card" id="card-r" data-fav-card="r" aria-labelledby="h-r-2">
+  <div class="head"><span class="code" aria-label="物件記号 R">R</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-r-2">奈良市 須川町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">36<small>万円</small></span><span class="rent-calc">1室4万円 × 想定9室</span></div><button type="button" class="fav-toggle" data-fav="r" aria-pressed="false" aria-label="物件Rをお気に入りに追加">☆</button></div>
   <div class="card-body">
     <dl class="spec"><div><dt>最寄駅</dt><dd>近鉄奈良駅 バス30分+須川停 徒歩1分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1989年（平成元年）10月</dd></div><div><dt>間取り</dt><dd>6LDK</dd></div><div><dt>土地面積</dt><dd>330㎡（約99.82坪）</dd></div><div><dt>延床面積</dt><dd>131.65㎡（39.82坪）</dd></div><div><dt>用途地域</dt><dd>指定なし（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>70% ／ 400%</dd></div><div><dt>駐車場</dt><dd>無</dd></div><div><dt>現況</dt><dd>空家</dd></div></dl>
     <div class="card-side">
@@ -361,86 +340,8 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     </form>
   </section>
 </article>
-<article class="card" id="card-s" aria-labelledby="h-s-2">
-  <div class="head"><span class="code" aria-label="物件記号 S">S</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-s-2">奈良市 左京3丁目</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">16<small>万円</small></span><span class="rent-calc">1室4万円 × 想定4室</span></div></div>
-  <div class="card-body">
-    <dl class="spec"><div><dt>最寄駅</dt><dd>高の原駅 バス4分+徒歩4分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1996年（平成8年）4月</dd></div><div><dt>間取り</dt><dd>4LDK</dd></div><div><dt>土地面積</dt><dd>211㎡（63.83坪）</dd></div><div><dt>延床面積</dt><dd>125.86㎡（38.07坪）</dd></div><div><dt>用途地域</dt><dd>第一種低層住居専用地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>40% ／ 60%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>居住中</dd></div></dl>
-    <div class="card-side">
-      <a class="sheet sheet-thumb" href="#s" aria-label="物件Sの間取り図を大きく見る"><img src="../img/plan19.webp" width="1280" height="1010" alt="物件S（奈良市 左京3丁目）の間取り図（縮小）" loading="lazy" decoding="async"></a>
-      <a class="btn" href="#s">間取り図・写真を見る<span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-  <section class="card-comments" aria-labelledby="comments-s">
-    <h3 id="comments-s">コメント</h3>
-    <ol class="comment-list" id="comment-list-s" data-property="s">
-      <li class="comment-empty">コメントを読み込んでいます…</li>
-    </ol>
-    <form class="comment-form" data-property="s">
-      <div class="field">
-        <label for="body-s">コメントを書く<span class="field-hint">（お名前も本文に書いてください）</span></label>
-        <textarea id="body-s" name="body" rows="3" required></textarea>
-      </div>
-      <div class="comment-actions">
-        <button class="btn" type="submit">コメントを保存</button>
-        <p class="comment-status" role="status"></p>
-      </div>
-    </form>
-  </section>
-</article>
-<article class="card" id="card-t" aria-labelledby="h-t-2">
-  <div class="head"><span class="code" aria-label="物件記号 T">T</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-t-2">奈良市 都祁こぶしが丘</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">20<small>万円</small></span><span class="rent-calc">1室4万円 × 想定5室</span></div></div>
-  <div class="card-body">
-    <dl class="spec"><div><dt>最寄駅</dt><dd>榛原駅 バス13分+吐山停 徒歩10分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1999年（平成11年）4月</dd></div><div><dt>間取り</dt><dd>4LDK</dd></div><div><dt>土地面積</dt><dd>214.45㎡（64.87坪）</dd></div><div><dt>延床面積</dt><dd>125㎡（37.81坪）</dd></div><div><dt>用途地域</dt><dd>指定なし（都市計画区域外）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd>有（カーポート2台可）</dd></div><div><dt>現況</dt><dd>居住中</dd></div></dl>
-    <div class="card-side">
-      <a class="sheet sheet-thumb" href="#t" aria-label="物件Tの間取り図を大きく見る"><img src="../img/plan20.webp" width="1020" height="1280" alt="物件T（奈良市 都祁こぶしが丘）の間取り図（縮小）" loading="lazy" decoding="async"></a>
-      <a class="btn" href="#t">間取り図・写真を見る<span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-  <section class="card-comments" aria-labelledby="comments-t">
-    <h3 id="comments-t">コメント</h3>
-    <ol class="comment-list" id="comment-list-t" data-property="t">
-      <li class="comment-empty">コメントを読み込んでいます…</li>
-    </ol>
-    <form class="comment-form" data-property="t">
-      <div class="field">
-        <label for="body-t">コメントを書く<span class="field-hint">（お名前も本文に書いてください）</span></label>
-        <textarea id="body-t" name="body" rows="3" required></textarea>
-      </div>
-      <div class="comment-actions">
-        <button class="btn" type="submit">コメントを保存</button>
-        <p class="comment-status" role="status"></p>
-      </div>
-    </form>
-  </section>
-</article>
-<article class="card" id="card-u" aria-labelledby="h-u-2">
-  <div class="head"><span class="code" aria-label="物件記号 U">U</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-u-2">奈良市 都祁馬場町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">16<small>万円</small></span><span class="rent-calc">1室4万円 × 想定4室</span></div></div>
-  <div class="card-body">
-    <dl class="spec"><div><dt>最寄駅</dt><dd>榛原駅 車24分（約15km）</dd></div><div><dt>構造</dt><dd>木造スレート葺 2階建</dd></div><div><dt>築年月</dt><dd>1994年（平成6年）4月（日不詳）</dd></div><div><dt>間取り</dt><dd>4LDK</dd></div><div><dt>土地面積</dt><dd>244.07㎡（73.83坪）</dd></div><div><dt>延床面積</dt><dd>124.00㎡（37.51坪）</dd></div><div><dt>用途地域</dt><dd>無指定（都市計画区域指定なし）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd>無し</dd></div><div><dt>現況</dt><dd>空家</dd></div></dl>
-    <div class="card-side">
-      <a class="sheet sheet-thumb" href="#u" aria-label="物件Uの間取り図を大きく見る"><img src="../img/plan21.webp" width="840" height="1570" alt="物件U（奈良市 都祁馬場町）の間取り図（縮小）" loading="lazy" decoding="async"></a>
-      <a class="btn" href="#u">間取り図・写真を見る<span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-  <section class="card-comments" aria-labelledby="comments-u">
-    <h3 id="comments-u">コメント</h3>
-    <ol class="comment-list" id="comment-list-u" data-property="u">
-      <li class="comment-empty">コメントを読み込んでいます…</li>
-    </ol>
-    <form class="comment-form" data-property="u">
-      <div class="field">
-        <label for="body-u">コメントを書く<span class="field-hint">（お名前も本文に書いてください）</span></label>
-        <textarea id="body-u" name="body" rows="3" required></textarea>
-      </div>
-      <div class="comment-actions">
-        <button class="btn" type="submit">コメントを保存</button>
-        <p class="comment-status" role="status"></p>
-      </div>
-    </form>
-  </section>
-</article>
-<article class="card" id="card-v" aria-labelledby="h-v-2">
-  <div class="head"><span class="code" aria-label="物件記号 V">V</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-v-2">天理市 三昧田町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">32<small>万円</small></span><span class="rent-calc">1室4万円 × 想定8室</span></div></div>
+<article class="card" id="card-v" data-fav-card="v" aria-labelledby="h-v-2">
+  <div class="head"><span class="code" aria-label="物件記号 V">V</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-v-2">天理市 三昧田町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">32<small>万円</small></span><span class="rent-calc">1室4万円 × 想定8室</span></div><button type="button" class="fav-toggle" data-fav="v" aria-pressed="false" aria-label="物件Vをお気に入りに追加">☆</button></div>
   <div class="card-body">
     <dl class="spec"><div><dt>最寄駅</dt><dd>長柄駅 徒歩10分</dd></div><div><dt>構造</dt><dd>軽量鉄骨 2階建</dd></div><div><dt>築年月</dt><dd>1992年（平成4年）9月</dd></div><div><dt>間取り</dt><dd>6SLDK</dd></div><div><dt>土地面積</dt><dd>400.35㎡（約121.1坪）</dd></div><div><dt>延床面積</dt><dd>204.36㎡（61.82坪）</dd></div><div><dt>用途地域</dt><dd>無指定（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>70% ／ 400%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>空家</dd></div></dl>
     <div class="card-side">
@@ -465,34 +366,8 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     </form>
   </section>
 </article>
-<article class="card" id="card-w" aria-labelledby="h-w-2">
-  <div class="head"><span class="code" aria-label="物件記号 W">W</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">耐震 要確認</span></p><h2 id="h-w-2">天理市 櫟本町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">20<small>万円</small></span><span class="rent-calc">1室4万円 × 想定5室</span></div></div>
-  <div class="card-body">
-    <dl class="spec"><div><dt>最寄駅</dt><dd>櫟本駅 徒歩4分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1981年（昭和56年）12月</dd></div><div><dt>間取り</dt><dd>5SLDK</dd></div><div><dt>土地面積</dt><dd>115.4㎡（約34.9坪）</dd></div><div><dt>延床面積</dt><dd>129.71㎡（約39.23坪）</dd></div><div><dt>用途地域</dt><dd>第一種住居地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 160%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>空家</dd></div></dl>
-    <div class="card-side">
-      <a class="sheet sheet-thumb" href="#w" aria-label="物件Wの間取り図を大きく見る"><img src="../img/plan23.webp" width="1800" height="1530" alt="物件W（天理市 櫟本町）の間取り図（縮小）" loading="lazy" decoding="async"></a>
-      <a class="btn" href="#w">間取り図・写真を見る<span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-  <section class="card-comments" aria-labelledby="comments-w">
-    <h3 id="comments-w">コメント</h3>
-    <ol class="comment-list" id="comment-list-w" data-property="w">
-      <li class="comment-empty">コメントを読み込んでいます…</li>
-    </ol>
-    <form class="comment-form" data-property="w">
-      <div class="field">
-        <label for="body-w">コメントを書く<span class="field-hint">（お名前も本文に書いてください）</span></label>
-        <textarea id="body-w" name="body" rows="3" required></textarea>
-      </div>
-      <div class="comment-actions">
-        <button class="btn" type="submit">コメントを保存</button>
-        <p class="comment-status" role="status"></p>
-      </div>
-    </form>
-  </section>
-</article>
-<article class="card" id="card-x" aria-labelledby="h-x-2">
-  <div class="head"><span class="code" aria-label="物件記号 X">X</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-x-2">天理市 柳本町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">40<small>万円</small></span><span class="rent-calc">1室4万円 × 想定10室</span></div></div>
+<article class="card" id="card-x" data-fav-card="x" aria-labelledby="h-x-2">
+  <div class="head"><span class="code" aria-label="物件記号 X">X</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h2 id="h-x-2">天理市 柳本町</h2></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">40<small>万円</small></span><span class="rent-calc">1室4万円 × 想定10室</span></div><button type="button" class="fav-toggle" data-fav="x" aria-pressed="false" aria-label="物件Xをお気に入りに追加">☆</button></div>
   <div class="card-body">
     <dl class="spec"><div><dt>最寄駅</dt><dd>柳本駅 徒歩10分</dd></div><div><dt>構造</dt><dd>木造瓦葺 2階建</dd></div><div><dt>築年月</dt><dd>1983年（昭和58年）</dd></div><div><dt>間取り</dt><dd>10DK</dd></div><div><dt>土地面積</dt><dd>442.39㎡（133.82坪）</dd></div><div><dt>延床面積</dt><dd>216.33㎡（65.44坪）</dd></div><div><dt>用途地域</dt><dd>近隣商業／第一種住居地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 200%</dd></div><div><dt>駐車場</dt><dd>無し</dd></div><div><dt>現況</dt><dd>空家</dd></div></dl>
     <div class="card-side">
@@ -594,29 +469,6 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
   </section>
   <nav class="pager" aria-label="ほかの物件">
     <a class="pager-prev" href="#o" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">O</span>奈良市 北野山町</a>
-    <a class="pager-next" href="#q" rel="next"><span class="pager-code">Q</span>奈良市 富雄泉ヶ丘<span aria-hidden="true">→</span></a>
-  </nav>
-</section>
-<section class="detail" id="q" aria-labelledby="h-q-1">
-  <p class="crumb"><a href="#card-q"><span aria-hidden="true">←</span>物件一覧へ戻る</a></p>
-  <div class="head"><span class="code" aria-label="物件記号 Q">Q</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h1 id="h-q-1">奈良市 富雄泉ヶ丘</h1></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">20<small>万円</small></span><span class="rent-calc">1室4万円 × 想定5室</span></div></div>
-  <section class="block" aria-labelledby="plan-q">
-    <h2 id="plan-q">間取り図</h2>
-    <figure class="plan-figure">
-      <div class="sheet sheet-lg"><img src="../img/plan17.webp" width="1000" height="1090" alt="物件Q（奈良市 富雄泉ヶ丘）の間取り図" loading="lazy" decoding="async"></div>
-      <figcaption>販売図面から間取りの部分だけを転載しています。現況と異なる場合は現況が優先です。</figcaption>
-    </figure>
-  </section>
-  <section class="block" aria-labelledby="photo-q">
-    <h2 id="photo-q">写真</h2>
-    <p class="pending">写真は準備でき次第、ここに掲載します。</p>
-  </section>
-  <section class="block" aria-labelledby="spec-q">
-    <h2 id="spec-q">物件概要</h2>
-    <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市富雄泉ヶ丘</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄奈良線 富雄駅<br>奈良交通 バス7分+富雄泉ヶ丘停 徒歩1分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>2005年（平成17年）5月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>260.59㎡（78.83坪）</dd></div><div><dt>延床面積</dt><dd>135.44㎡（40.97坪）<span class="note">1階 72.00㎡ ／ 2階 63.44㎡</span></dd></div><div><dt>間取り</dt><dd>4LDK+納戸</dd></div><div><dt>想定居室数</dt><dd>5室</dd></div><div><dt>用途地域</dt><dd>第一種低層住居専用地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>50% ／ 80%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>上水道・公共下水</dd></div><div class="wide"><dt>備考</dt><dd>土地は定期借地（一般定期借地・2054年11月30日まで）。期間満了時は建物を解体して土地を返還</dd></div></dl>
-  </section>
-  <nav class="pager" aria-label="ほかの物件">
-    <a class="pager-prev" href="#p" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">P</span>奈良市 池田町</a>
     <a class="pager-next" href="#r" rel="next"><span class="pager-code">R</span>奈良市 須川町<span aria-hidden="true">→</span></a>
   </nav>
 </section>
@@ -639,76 +491,7 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市須川町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄難波・奈良線 近鉄奈良駅 バス30分+須川停 徒歩1分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1989年（平成元年）10月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>330㎡（約99.82坪）</dd></div><div><dt>延床面積</dt><dd>131.65㎡（39.82坪）</dd></div><div><dt>間取り</dt><dd>6LDK</dd></div><div><dt>想定居室数</dt><dd>9室</dd></div><div><dt>用途地域</dt><dd>指定なし（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>70% ／ 400%</dd></div><div><dt>駐車場</dt><dd>無</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>ガス個別プロパン・水道公営水道・汚水公共下水・雑排水公共下水・トイレ2ヶ所・バルコニー（南面）</dd></div><div class="wide"><dt>備考</dt><dd>再建築不可／市街化調整区域のため建替え・増改築に制限の可能性あり／接道は公道幅員3.0m（一方のみ）</dd></div></dl>
   </section>
   <nav class="pager" aria-label="ほかの物件">
-    <a class="pager-prev" href="#q" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">Q</span>奈良市 富雄泉ヶ丘</a>
-    <a class="pager-next" href="#s" rel="next"><span class="pager-code">S</span>奈良市 左京3丁目<span aria-hidden="true">→</span></a>
-  </nav>
-</section>
-<section class="detail" id="s" aria-labelledby="h-s-1">
-  <p class="crumb"><a href="#card-s"><span aria-hidden="true">←</span>物件一覧へ戻る</a></p>
-  <div class="head"><span class="code" aria-label="物件記号 S">S</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h1 id="h-s-1">奈良市 左京3丁目</h1></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">16<small>万円</small></span><span class="rent-calc">1室4万円 × 想定4室</span></div></div>
-  <section class="block" aria-labelledby="plan-s">
-    <h2 id="plan-s">間取り図</h2>
-    <figure class="plan-figure">
-      <div class="sheet sheet-lg"><img src="../img/plan19.webp" width="1280" height="1010" alt="物件S（奈良市 左京3丁目）の間取り図" loading="lazy" decoding="async"></div>
-      <figcaption>販売図面から間取りの部分だけを転載しています。現況と異なる場合は現況が優先です。</figcaption>
-    </figure>
-  </section>
-  <section class="block" aria-labelledby="photo-s">
-    <h2 id="photo-s">写真</h2>
-    <p class="pending">写真は準備でき次第、ここに掲載します。</p>
-  </section>
-  <section class="block" aria-labelledby="spec-s">
-    <h2 id="spec-s">物件概要</h2>
-    <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市左京3丁目</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄京都線 高の原駅<br>奈良交通 バス4分+左京4丁目停 徒歩4分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1996年（平成8年）4月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>211㎡（63.83坪）</dd></div><div><dt>延床面積</dt><dd>125.86㎡（38.07坪）<span class="note">1階 66.24㎡ ／ 2階 59.62㎡</span></dd></div><div><dt>間取り</dt><dd>4LDK</dd></div><div><dt>想定居室数</dt><dd>4室</dd></div><div><dt>用途地域</dt><dd>第一種低層住居専用地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>40% ／ 60%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>居住中</dd></div><div class="wide"><dt>設備</dt><dd>上水道・公共下水・電気・都市ガス</dd></div><div class="wide"><dt>備考</dt><dd>土地は定期借地（一般定期借地・2046年5月31日まで）。期間満了時は建物を解体して土地を返還</dd></div></dl>
-  </section>
-  <nav class="pager" aria-label="ほかの物件">
-    <a class="pager-prev" href="#r" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">R</span>奈良市 須川町</a>
-    <a class="pager-next" href="#t" rel="next"><span class="pager-code">T</span>奈良市 都祁こぶしが丘<span aria-hidden="true">→</span></a>
-  </nav>
-</section>
-<section class="detail" id="t" aria-labelledby="h-t-1">
-  <p class="crumb"><a href="#card-t"><span aria-hidden="true">←</span>物件一覧へ戻る</a></p>
-  <div class="head"><span class="code" aria-label="物件記号 T">T</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h1 id="h-t-1">奈良市 都祁こぶしが丘</h1></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">20<small>万円</small></span><span class="rent-calc">1室4万円 × 想定5室</span></div></div>
-  <section class="block" aria-labelledby="plan-t">
-    <h2 id="plan-t">間取り図</h2>
-    <figure class="plan-figure">
-      <div class="sheet sheet-lg"><img src="../img/plan20.webp" width="1020" height="1280" alt="物件T（奈良市 都祁こぶしが丘）の間取り図" loading="lazy" decoding="async"></div>
-      <figcaption>販売図面から間取りの部分だけを転載しています。現況と異なる場合は現況が優先です。</figcaption>
-    </figure>
-  </section>
-  <section class="block" aria-labelledby="photo-t">
-    <h2 id="photo-t">写真</h2>
-    <p class="pending">写真は準備でき次第、ここに掲載します。</p>
-  </section>
-  <section class="block" aria-labelledby="spec-t">
-    <h2 id="spec-t">物件概要</h2>
-    <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市都祁こぶしが丘</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄大阪線 榛原駅 バス13分+吐山停 徒歩10分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1999年（平成11年）4月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>214.45㎡（64.87坪）</dd></div><div><dt>延床面積</dt><dd>125㎡（37.81坪）</dd></div><div><dt>間取り</dt><dd>4LDK</dd></div><div><dt>想定居室数</dt><dd>5室</dd></div><div><dt>用途地域</dt><dd>指定なし（都市計画区域外）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd>有（カーポート2台可）</dd></div><div><dt>現況</dt><dd>居住中</dd></div><div class="wide"><dt>設備</dt><dd>ガス集中プロパン・水道公営水道・汚水個別浄化槽・雑排水浄化槽・トイレ2ヶ所・浴室乾燥機・バルコニー有・床暖房</dd></div></dl>
-  </section>
-  <nav class="pager" aria-label="ほかの物件">
-    <a class="pager-prev" href="#s" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">S</span>奈良市 左京3丁目</a>
-    <a class="pager-next" href="#u" rel="next"><span class="pager-code">U</span>奈良市 都祁馬場町<span aria-hidden="true">→</span></a>
-  </nav>
-</section>
-<section class="detail" id="u" aria-labelledby="h-u-1">
-  <p class="crumb"><a href="#card-u"><span aria-hidden="true">←</span>物件一覧へ戻る</a></p>
-  <div class="head"><span class="code" aria-label="物件記号 U">U</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">新耐震</span></p><h1 id="h-u-1">奈良市 都祁馬場町</h1></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">16<small>万円</small></span><span class="rent-calc">1室4万円 × 想定4室</span></div></div>
-  <section class="block" aria-labelledby="plan-u">
-    <h2 id="plan-u">間取り図</h2>
-    <figure class="plan-figure">
-      <div class="sheet sheet-lg"><img src="../img/plan21.webp" width="840" height="1570" alt="物件U（奈良市 都祁馬場町）の間取り図" loading="lazy" decoding="async"></div>
-      <figcaption>販売図面から間取りの部分だけを転載しています。現況と異なる場合は現況が優先です。</figcaption>
-    </figure>
-  </section>
-  <section class="block" aria-labelledby="photo-u">
-    <h2 id="photo-u">写真</h2>
-    <p class="pending">写真は準備でき次第、ここに掲載します。</p>
-  </section>
-  <section class="block" aria-labelledby="spec-u">
-    <h2 id="spec-u">物件概要</h2>
-    <dl class="spec spec-full"><div><dt>所在地</dt><dd>奈良市都祁馬場町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>近鉄大阪線 榛原駅 車24分（約15km）</dd></div><div><dt>構造</dt><dd>木造スレート葺 2階建</dd></div><div><dt>築年月</dt><dd>1994年（平成6年）4月（日不詳）<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>244.07㎡（73.83坪）<span class="note">西側は私道（未舗装・幅員約3.0m）</span></dd></div><div><dt>延床面積</dt><dd>124.00㎡（37.51坪）<span class="note">1階 61.00㎡ ／ 2階 63.00㎡</span></dd></div><div><dt>間取り</dt><dd>4LDK</dd></div><div><dt>想定居室数</dt><dd>4室</dd></div><div><dt>用途地域</dt><dd>無指定（都市計画区域指定なし）</dd></div><div><dt>建ぺい率／容積率</dt><dd></dd></div><div><dt>駐車場</dt><dd>無し</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>ガスプロパンガス・飲用水井戸水・汚水汲み取り・雑排水汲み取り</dd></div><div class="wide"><dt>備考</dt><dd>私道のみの接道（西側・未舗装・幅員約3.0m）</dd></div></dl>
-  </section>
-  <nav class="pager" aria-label="ほかの物件">
-    <a class="pager-prev" href="#t" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">T</span>奈良市 都祁こぶしが丘</a>
+    <a class="pager-prev" href="#p" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">P</span>奈良市 池田町</a>
     <a class="pager-next" href="#v" rel="next"><span class="pager-code">V</span>天理市 三昧田町<span aria-hidden="true">→</span></a>
   </nav>
 </section>
@@ -731,30 +514,7 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>天理市三昧田町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>JR桜井線（万葉まほろば線） 長柄駅 徒歩10分</dd></div><div><dt>構造</dt><dd>軽量鉄骨 2階建</dd></div><div><dt>築年月</dt><dd>1992年（平成4年）9月<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>400.35㎡（約121.1坪）</dd></div><div><dt>延床面積</dt><dd>204.36㎡（61.82坪）<span class="note">1階 110.21㎡ ／ 2階 94.15㎡</span></dd></div><div><dt>間取り</dt><dd>6SLDK</dd></div><div><dt>想定居室数</dt><dd>8室</dd></div><div><dt>用途地域</dt><dd>無指定（市街化調整区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>70% ／ 400%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>公営水道・個別浄化槽・個別LP</dd></div><div class="wide"><dt>備考</dt><dd>再建築不可／市街化調整区域のため建替え・増改築に制限の可能性あり／道路斜線制限・隣地斜線制限あり</dd></div></dl>
   </section>
   <nav class="pager" aria-label="ほかの物件">
-    <a class="pager-prev" href="#u" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">U</span>奈良市 都祁馬場町</a>
-    <a class="pager-next" href="#w" rel="next"><span class="pager-code">W</span>天理市 櫟本町<span aria-hidden="true">→</span></a>
-  </nav>
-</section>
-<section class="detail" id="w" aria-labelledby="h-w-1">
-  <p class="crumb"><a href="#card-w"><span aria-hidden="true">←</span>物件一覧へ戻る</a></p>
-  <div class="head"><span class="code" aria-label="物件記号 W">W</span><div class="title"><p class="kind"><span>戸建</span><span class="tag">耐震 要確認</span></p><h1 id="h-w-1">天理市 櫟本町</h1></div><div class="rent"><span class="rent-label">賃料の目安（月額）</span><span class="rent-value">20<small>万円</small></span><span class="rent-calc">1室4万円 × 想定5室</span></div></div>
-  <section class="block" aria-labelledby="plan-w">
-    <h2 id="plan-w">間取り図</h2>
-    <figure class="plan-figure">
-      <div class="sheet sheet-lg"><img src="../img/plan23.webp" width="1800" height="1530" alt="物件W（天理市 櫟本町）の間取り図" loading="lazy" decoding="async"></div>
-      <figcaption>販売図面から間取りの部分だけを転載しています。現況と異なる場合は現況が優先です。</figcaption>
-    </figure>
-  </section>
-  <section class="block" aria-labelledby="photo-w">
-    <h2 id="photo-w">写真</h2>
-    <p class="pending">写真は準備でき次第、ここに掲載します。</p>
-  </section>
-  <section class="block" aria-labelledby="spec-w">
-    <h2 id="spec-w">物件概要</h2>
-    <dl class="spec spec-full"><div><dt>所在地</dt><dd>天理市櫟本町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>桜井線 櫟本駅 徒歩4分<br>近鉄天理線 天理駅 徒歩35分<br>桜井線 帯解駅 徒歩35分</dd></div><div><dt>構造</dt><dd>木造 2階建</dd></div><div><dt>築年月</dt><dd>1981年（昭和56年）12月</dd></div><div><dt>土地面積</dt><dd>115.4㎡（約34.9坪）</dd></div><div><dt>延床面積</dt><dd>129.71㎡（約39.23坪）<span class="note">1階 68.00㎡ ／ 2階 61.71㎡</span></dd></div><div><dt>間取り</dt><dd>5SLDK</dd></div><div><dt>想定居室数</dt><dd>5室</dd></div><div><dt>用途地域</dt><dd>第一種住居地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 160%</dd></div><div><dt>駐車場</dt><dd>有</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>公営水道・側溝・汚水個別浄化槽・個別PG・電気・温水洗浄便座・給湯</dd></div><div class="wide"><dt>備考</dt><dd>建物未登記のため築年月・床面積は建築計画概要書に基づく記載</dd></div></dl>
-  </section>
-  <nav class="pager" aria-label="ほかの物件">
-    <a class="pager-prev" href="#v" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">V</span>天理市 三昧田町</a>
+    <a class="pager-prev" href="#r" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">R</span>奈良市 須川町</a>
     <a class="pager-next" href="#x" rel="next"><span class="pager-code">X</span>天理市 柳本町<span aria-hidden="true">→</span></a>
   </nav>
 </section>
@@ -777,7 +537,7 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
     <dl class="spec spec-full"><div><dt>所在地</dt><dd>天理市柳本町</dd></div><div><dt>種別</dt><dd>戸建</dd></div><div class="wide"><dt>交通</dt><dd>JR桜井線 柳本駅 徒歩10分</dd></div><div><dt>構造</dt><dd>木造瓦葺 2階建</dd></div><div><dt>築年月</dt><dd>1983年（昭和58年）<span class="note">新耐震基準</span></dd></div><div><dt>土地面積</dt><dd>442.39㎡（133.82坪）</dd></div><div><dt>延床面積</dt><dd>216.33㎡（65.44坪）<span class="note">1階 125.17㎡ ／ 2階 91.16㎡</span></dd></div><div><dt>間取り</dt><dd>10DK</dd></div><div><dt>想定居室数</dt><dd>10室</dd></div><div><dt>用途地域</dt><dd>近隣商業／第一種住居地域（市街化区域）</dd></div><div><dt>建ぺい率／容積率</dt><dd>60% ／ 200%</dd></div><div><dt>駐車場</dt><dd>無し</dd></div><div><dt>現況</dt><dd>空家</dd></div><div class="wide"><dt>設備</dt><dd>電気・下水道・上水道・プロパンガス</dd></div></dl>
   </section>
   <nav class="pager" aria-label="ほかの物件">
-    <a class="pager-prev" href="#w" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">W</span>天理市 櫟本町</a>
+    <a class="pager-prev" href="#v" rel="prev"><span aria-hidden="true">←</span><span class="pager-code">V</span>天理市 三昧田町</a>
     <span></span>
   </nav>
 </section>
@@ -878,6 +638,50 @@ button.btn{border:0;font-family:inherit;cursor:pointer}
         showMessage(list, "コメントを読み込めませんでした。時間をおいて、ページを読み込み直してください。");
       });
     });
+})();
+
+(() => {
+  const KEY = "gh-operator-favorites";
+  function load() {
+    try {
+      const v = JSON.parse(localStorage.getItem(KEY) || "[]");
+      return Array.isArray(v) ? v : [];
+    } catch (err) {
+      return [];
+    }
+  }
+  function save(ids) {
+    try { localStorage.setItem(KEY, JSON.stringify(ids)); } catch (err) { /* プライベートモード等は諦める */ }
+  }
+  let favs = new Set(load());
+
+  function applyState(id) {
+    document.querySelectorAll('[data-fav="' + id + '"]').forEach((btn) => {
+      const on = favs.has(id);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.textContent = on ? "★" : "☆";
+    });
+  }
+  function applyFilter() {
+    const only = document.querySelector("[data-fav-filter]");
+    const on = !!(only && only.checked);
+    document.querySelectorAll("[data-fav-card]").forEach((card) => {
+      card.hidden = on && !favs.has(card.dataset.favCard);
+    });
+  }
+  document.querySelectorAll("[data-fav]").forEach((btn) => {
+    applyState(btn.dataset.fav);
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.fav;
+      if (favs.has(id)) favs.delete(id); else favs.add(id);
+      save(Array.from(favs));
+      applyState(id);
+      applyFilter();
+    });
+  });
+  const filter = document.querySelector("[data-fav-filter]");
+  if (filter) filter.addEventListener("change", applyFilter);
+  applyFilter();
 })();
 
 (() => {

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>りーぷ 収支と広告</title>
+<style>
+:root{
+  --bg:#F6F4F1;--card:#FFFFFF;--ink:#1E2629;--sub:#5F6B70;--line:#E2DDD6;--head:#EFEAE3;
+  --accent:#2F6F6A;--minus:#B23A2E;--plus:#2E7D4F;--on-bg:#E3F1EA;--on-ink:#22603F;--off-bg:#ECEAE6;--off-ink:#666;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121719;--card:#1A2124;--ink:#E4EAEC;--sub:#9AA7AC;--line:#2C3539;--head:#222B2F;
+    --accent:#7CC4BC;--minus:#F08A7E;--plus:#7DD3A0;--on-bg:#1F3B2E;--on-ink:#9FE0BA;--off-bg:#2A3135;--off-ink:#A9B2B6;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 "Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:980px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:1.45rem;line-height:1.4;margin:0 0 4px}
+.asof{color:var(--sub);margin:0 0 28px;font-size:.9rem}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 16px;margin:0 0 20px}
+h2{font-size:1.15rem;margin:0 0 12px;padding-left:10px;border-left:4px solid var(--accent)}
+h3{font-size:1rem;margin:26px 0 8px}
+p{margin:.4em 0}
+.lead{color:var(--sub);font-size:.9rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:4px 0 16px}
+.card{border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.card .k{font-size:.85rem;color:var(--sub)}
+.card .v{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:6px 0 4px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{background:var(--head);font-weight:600;font-size:.8rem}
+td:first-child,th:first-child{text-align:left}
+td.t,th.t{text-align:left;white-space:normal;min-width:11em}
+tbody tr:last-child td{border-bottom:none}
+tr.total td{font-weight:700;background:var(--head)}
+.minus{color:var(--minus);font-weight:700}
+.plus{color:var(--plus);font-weight:700}
+.st{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.78rem;white-space:normal;text-align:left}
+.st.on{background:var(--on-bg);color:var(--on-ink)}
+.st.off{background:var(--off-bg);color:var(--off-ink)}
+a{color:var(--accent)}
+ul.notes{margin:10px 0 0;padding-left:1.2em;color:var(--sub);font-size:.88rem}
+ul.notes li{margin:.25em 0}
+ul.notes ul{padding-left:1.1em;margin:0}
+ul.notes a{display:inline-block;padding:10px 0;margin-right:.8em}
+.th{display:block;width:64px;height:80px;object-fit:cover;border-radius:6px;flex:none;background:var(--head)}
+.ad{display:flex;align-items:center;gap:10px;min-height:44px}
+td.w{white-space:normal;text-align:left;min-width:5em}
+.lnk{display:inline-flex;align-items:center;min-height:44px}
+table.meta{font-size:.8rem}
+table.meta th,table.meta td{padding:8px 6px}
+table.meta th{white-space:normal;line-height:1.3}
+table.meta td.t{min-width:9.5em}
+table.meta td.w .st{margin-top:2px}
+ol.tl{list-style:none;margin:8px 0 0;padding:0}
+ol.tl li{display:grid;grid-template-columns:6.8em 1fr;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+ol.tl li:last-child{border-bottom:none}
+ol.tl .d{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+ul.find{margin:6px 0;padding-left:1.2em}
+ul.find li{margin:.4em 0}
+footer{color:var(--sub);font-size:.82rem;text-align:center}
+@media (min-width:901px) and (max-width:1000px){th,td{padding:8px 7px}}
+/* スマホ・タブレット幅: 表を1行ずつのカードにして縦に並べる（横スクロールをなくす） */
+@media (max-width:900px){
+  .scroll{overflow:visible;border:none;border-radius:0}
+  table.stack,table.stack tbody{display:block;width:100%}
+  table.stack thead{display:none}
+  table.stack tr{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;margin:0 0 10px;padding:4px 12px}
+  table.stack tr.total{background:var(--head)}
+  table.stack td,table.meta td{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line);text-align:right;white-space:normal;background:none;font-size:.88rem}
+  table.stack td:last-child{border-bottom:none}
+  table.stack td::before{content:attr(data-label);color:var(--sub);font-size:.8rem;font-weight:400;text-align:left;flex:none}
+  table.stack td.t{order:-1;display:block;text-align:left;font-weight:700;font-size:.95rem;border-bottom:1px solid var(--line)}
+  table.stack td.t::before{content:none}
+  table.stack td.t a{display:flex;align-items:center;min-height:44px}
+  table.stack td.w{min-width:0}
+  table.stack td:empty{display:none}
+  ol.tl li{grid-template-columns:1fr;gap:2px}
+}
+</style>
+</head>
+<body>
+<main>
+<h1>りーぷ 収支と広告のまとめ</h1>
+<p class="asof">2026年10月6日時点</p>
+
+<section>
+<h2>収支（開業前の6月〜9月・単位は円）</h2>
+<div class="cards">
+  <div class="card"><div class="k">6月〜9月の差し引き</div><div class="v minus">−1,264,428円</div></div>
+  <div class="card"><div class="k">9月だけの差し引き</div><div class="v plus">+6,123円</div></div>
+</div>
+<div class="scroll"><table class="stack">
+<thead><tr><th>月</th><th>売上</th><th>人件費（藤原さん）</th><th>広告費</th><th>研修費</th><th>ツメフラ材料</th><th>片岡さん</th><th>差し引き</th></tr></thead>
+<tbody>
+<tr><td data-label="月" class="t">6月（開業前）</td><td data-label="売上">0</td><td data-label="人件費（藤原さん）">0</td><td data-label="広告費">0</td><td data-label="研修費">288,420</td><td data-label="ツメフラ材料">0</td><td data-label="片岡さん">0</td><td data-label="差し引き" class="minus">−288,420円</td></tr>
+<tr><td data-label="月" class="t">7月</td><td data-label="売上">41,350</td><td data-label="人件費（藤原さん）">0</td><td data-label="広告費">37,899</td><td data-label="研修費">110,000</td><td data-label="ツメフラ材料">95,250</td><td data-label="片岡さん">0</td><td data-label="差し引き" class="minus">−201,799円</td></tr>
+<tr><td data-label="月" class="t">8月</td><td data-label="売上">196,300</td><td data-label="人件費（藤原さん）">211,825</td><td data-label="広告費">104,807</td><td data-label="研修費">0</td><td data-label="ツメフラ材料">0</td><td data-label="片岡さん">660,000</td><td data-label="差し引き" class="minus">−780,332円</td></tr>
+<tr><td data-label="月" class="t">9月</td><td data-label="売上">320,500</td><td data-label="人件費（藤原さん）">190,146</td><td data-label="広告費">124,231</td><td data-label="研修費">0</td><td data-label="ツメフラ材料">0</td><td data-label="片岡さん">0</td><td data-label="差し引き" class="plus">+6,123円</td></tr>
+<tr class="total"><td data-label="月" class="t">計（6月〜9月）</td><td data-label="売上">558,150</td><td data-label="人件費（藤原さん）">401,971</td><td data-label="広告費">266,937</td><td data-label="研修費">398,420</td><td data-label="ツメフラ材料">95,250</td><td data-label="片岡さん">660,000</td><td data-label="差し引き" class="minus">−1,264,428円</td></tr>
+</tbody></table></div>
+<ul class="notes">
+  <li>研修費は6月が巻き爪（サニフット）、7月がタコ・魚の目（フトマニ）。片岡さん分は8月に一括。</li>
+  <li>9月のインスタ広告費は見込み値です。</li>
+</ul>
+</section>
+
+<section>
+<h2>インスタのリール広告</h2>
+<p class="lead">10月6日時点の累計。ドル払いは1ドル163.69円で換算。</p>
+
+<h3>作り手ごとの合計</h3>
+<div class="scroll"><table class="stack">
+<thead><tr><th class="t">動画</th><th>広告費</th><th>フォロー</th><th>フォロー単価</th><th>プロフィール閲覧</th><th>閲覧単価</th></tr></thead>
+<tbody>
+<tr><td data-label="動画" class="t">片岡さん制作（8本）</td><td data-label="広告費">97,098円</td><td data-label="フォロー">300</td><td data-label="フォロー単価">270円</td><td data-label="プロフィール閲覧">4,956</td><td data-label="閲覧単価">20円</td></tr>
+<tr><td data-label="動画" class="t">片岡さんの台本で作った動画（7/11・3本）</td><td data-label="広告費">88,659円</td><td data-label="フォロー">265</td><td data-label="フォロー単価">335円</td><td data-label="プロフィール閲覧">4,098</td><td data-label="閲覧単価">22円</td></tr>
+<tr><td data-label="動画" class="t">店舗の素材から社内で制作（4本）</td><td data-label="広告費">90,886円</td><td data-label="フォロー">164</td><td data-label="フォロー単価">554円</td><td data-label="プロフィール閲覧">6,378</td><td data-label="閲覧単価">14円</td></tr>
+</tbody></table></div>
+<ul class="notes">
+  <li>片岡さん制作のフォロー単価は、フォロー数が取れない1本を除いて計算。</li>
+</ul>
+
+<h3>片岡さん制作（8本）</h3>
+<div class="scroll"><table class="ads stack"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th>広告費</th><th>フォロー</th><th>フォロー単価</th><th>プロフィール閲覧</th><th>閲覧単価</th></tr></thead><tbody><tr><td data-label="投稿日">9/25</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DdtpSIkPu3D/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DdtpSIkPu3D.webp" alt="投稿の冒頭：足裏のタコや魚の目、気になっていませんか？👣 りーぷでは、ま" width="64" height="80" decoding="async"><span>足裏のタコや魚の目</span></a></td><td data-label="状態"><span class="st on">配信中</span></td><td data-label="広告費">15,497円</td><td data-label="フォロー">95</td><td data-label="フォロー単価">163円</td><td data-label="プロフィール閲覧">898</td><td data-label="閲覧単価">17円</td></tr>
+<tr><td data-label="投稿日">9/23</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DdmOl0puyX_/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DdmOl0puyX_.webp" alt="投稿の冒頭：厚くなった爪や足裏、自己流のケアに迷っていませんか？👣 りー" width="64" height="80" decoding="async"><span>厚くなった爪や足裏</span></a></td><td data-label="状態"><span class="st on">配信中</span></td><td data-label="広告費">26,328円</td><td data-label="フォロー">109</td><td data-label="フォロー単価">242円</td><td data-label="プロフィール閲覧">1,159</td><td data-label="閲覧単価">23円</td></tr>
+<tr><td data-label="投稿日">9/13</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DdNdcIcP-r3/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DdNdcIcP-r3.webp" alt="投稿の冒頭：@footcare.leap.tennoji 👈ご予約はこち" width="64" height="80" decoding="async"><span>leapを始めた理由</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">9,990円</td><td data-label="フォロー">23</td><td data-label="フォロー単価">434円</td><td data-label="プロフィール閲覧">281</td><td data-label="閲覧単価">36円</td></tr>
+<tr><td data-label="投稿日">8/7</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbvKrN7j2se/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbvKrN7j2se.webp" alt="投稿の冒頭：「フットケアは痛そう、我慢するもの」と思っていませんか？👣 " width="64" height="80" decoding="async"><span>フットケアは痛そう（縦長版）</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">16,020円</td><td data-label="フォロー">取得できず</td><td data-label="フォロー単価">–</td><td data-label="プロフィール閲覧">1,158</td><td data-label="閲覧単価">14円</td></tr>
+<tr><td data-label="投稿日">8/7</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbvG51RjZyD/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbvG51RjZyD.webp" alt="投稿の冒頭：足の悩み、どこに相談すればいいか迷っていませんか？👣 巻き爪" width="64" height="80" decoding="async"><span>足の悩み、どこに相談（縦長版）</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">19,556円</td><td data-label="フォロー">46</td><td data-label="フォロー単価">425円</td><td data-label="プロフィール閲覧">1,017</td><td data-label="閲覧単価">19円</td></tr>
+<tr><td data-label="投稿日">7/23</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbIkyieNmhh/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbIkyieNmhh.webp" alt="投稿の冒頭：「フットケアは痛そう、我慢するもの」と思っていませんか？👣 " width="64" height="80" decoding="async"><span>フットケアは痛そう</span></a></td><td data-label="状態"><span class="st on">配信中（7月以降ほぼ消化なし）</span></td><td data-label="広告費">308円</td><td data-label="フォロー">1</td><td data-label="フォロー単価">308円</td><td data-label="プロフィール閲覧">19</td><td data-label="閲覧単価">16円</td></tr>
+<tr><td data-label="投稿日">7/23</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbIkW9Sh3K_/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbIkW9Sh3K_.webp" alt="投稿の冒頭：足元が気になって、サンダルや温泉を避けていませんか？👣 りー" width="64" height="80" decoding="async"><span>サンダルや温泉</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">4,740円</td><td data-label="フォロー">15</td><td data-label="フォロー単価">316円</td><td data-label="プロフィール閲覧">206</td><td data-label="閲覧単価">23円</td></tr>
+<tr><td data-label="投稿日">7/23</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbIk3gVMO4V/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbIk3gVMO4V.webp" alt="投稿の冒頭：「もっと早く相談できていたら」——そんな想いから、りーぷは始" width="64" height="80" decoding="async"><span>もっと早く相談</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">4,659円</td><td data-label="フォロー">11</td><td data-label="フォロー単価">424円</td><td data-label="プロフィール閲覧">218</td><td data-label="閲覧単価">21円</td></tr></tbody></table></div>
+
+<h3>片岡さんの台本で作った動画（7/11・制作者確認中）</h3>
+<div class="scroll"><table class="ads stack"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th>広告費</th><th>フォロー</th><th>フォロー単価</th><th>プロフィール閲覧</th><th>閲覧単価</th></tr></thead><tbody><tr><td data-label="投稿日">7/11</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DaqAnR2JMkt/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DaqAnR2JMkt.webp" alt="投稿の冒頭：「巻き爪は、手術するしかない」と思っていませんか？ 巻き爪が" width="64" height="80" decoding="async"><span>巻き爪は、手術するしかない</span></a></td><td data-label="状態"><span class="st on">配信中</span></td><td data-label="広告費">52,810円</td><td data-label="フォロー">141</td><td data-label="フォロー単価">375円</td><td data-label="プロフィール閲覧">2,321</td><td data-label="閲覧単価">23円</td></tr>
+<tr><td data-label="投稿日">7/11</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DaqATl5PXxi/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DaqATl5PXxi.webp" alt="投稿の冒頭：天王寺に「フットケア×リラクゼーション」のお店ができました🦶" width="64" height="80" decoding="async"><span>天王寺に「フットケア×リラクゼーション」（広告3回分の合計）</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">27,610円</td><td data-label="フォロー">94</td><td data-label="フォロー単価">294円</td><td data-label="プロフィール閲覧">1,434</td><td data-label="閲覧単価">19円</td></tr>
+<tr><td data-label="投稿日">7/11</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DaqAq3dp75j/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DaqAq3dp75j.webp" alt="投稿の冒頭：「巻き爪って、本当に良くなるんですか？」——よく聞かれます。" width="64" height="80" decoding="async"><span>巻き爪って、本当に良くなるんですか？</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">8,239円</td><td data-label="フォロー">30</td><td data-label="フォロー単価">275円</td><td data-label="プロフィール閲覧">343</td><td data-label="閲覧単価">24円</td></tr></tbody></table></div>
+
+<h3>店舗の素材から社内で制作（4本）</h3>
+<div class="scroll"><table class="ads stack"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th>広告費</th><th>フォロー</th><th>フォロー単価</th><th>プロフィール閲覧</th><th>閲覧単価</th></tr></thead><tbody><tr><td data-label="投稿日">7/22</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbFE0uRDJ54/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbFE0uRDJ54.webp" alt="投稿の冒頭：足のタコ・魚の目、かかとのガサガサ。気になるけれど、どこに相" width="64" height="80" decoding="async"><span>足のタコ・魚の目、かかと</span></a></td><td data-label="状態"><span class="st on">配信中</span></td><td data-label="広告費">48,036円</td><td data-label="フォロー">103</td><td data-label="フォロー単価">466円</td><td data-label="プロフィール閲覧">3,259</td><td data-label="閲覧単価">15円</td></tr>
+<tr><td data-label="投稿日">7/22</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbD5BD-j6eS/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbD5BD-j6eS.webp" alt="投稿の冒頭：巻き爪が気になる方へ👣 りーぷでは、まず厚くなった爪を適切な" width="64" height="80" decoding="async"><span>巻き爪が気になる方へ</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">30,252円</td><td data-label="フォロー">36</td><td data-label="フォロー単価">840円</td><td data-label="プロフィール閲覧">2,344</td><td data-label="閲覧単価">13円</td></tr>
+<tr><td data-label="投稿日">7/22</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbF4WYaFk92/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbF4WYaFk92.webp" alt="投稿の冒頭：かかとのガサガサ、素足になると気になりませんか？👣 りーぷの" width="64" height="80" decoding="async"><span>かかとのガサガサ</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">6,273円</td><td data-label="フォロー">15</td><td data-label="フォロー単価">418円</td><td data-label="プロフィール閲覧">351</td><td data-label="閲覧単価">18円</td></tr>
+<tr><td data-label="投稿日">7/22</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbFgTHmF_nY/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbFgTHmF_nY.webp" alt="投稿の冒頭：歩くたびに気になる、足裏のタコ・魚の目👣 りーぷでは、まず皮" width="64" height="80" decoding="async"><span>足裏のタコ・魚の目</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">6,325円</td><td data-label="フォロー">10</td><td data-label="フォロー単価">632円</td><td data-label="プロフィール閲覧">424</td><td data-label="閲覧単価">15円</td></tr></tbody></table></div>
+
+<h3>その他（制作者確認中）</h3>
+<div class="scroll"><table class="ads stack"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th>広告費</th><th>フォロー</th><th>フォロー単価</th><th>プロフィール閲覧</th><th>閲覧単価</th></tr></thead><tbody><tr><td data-label="投稿日">7/20</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/Da_0nLcJ7Ev/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-Da_0nLcJ7Ev.webp" alt="投稿の冒頭：「フットケアって何をするの？」 実は、この質問を一番よくいた" width="64" height="80" decoding="async"><span>フットケアって何をするの？</span></a></td><td data-label="状態"><span class="st off">停止</span></td><td data-label="広告費">8,217円</td><td data-label="フォロー">15</td><td data-label="フォロー単価">548円</td><td data-label="プロフィール閲覧">578</td><td data-label="閲覧単価">14円</td></tr></tbody></table></div>
+
+<h3>9月22日に届いた片岡さんの5本のその後</h3>
+<ul class="notes">
+  <li>配信中2本（9/23・9/25の投稿）</li>
+  <li>投稿済み・広告なし2本：<a href="https://www.instagram.com/reel/Dd6gVAAtKJd/" target="_blank" rel="noopener noreferrer">9/30 足の悩み、どこに相談</a><a href="https://www.instagram.com/reel/DeAMRvejLDv/" target="_blank" rel="noopener noreferrer">10/3 サンダルを履くとき</a></li>
+  <li>未投稿1本</li>
+</ul>
+</section>
+
+<section id="meta">
+<h2>Meta広告（広告マネージャーから出した広告）</h2>
+<p class="lead">10月6日22時ごろの累計・円払い。CTR＝クリック÷表示、CPC＝広告費÷クリック、CVR＝成果÷クリック。</p>
+<div class="cards">
+  <div class="card"><div class="k">広告費（全9本・8月6日から）</div><div class="v">40,470円</div></div>
+  <div class="card"><div class="k">体験会への応募（広告経由）</div><div class="v">5件</div></div>
+  <div class="card"><div class="k">配信中</div><div class="v">2本</div></div>
+</div>
+
+<h3>広告ごとの設定・数字・成果</h3>
+<div class="scroll"><table class="stack meta"><thead><tr><th class="t">広告</th><th>遷移先・目的</th><th>期間・状態</th><th>日予算</th><th>広告費</th><th>表示</th><th>クリック</th><th>CTR</th><th>CPC</th><th>成果</th><th>CVR</th><th>成果1件の費用</th></tr></thead><tbody><tr><td data-label="広告" class="t"><div class="ad adn"><img class="th" src="img/meta-120252543604230720.webp" alt="広告の画像：静止画B「無料で付けて試せます」" width="64" height="80" decoding="async"><span>静止画B「無料で付けて試せます」</span></div></td><td data-label="遷移先・目的" class="w"><a class="lnk" href="https://yoyaku-leap.arshe-corp.com/lp/tsumefura" target="_blank" rel="noopener noreferrer">体験会LP・応募</a></td><td data-label="期間・状態" class="w">10/1〜<br><span class="st on">配信中</span></td><td data-label="日予算" class="w">1,000円</td><td data-label="広告費">4,855円</td><td data-label="表示">1,878</td><td data-label="クリック">31</td><td data-label="CTR">1.65%</td><td data-label="CPC">157円</td><td data-label="成果" class="w">応募 0件</td><td data-label="CVR">0.00%</td><td data-label="成果1件の費用">–</td></tr>
+<tr><td data-label="広告" class="t"><div class="ad adn"><img class="th" src="img/meta-120252539116280720.webp" alt="広告の画像：静止画A「巻き爪ケアの実例」（症例写真）" width="64" height="80" decoding="async"><span>静止画A「巻き爪ケアの実例」（症例写真）</span></div></td><td data-label="遷移先・目的" class="w"><a class="lnk" href="https://yoyaku-leap.arshe-corp.com/lp/tsumefura" target="_blank" rel="noopener noreferrer">体験会LP・応募</a></td><td data-label="期間・状態" class="w">10/1〜<br><span class="st on">配信中</span></td><td data-label="日予算" class="w">1,000円</td><td data-label="広告費">5,141円</td><td data-label="表示">2,459</td><td data-label="クリック">56</td><td data-label="CTR">2.28%</td><td data-label="CPC">92円</td><td data-label="成果" class="w">応募 3件</td><td data-label="CVR">5.36%</td><td data-label="成果1件の費用">1,714円</td></tr>
+<tr><td data-label="広告" class="t"><div class="ad adn"><img class="th" src="img/meta-120252468519420720.webp" alt="広告の画像：30秒動画「天王寺で巻き爪無料体験会」" width="64" height="80" decoding="async"><span>30秒動画「天王寺で巻き爪無料体験会」</span></div></td><td data-label="遷移先・目的" class="w"><a class="lnk" href="https://yoyaku-leap.arshe-corp.com/lp/tsumefura" target="_blank" rel="noopener noreferrer">体験会LP・応募</a></td><td data-label="期間・状態" class="w">9/28〜10/1<br><span class="st off">停止（10/1）</span></td><td data-label="日予算" class="w">1,000円</td><td data-label="広告費">3,447円</td><td data-label="表示">1,860</td><td data-label="クリック">50</td><td data-label="CTR">2.69%</td><td data-label="CPC">69円</td><td data-label="成果" class="w">応募 0件</td><td data-label="CVR">0.00%</td><td data-label="成果1件の費用">–</td></tr>
+<tr><td data-label="広告" class="t"><div class="ad adn"><img class="th" src="img/meta-120252366609910720.webp" alt="広告の画像：リール「leapを始めた理由」" width="64" height="80" decoding="async"><span>リール「leapを始めた理由」</span></div></td><td data-label="遷移先・目的" class="w"><a class="lnk" href="https://yoyaku-leap.arshe-corp.com/lp/tsumefura" target="_blank" rel="noopener noreferrer">体験会LP・応募</a></td><td data-label="期間・状態" class="w">9/21〜10/1<br><span class="st off">停止（10/1）</span></td><td data-label="日予算" class="w">1,000円（一時1,500円）</td><td data-label="広告費">10,176円</td><td data-label="表示">4,200</td><td data-label="クリック">117</td><td data-label="CTR">2.79%</td><td data-label="CPC">87円</td><td data-label="成果" class="w">応募 2件</td><td data-label="CVR">1.71%</td><td data-label="成果1件の費用">5,088円</td></tr>
+<tr><td data-label="広告" class="t"><div class="ad adn"><img class="th" src="img/meta-120252341498840720.webp" alt="広告の画像：リール「leapを始めた理由」" width="64" height="80" decoding="async"><span>リール「leapを始めた理由」</span></div></td><td data-label="遷移先・目的" class="w">予約ページ4,900円・予約</td><td data-label="期間・状態" class="w">9/19〜9/21<br><span class="st off">停止（9/21）</span></td><td data-label="日予算" class="w">1,000円</td><td data-label="広告費">1,963円</td><td data-label="表示">1,867</td><td data-label="クリック">67</td><td data-label="CTR">3.59%</td><td data-label="CPC">29円</td><td data-label="成果" class="w">予約 0件</td><td data-label="CVR">0.00%</td><td data-label="成果1件の費用">–</td></tr>
+<tr><td data-label="広告" class="t"><div class="ad adn"><img class="th" src="img/meta-120252260336910720.webp" alt="広告の画像：リール「leapを始めた理由」" width="64" height="80" decoding="async"><span>リール「leapを始めた理由」</span></div></td><td data-label="遷移先・目的" class="w">予約ページ6,980円・予約</td><td data-label="期間・状態" class="w">9/15〜9/19<br><span class="st off">停止（9/19）</span></td><td data-label="日予算" class="w">1,000円</td><td data-label="広告費">4,210円</td><td data-label="表示">4,269</td><td data-label="クリック">147</td><td data-label="CTR">3.44%</td><td data-label="CPC">29円</td><td data-label="成果" class="w">予約 0件</td><td data-label="CVR">0.00%</td><td data-label="成果1件の費用">–</td></tr>
+<tr><td data-label="広告" class="t"><div class="ad adn"><img class="th" src="img/meta-120252257109390720.webp" alt="広告の画像：リール「leapを始めた理由」" width="64" height="80" decoding="async"><span>リール「leapを始めた理由」</span></div></td><td data-label="遷移先・目的" class="w">公式LINE・登録</td><td data-label="期間・状態" class="w">9/15〜9/19<br><span class="st off">停止（9/19）</span></td><td data-label="日予算" class="w">1,000円</td><td data-label="広告費">3,723円</td><td data-label="表示">3,559</td><td data-label="クリック">145</td><td data-label="CTR">4.07%</td><td data-label="CPC">26円</td><td data-label="成果" class="w">LINE登録 0件（注）</td><td data-label="CVR">0.00%</td><td data-label="成果1件の費用">–</td></tr>
+<tr><td data-label="広告" class="t"><div class="ad adn"><img class="th" src="img/meta-120252242600250720.webp" alt="広告の画像：リール「leapを始めた理由」" width="64" height="80" decoding="async"><span>リール「leapを始めた理由」</span></div></td><td data-label="遷移先・目的" class="w">予約ページ9,800円・予約</td><td data-label="期間・状態" class="w">9/14〜9/17<br><span class="st off">停止（9/17）</span></td><td data-label="日予算" class="w">1,000円</td><td data-label="広告費">3,046円</td><td data-label="表示">3,622</td><td data-label="クリック">144</td><td data-label="CTR">3.98%</td><td data-label="CPC">21円</td><td data-label="成果" class="w">予約 0件</td><td data-label="CVR">0.00%</td><td data-label="成果1件の費用">–</td></tr>
+<tr><td data-label="広告" class="t"><div class="ad adn"><img class="th" src="img/meta-120251482710800720.webp" alt="広告の画像：リール「巻き爪が気になる方へ」" width="64" height="80" decoding="async"><span>リール「巻き爪が気になる方へ」</span></div></td><td data-label="遷移先・目的" class="w">プロフィール・移動</td><td data-label="期間・状態" class="w">8/7〜8/11<br><span class="st off">停止（8/11）</span></td><td data-label="日予算" class="w">約980円</td><td data-label="広告費">3,909円</td><td data-label="表示">6,309</td><td data-label="クリック">338</td><td data-label="CTR">5.36%</td><td data-label="CPC">12円</td><td data-label="成果" class="w">計測なし</td><td data-label="CVR">–</td><td data-label="成果1件の費用">–</td></tr><tr class="total"><td data-label="広告" class="t">全9本の合計</td><td data-label="遷移先・目的"></td><td data-label="期間・状態"></td><td data-label="日予算"></td><td data-label="広告費">40,470円</td><td data-label="表示">30,023</td><td data-label="クリック">1,095</td><td data-label="CTR">3.65%</td><td data-label="CPC">37円</td><td data-label="成果" class="w">応募 5件</td><td data-label="CVR">–</td><td data-label="成果1件の費用">–</td></tr></tbody></table></div>
+<ul class="notes">
+  <li>（注）LINE登録は、9/17夜まで登録を計測できていませんでした。</li>
+</ul>
+
+<h3>これまでの経緯</h3>
+<ol class="tl">
+<li><span class="d">8/6〜8/11</span><span>プロフィール誘導の広告を出し、8/11に停止</span></li>
+<li><span class="d">9/14</span><span>リールで予約ページ（9,800円）へ誘導を開始</span></li>
+<li><span class="d">9/15</span><span>LINE登録行きと、予約ページ6,980円を追加</span></li>
+<li><span class="d">9/17</span><span>9,800円の広告を停止（予約0件）</span></li>
+<li><span class="d">9/19</span><span>LINE登録と6,980円を停止。4,900円に切替</span></li>
+<li><span class="d">9/21</span><span>4,900円を停止。無料の体験会広告を開始</span></li>
+<li><span class="d">9/25〜9/27</span><span>体験会LPの冒頭を直し、日予算を1,500円に</span></li>
+<li><span class="d">9/28</span><span>体験会用の30秒動画の広告を追加</span></li>
+<li><span class="d">10/1</span><span>リールと30秒動画を停止。静止画A・Bに入替</span></li>
+<li><span class="d">10/6</span><span>静止画AとBの2本が配信中</span></li>
+</ol>
+
+<h3>広告ごとの違い</h3>
+<ul class="find">
+<li>CTRは、予約ページ・LINE登録行きの動画4本が3.4〜4.1%、体験会行きの4本が1.7〜2.8%です。</li>
+<li>応募5件の内訳は、リール2件・静止画A 3件で、30秒動画と静止画Bは0件です。</li>
+<li>予約ページ・LINE登録行きは予約・登録が0件で、応募が少ないため、どの広告が良いかはまだ言えません。</li>
+</ul>
+</section>
+
+<section>
+<h2>参考：美容整体（ReLUMI）のリール広告</h2>
+<div class="scroll"><table class="ads stack"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th>広告費</th><th>フォロー</th><th>フォロー単価</th><th>プロフィール閲覧</th><th>閲覧単価</th></tr></thead><tbody><tr><td data-label="投稿日">9/22</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DdkmUzapYvT/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DdkmUzapYvT.webp" alt="投稿の冒頭：周りのことを優先して、自分の疲れは後回しになっていませんか。" width="64" height="80" decoding="async"><span>周りのことを優先して（片岡さん制作）</span></a></td><td data-label="状態"><span class="st off">停止（10/6）</span></td><td data-label="広告費">14,224円</td><td data-label="フォロー">6</td><td data-label="フォロー単価">2,371円</td><td data-label="プロフィール閲覧">340</td><td data-label="閲覧単価">42円</td></tr>
+<tr><td data-label="投稿日">4/3</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DWqsV1CJHlT/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DWqsV1CJHlT.webp" alt="投稿の冒頭：＼寝てるだけで姿勢が変わる、不思議な整体。／ 大阪・天王寺駅" width="64" height="80" decoding="async"><span>寝てるだけで姿勢が変わる</span></a></td><td data-label="状態"><span class="st on">配信中</span></td><td data-label="広告費">288,512円</td><td data-label="フォロー">965</td><td data-label="フォロー単価">299円</td><td data-label="プロフィール閲覧">約1.6万</td><td data-label="閲覧単価">18円</td></tr>
+<tr><td data-label="投稿日">7/23</td><td data-label="内容" class="t"><a class="ad" href="https://www.instagram.com/reel/DbIBF99RHgp/" target="_blank" rel="noopener noreferrer"><img class="th" src="img/ig-DbIBF99RHgp.webp" alt="投稿の冒頭：天王寺駅から徒歩3分。 このドアの先にあるのは、 巻き肩・猫" width="64" height="80" decoding="async"><span>天王寺駅から徒歩3分</span></a></td><td data-label="状態"><span class="st on">配信中</span></td><td data-label="広告費">64,101円</td><td data-label="フォロー">168</td><td data-label="フォロー単価">382円</td><td data-label="プロフィール閲覧">3,493</td><td data-label="閲覧単価">18円</td></tr></tbody></table></div>
+<ul class="notes">
+  <li>円払い。9月22日の動画は10月6日に停止。</li>
+</ul>
+</section>
+
+</main>
+</body>
+</html>

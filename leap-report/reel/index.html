@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>りーぷ リール広告</title>
+<style>
+:root{
+  --bg:#F6F4F1;--card:#FFFFFF;--ink:#1E2629;--sub:#5F6B70;--line:#E2DDD6;--head:#EFEAE3;
+  --accent:#2F6F6A;--on-accent:#FFFFFF;--minus:#B23A2E;--plus:#2E7D4F;--on-bg:#E3F1EA;--on-ink:#22603F;--off-bg:#ECEAE6;--off-ink:#666;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121719;--card:#1A2124;--ink:#E4EAEC;--sub:#9AA7AC;--line:#2C3539;--head:#222B2F;
+    --accent:#7CC4BC;--on-accent:#0E1416;--minus:#F08A7E;--plus:#7DD3A0;--on-bg:#1F3B2E;--on-ink:#9FE0BA;--off-bg:#2A3135;--off-ink:#A9B2B6;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 "Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:980px;margin:0 auto;padding:20px 16px 56px}
+h1{font-size:1.25rem;line-height:1.4;margin:0 0 4px}
+.asof{color:var(--sub);margin:0 0 6px;font-size:.85rem}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 16px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--card);font-size:.9rem}
+.nav a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 14px;margin:0 0 16px}
+h2{font-size:1.05rem;margin:0 0 8px;padding-left:10px;border-left:4px solid var(--accent)}
+h3{font-size:.95rem;margin:20px 0 6px}
+p{margin:.3em 0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:6px 0 4px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;vertical-align:middle}
+th{background:var(--head);font-weight:600;font-size:.8rem}
+.n{text-align:right;font-variant-numeric:tabular-nums}
+td.t,th.t{white-space:normal;min-width:11em}
+td.w{white-space:normal;min-width:6em}
+tbody tr:last-child td{border-bottom:none}
+tr.total td{font-weight:700;background:var(--head)}
+.minus{color:var(--minus);font-weight:700}
+.plus{color:var(--plus);font-weight:700}
+.st{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.78rem;white-space:normal}
+.st.on{background:var(--on-bg);color:var(--on-ink)}
+.st.off{background:var(--off-bg);color:var(--off-ink)}
+a{color:var(--accent)}
+ul.notes{margin:6px 0 10px;padding-left:1.2em;color:var(--sub);font-size:.88rem}
+ul.notes li{margin:.2em 0}
+ul.links{list-style:none;margin:4px 0 0;padding:0}
+ul.links li{display:flex;flex-direction:column;padding:6px 0;border-bottom:1px dashed var(--line)}
+ul.links li:last-child{border-bottom:none}
+ul.links span{font-size:.85rem;color:var(--sub)}
+.lnk{display:inline-flex;align-items:center;min-height:44px;overflow-wrap:anywhere}
+.th{display:block;width:64px;height:80px;object-fit:cover;border-radius:6px;flex:none;background:var(--head)}
+.ad{display:flex;align-items:center;gap:10px;min-height:44px;color:inherit}
+td .ad span{white-space:normal}
+table.meta{font-size:.8rem}
+table.meta th,table.meta td{padding:8px 6px}
+table.meta th{white-space:normal;line-height:1.3}
+table.meta td.t{min-width:10em}
+</style>
+</head>
+<body>
+<main>
+<h1>りーぷ リール広告</h1>
+<nav aria-label="ページ" class="nav"><a href="../">まとめ</a><a href="../reel/" aria-current="page">リール広告</a><a href="../meta/">メタ広告</a><a href="../concerns/">悩み別</a><a href="../shushi/">収支</a></nav>
+<section id="reel">
+<h2>インスタのリール広告</h2>
+<ul class="notes"><li>10/19時点の累計（インスタ広告画面）で、ドル払いは1ドル163.69円で換算。</li><li>「未配信」は10/19時点で配信されていない広告で、フォロー数が取れない広告はフォロー集計から除きます。</li><li>9/22に届いた5本のうち4本を広告にし（10/19時点は全て未配信）、1本は未投稿（10/6時点）です。</li></ul>
+<h3>作り手ごとの合計</h3>
+<div class="scroll"><table><thead><tr><th class="t">動画</th><th class="n">広告費（円）</th><th class="n">フォロー（人）</th><th class="n">フォロー単価（円）</th><th class="n">プロフィール閲覧（回）</th><th class="n">閲覧単価（円）</th><th class="n">フォロー取得（本）</th></tr></thead><tbody><tr><td class="t">片岡さん制作（10本）</td><td class="n">144,342</td><td class="n">321</td><td class="n">334</td><td class="n">7,212</td><td class="n">20</td><td class="n">7/10</td></tr><tr><td class="t">片岡さんの台本で作った動画（7/11・3本）</td><td class="n">97,490</td><td class="n">124</td><td class="n">289</td><td class="n">4,729</td><td class="n">21</td><td class="n">2/3</td></tr><tr><td class="t">店舗の素材から社内で制作（4本）</td><td class="n">99,747</td><td class="n">25</td><td class="n">504</td><td class="n">7,317</td><td class="n">14</td><td class="n">2/4</td></tr></tbody></table></div>
+<h3>片岡さん制作（10本）</h3>
+<div class="scroll"><table class="ads"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th class="n">広告費（円）</th><th class="n">フォロー（人）</th><th class="n">フォロー単価（円）</th><th class="n">プロフィール閲覧（回）</th><th class="n">閲覧単価（円）</th></tr></thead><tbody><tr><td>10/3</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DeAMRvejLDv/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DeAMRvejLDv.jpg" alt="投稿の冒頭：サンダルを履くとき" width="64" height="80" decoding="async"><span>サンダルを履くとき</span></a></td><td><span class="st off">未配信</span></td><td class="n">7,068</td><td class="n">34</td><td class="n">208</td><td class="n">320</td><td class="n">22</td></tr>
+<tr><td>9/30</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/Dd6gVAAtKJd/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-Dd6gVAAtKJd.jpg" alt="投稿の冒頭：足の悩み、どこに相談" width="64" height="80" decoding="async"><span>足の悩み、どこに相談</span></a></td><td><span class="st off">未配信</span></td><td class="n">7,125</td><td class="n">–</td><td class="n">–</td><td class="n">362</td><td class="n">20</td></tr>
+<tr><td>9/25</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DdtpSIkPu3D/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DdtpSIkPu3D.jpg" alt="投稿の冒頭：足裏のタコや魚の目、気になっていませんか？👣 りーぷでは、ま" width="64" height="80" decoding="async"><span>足裏のタコや魚の目</span></a></td><td><span class="st off">未配信</span></td><td class="n">29,819</td><td class="n">–</td><td class="n">–</td><td class="n">1,790</td><td class="n">17</td></tr>
+<tr><td>9/23</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DdmOl0puyX_/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DdmOl0puyX_.jpg" alt="投稿の冒頭：厚くなった爪や足裏、自己流のケアに迷っていませんか？👣 りー" width="64" height="80" decoding="async"><span>厚くなった爪や足裏</span></a></td><td><span class="st off">未配信</span></td><td class="n">45,057</td><td class="n">163</td><td class="n">276</td><td class="n">1,927</td><td class="n">23</td></tr>
+<tr><td>9/13</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DdNdcIcP-r3/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DdNdcIcP-r3.jpg" alt="投稿の冒頭：@footcare.leap.tennoji 👈ご予約はこち" width="64" height="80" decoding="async"><span>leapを始めた理由</span></a></td><td><span class="st off">停止</span></td><td class="n">9,990</td><td class="n">23</td><td class="n">434</td><td class="n">281</td><td class="n">36</td></tr>
+<tr><td>8/7</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbvKrN7j2se/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbvKrN7j2se.jpg" alt="投稿の冒頭：「フットケアは痛そう、我慢するもの」と思っていませんか？👣 " width="64" height="80" decoding="async"><span>フットケアは痛そう（縦長版）</span></a></td><td><span class="st off">停止</span></td><td class="n">16,020</td><td class="n">29</td><td class="n">552</td><td class="n">1,069</td><td class="n">15</td></tr>
+<tr><td>8/7</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbvG51RjZyD/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbvG51RjZyD.jpg" alt="投稿の冒頭：足の悩み、どこに相談すればいいか迷っていませんか？👣 巻き爪" width="64" height="80" decoding="async"><span>足の悩み、どこに相談（縦長版）</span></a></td><td><span class="st off">停止</span></td><td class="n">19,556</td><td class="n">46</td><td class="n">425</td><td class="n">1,017</td><td class="n">19</td></tr>
+<tr><td>7/23</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbIkyieNmhh/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbIkyieNmhh.jpg" alt="投稿の冒頭：「フットケアは痛そう、我慢するもの」と思っていませんか？👣 " width="64" height="80" decoding="async"><span>フットケアは痛そう</span></a></td><td><span class="st off">未配信（7月以降ほぼ消化なし）</span></td><td class="n">308</td><td class="n">–</td><td class="n">–</td><td class="n">22</td><td class="n">14</td></tr>
+<tr><td>7/23</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbIkW9Sh3K_/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbIkW9Sh3K_.jpg" alt="投稿の冒頭：足元が気になって、サンダルや温泉を避けていませんか？👣 りー" width="64" height="80" decoding="async"><span>サンダルや温泉</span></a></td><td><span class="st off">停止</span></td><td class="n">4,740</td><td class="n">15</td><td class="n">316</td><td class="n">206</td><td class="n">23</td></tr>
+<tr><td>7/23</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbIk3gVMO4V/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbIk3gVMO4V.jpg" alt="投稿の冒頭：「もっと早く相談できていたら」——そんな想いから、りーぷは始" width="64" height="80" decoding="async"><span>もっと早く相談</span></a></td><td><span class="st off">停止</span></td><td class="n">4,659</td><td class="n">11</td><td class="n">424</td><td class="n">218</td><td class="n">21</td></tr></tbody></table></div>
+<h3>片岡さんの台本で作った動画（7/11・制作者確認中）</h3>
+<div class="scroll"><table class="ads"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th class="n">広告費（円）</th><th class="n">フォロー（人）</th><th class="n">フォロー単価（円）</th><th class="n">プロフィール閲覧（回）</th><th class="n">閲覧単価（円）</th></tr></thead><tbody><tr><td>7/11</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DaqAnR2JMkt/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DaqAnR2JMkt.jpg" alt="投稿の冒頭：「巻き爪は、手術するしかない」と思っていませんか？ 巻き爪が" width="64" height="80" decoding="async"><span>巻き爪は、手術するしかない</span></a></td><td><span class="st off">未配信</span></td><td class="n">61,641</td><td class="n">–</td><td class="n">–</td><td class="n">2,952</td><td class="n">21</td></tr>
+<tr><td>7/11</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DaqATl5PXxi/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DaqATl5PXxi.jpg" alt="投稿の冒頭：天王寺に「フットケア×リラクゼーション」のお店ができました🦶" width="64" height="80" decoding="async"><span>天王寺に「フットケア×リラクゼーション」（広告3回分の合計）</span></a></td><td><span class="st off">停止</span></td><td class="n">27,610</td><td class="n">94</td><td class="n">294</td><td class="n">1,434</td><td class="n">19</td></tr>
+<tr><td>7/11</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DaqAq3dp75j/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DaqAq3dp75j.jpg" alt="投稿の冒頭：「巻き爪って、本当に良くなるんですか？」——よく聞かれます。" width="64" height="80" decoding="async"><span>巻き爪って、本当に良くなるんですか？</span></a></td><td><span class="st off">停止</span></td><td class="n">8,239</td><td class="n">30</td><td class="n">275</td><td class="n">343</td><td class="n">24</td></tr></tbody></table></div>
+<h3>店舗の素材から社内で制作（4本）</h3>
+<div class="scroll"><table class="ads"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th class="n">広告費（円）</th><th class="n">フォロー（人）</th><th class="n">フォロー単価（円）</th><th class="n">プロフィール閲覧（回）</th><th class="n">閲覧単価（円）</th></tr></thead><tbody><tr><td>7/22</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbFE0uRDJ54/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbFE0uRDJ54.jpg" alt="投稿の冒頭：足のタコ・魚の目、かかとのガサガサ。気になるけれど、どこに相" width="64" height="80" decoding="async"><span>足のタコ・魚の目、かかと</span></a></td><td><span class="st off">未配信</span></td><td class="n">56,897</td><td class="n">–</td><td class="n">–</td><td class="n">4,086</td><td class="n">14</td></tr>
+<tr><td>7/22</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbD5BD-j6eS/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbD5BD-j6eS.jpg" alt="投稿の冒頭：巻き爪が気になる方へ👣 りーぷでは、まず厚くなった爪を適切な" width="64" height="80" decoding="async"><span>巻き爪が気になる方へ</span></a></td><td><span class="st off">停止</span></td><td class="n">30,252</td><td class="n">–</td><td class="n">–</td><td class="n">2,456</td><td class="n">12</td></tr>
+<tr><td>7/22</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbF4WYaFk92/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbF4WYaFk92.jpg" alt="投稿の冒頭：かかとのガサガサ、素足になると気になりませんか？👣 りーぷの" width="64" height="80" decoding="async"><span>かかとのガサガサ</span></a></td><td><span class="st off">停止</span></td><td class="n">6,273</td><td class="n">15</td><td class="n">418</td><td class="n">351</td><td class="n">18</td></tr>
+<tr><td>7/22</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbFgTHmF_nY/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbFgTHmF_nY.jpg" alt="投稿の冒頭：歩くたびに気になる、足裏のタコ・魚の目👣 りーぷでは、まず皮" width="64" height="80" decoding="async"><span>足裏のタコ・魚の目</span></a></td><td><span class="st off">停止</span></td><td class="n">6,325</td><td class="n">10</td><td class="n">632</td><td class="n">424</td><td class="n">15</td></tr></tbody></table></div>
+<h3>その他（制作者確認中）</h3>
+<div class="scroll"><table class="ads"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th class="n">広告費（円）</th><th class="n">フォロー（人）</th><th class="n">フォロー単価（円）</th><th class="n">プロフィール閲覧（回）</th><th class="n">閲覧単価（円）</th></tr></thead><tbody><tr><td>7/20</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/Da_0nLcJ7Ev/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-Da_0nLcJ7Ev.jpg" alt="投稿の冒頭：「フットケアって何をするの？」 実は、この質問を一番よくいた" width="64" height="80" decoding="async"><span>フットケアって何をするの？</span></a></td><td><span class="st off">停止</span></td><td class="n">8,217</td><td class="n">15</td><td class="n">548</td><td class="n">578</td><td class="n">14</td></tr></tbody></table></div>
+<h3>参考：美容整体（ReLUMI）</h3>
+<div class="scroll"><table class="ads"><thead><tr><th>投稿日</th><th class="t">内容（投稿の冒頭）</th><th>状態</th><th class="n">広告費（円）</th><th class="n">フォロー（人）</th><th class="n">フォロー単価（円）</th><th class="n">プロフィール閲覧（回）</th><th class="n">閲覧単価（円）</th></tr></thead><tbody><tr><td>7/23</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DbIBF99RHgp/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DbIBF99RHgp.jpg" alt="投稿の冒頭：天王寺駅から徒歩3分。 このドアの先にあるのは、 巻き肩・猫" width="64" height="80" decoding="async"><span>天王寺駅から徒歩3分</span></a></td><td><span class="st on">配信中</span></td><td class="n">76,839</td><td class="n">195</td><td class="n">394</td><td class="n">4,153</td><td class="n">19</td></tr>
+<tr><td>4/3</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DWqsV1CJHlT/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DWqsV1CJHlT.jpg" alt="投稿の冒頭：＼寝てるだけで姿勢が変わる、不思議な整体。／ 大阪・天王寺駅" width="64" height="80" decoding="async"><span>寝てるだけで姿勢が変わる</span></a></td><td><span class="st on">配信中</span></td><td class="n">313,782</td><td class="n">1,039</td><td class="n">302</td><td class="n">18,240</td><td class="n">17</td></tr>
+<tr><td>9/22</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DdkmUzapYvT/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DdkmUzapYvT.jpg" alt="投稿の冒頭：周りのことを優先して、自分の疲れは後回しになっていませんか。" width="64" height="80" decoding="async"><span>周りのことを優先して（片岡さん制作）</span></a></td><td><span class="st off">停止（10/6）</span></td><td class="n">14,224</td><td class="n">6</td><td class="n">2,371</td><td class="n">351</td><td class="n">41</td></tr>
+<tr><td>5/13</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DYRybBqTor0/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DYRybBqTor0.jpg" alt="投稿の冒頭：@relumi_tennoji 正直に言います。 大阪の美容" width="64" height="80" decoding="async"><span>ReLUMIの施術はちょっと別格</span></a></td><td><span class="st off">停止</span></td><td class="n">30,339</td><td class="n">105</td><td class="n">289</td><td class="n">1,749</td><td class="n">17</td></tr>
+<tr><td>4/8</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DW3rFElJ0wQ/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DW3rFElJ0wQ.jpg" alt="投稿の冒頭：最近なんだか老けて見える… その原因、実は顔ではなく 背中の" width="64" height="80" decoding="async"><span>老けて見える原因は背中の硬さ</span></a></td><td><span class="st off">停止</span></td><td class="n">3,486</td><td class="n">16</td><td class="n">218</td><td class="n">241</td><td class="n">14</td></tr>
+<tr><td>1/31</td><td class="t"><a class="ad" href="https://www.instagram.com/reel/DULQtM4EVbH/" target="_blank" rel="noopener noreferrer"><img class="th" src="../img/ig-DULQtM4EVbH.jpg" alt="投稿の冒頭：@relumi_tennoji 背中が丸くなり、 なんとなく" width="64" height="80" decoding="async"><span>背中が丸くなり、老けて見える（埋もれた肩甲骨）</span></a></td><td><span class="st off">停止</span></td><td class="n">21,458</td><td class="n">104</td><td class="n">206</td><td class="n">1,233</td><td class="n">17</td></tr></tbody></table></div>
+</section>
+</main>
+</body>
+</html>

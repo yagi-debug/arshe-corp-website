@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>働き方の資料｜ReLUMI pilates 天王寺</title>
+<style>
+  :root {
+    --cream: #FFFFF3;
+    --yellow: #FEEC41;
+    --blue: #0075B5;
+    --sky: #30B9E8;
+    --ink: #1A191A;
+    --line: #D0D0D0;
+    --sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+  }
+  @page { size: 254mm 142.875mm; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #bdbdb0; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.45;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 960px; height: 540px;
+    margin: 10px auto;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  @media print {
+    html, body { background: var(--cream); }
+    .page { margin: 0; page-break-after: always; break-after: page; }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+  }
+
+  /* 題の帯・下の帯・右のタブ */
+  .ttl {
+    position: absolute; left: 0; top: 0; width: 960px; height: 48px;
+    background: var(--yellow); display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 24px; white-space: nowrap;
+  }
+  .sum {
+    position: absolute; left: 24px; bottom: 0; width: 886px; height: 44px;
+    background: var(--yellow); display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 22px; white-space: nowrap;
+  }
+  .sum .pn { position: absolute; right: 12px; bottom: 5px; font-size: 13px; font-weight: 600; }
+  .tab {
+    position: absolute; right: 0; top: 48px; bottom: 0; width: 30px;
+    background: var(--sky); display: flex; flex-direction: column; align-items: center;
+    gap: 8px; padding-top: 12px;
+  }
+  .tc {
+    background: #fff; border-radius: 7px; width: 22px; padding: 7px 0;
+    writing-mode: vertical-rl; text-orientation: upright;
+    font-size: 13px; font-weight: 800; color: var(--blue); line-height: 1; letter-spacing: 1px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .main {
+    position: absolute; left: 24px; top: 60px; width: 886px; height: 424px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+
+  /* 部品 */
+  .row { display: flex; gap: 10px; align-items: stretch; min-height: 0; }
+  .col { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+  .box {
+    background: #fff; border: 1px solid var(--line); border-radius: 6px;
+    padding: 12px 16px; min-width: 0;
+  }
+  .box.y { background: var(--yellow); border-color: #E6D52A; }
+  .hd { color: var(--blue); font-weight: 800; font-size: 21px; line-height: 1.3; margin-bottom: 6px; }
+  .tx { font-size: 17px; font-weight: 600; line-height: 1.5; }
+  .nt { font-size: 13px; font-weight: 600; line-height: 1.5; }
+  .hlp { background: linear-gradient(transparent 52%, var(--yellow) 52%); padding: 0 2px; }
+  .num { font-weight: 900; line-height: 1; letter-spacing: 0; }
+  .num small { font-size: 0.42em; font-weight: 800; margin-left: 3px; }
+  .ar { flex: none; width: 22px; align-self: center; height: 28px; position: relative; }
+  .ar::before {
+    content: ""; position: absolute; left: 1px; top: 0;
+    border-left: 20px solid var(--blue); border-top: 14px solid transparent; border-bottom: 14px solid transparent;
+  }
+  .pill {
+    display: inline-block; background: var(--blue); color: #fff; font-weight: 800;
+    font-size: 17px; padding: 3px 16px; border-radius: 20px; margin-bottom: 8px; line-height: 1.4;
+  }
+  .c { display: flex; flex-direction: column; justify-content: center; }
+  .tc-c { text-align: center; }
+  .tbl { display: flex; flex-direction: column; }
+  .tbl .r { display: flex; gap: 18px; padding: 8px 0; border-bottom: 1px solid var(--line); align-items: center; }
+  .tbl .r:last-child { border-bottom: 0; }
+  .tbl .k { flex: none; width: 92px; color: var(--blue); font-weight: 800; font-size: 20px; line-height: 1.3; }
+  .tbl .v { font-size: 17px; line-height: 1.45; }
+  .tbl .v small { font-size: 13px; font-weight: 600; }
+  .dot { list-style: none; }
+  .dot li { position: relative; padding-left: 18px; margin-bottom: 12px; font-size: 18px; line-height: 1.45; }
+  .dot li::before { content: ""; position: absolute; left: 1px; top: 10px; width: 9px; height: 9px; background: var(--blue); border-radius: 2px; }
+  .no {
+    flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 17px;
+  }
+
+  /* 表紙 */
+  .cover { background: var(--cream); border: 22px solid var(--yellow); }
+  .cover .l { position: absolute; left: 40px; top: 44px; width: 470px; }
+  .cover .pl { display: inline-block; background: var(--sky); color: #fff; font-weight: 800; font-size: 22px; padding: 8px 30px; border-radius: 40px; }
+  .cover h1 { font-weight: 900; font-size: 74px; line-height: 1.15; margin: 26px 0 16px; letter-spacing: 1px; }
+  .cover .st { font-weight: 800; font-size: 26px; line-height: 1.45; margin-bottom: 22px; }
+  .cover .sm { font-size: 17px; font-weight: 600; line-height: 1.7; }
+  .cover .r { position: absolute; right: 30px; top: 44px; width: 372px; }
+  .cover .r .box { padding: 12px 18px; }
+  .cover .toc { list-style: none; }
+  .cover .toc li { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: 16px; font-weight: 700; white-space: nowrap; border-bottom: 1px solid var(--line); }
+  .cover .toc li:last-child { border-bottom: 0; }
+  .cover .toc .no { width: 26px; height: 26px; font-size: 15px; }
+  .cover .ft { position: absolute; left: 40px; bottom: 22px; font-size: 14px; font-weight: 600; }
+
+  /* 2 目指す姿 */
+  .eq { display: flex; align-items: center; gap: 8px; }
+  .eq .t { flex: 1; text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 22px 2px; font-weight: 800; font-size: 19px; line-height: 1.3; white-space: nowrap; }
+  .eq .t.y { background: var(--yellow); border-color: #E6D52A; font-weight: 900; font-size: 25px; flex: 1.15; }
+  .eq .s { font-size: 26px; color: var(--blue); font-weight: 800; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 7px 14px; font-size: 16px; font-weight: 700; }
+
+  /* 3 仕事の中身 */
+  .bar { display: flex; height: 58px; border-radius: 4px; overflow: hidden; margin-top: 8px; }
+  .bar > div { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 13px; line-height: 1.3; font-weight: 700; padding: 0 2px; min-width: 0; }
+  .bar b { font-size: 19px; font-weight: 900; line-height: 1.1; }
+  .bar .b1 { flex: 15 1 0; background: var(--sky); color: var(--ink); }
+  .bar .b2 { flex: 35 1 0; background: var(--blue); color: #fff; }
+  .bar .b3 { flex: 10 1 0; background: #BDE7F7; color: var(--ink); }
+  .steps { display: flex; align-items: stretch; gap: 3px; flex: 1; }
+  .steps .ar { width: 20px; }
+  .steps .ar::before { left: 0; border-left-width: 16px; border-top-width: 11px; border-bottom-width: 11px; }
+  .stp { flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; background: var(--cream); border: 1px solid var(--line); border-radius: 6px; padding: 8px 3px; font-size: 15px; white-space: nowrap; font-weight: 700; line-height: 1.4; min-width: 0; }
+  .stp.y { background: var(--yellow); border-color: #E6D52A; }
+  .stp small { display: block; font-size: 13px; font-weight: 600; }
+
+  /* 9 勤務と休み */
+  .hol { display: flex; height: 40px; border-radius: 4px; overflow: hidden; }
+  .hol i { display: block; }
+  .hol .h1 { flex: 104 1 0; background: var(--blue); }
+  .hol .h2 { flex: 6 1 0; background: var(--sky); }
+  .hol .h3 { flex: 3 1 0; background: #7FD0F0; }
+  .hol .h4 { flex: 3 1 0; background: #BDE7F7; }
+  .leg { display: flex; gap: 22px; margin-top: 8px; font-size: 16px; font-weight: 700; align-items: center; }
+  .leg span { display: inline-flex; align-items: center; gap: 6px; }
+  .leg .sw { width: 14px; height: 14px; border-radius: 3px; }
+  .hrs { position: relative; margin-top: 30px; }
+  .hrs .lr { position: absolute; top: -24px; right: 0; font-size: 15px; font-weight: 800; color: var(--blue); }
+  .hrs .band { display: flex; height: 40px; border-radius: 4px; overflow: hidden; }
+  .hrs .band div { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; font-weight: 800; }
+  .hrs .band .w { flex: 8 1 0; background: var(--blue); }
+  .hrs .band .e { flex: 1 1 0; background: var(--sky); }
+  .hrs .ax { display: flex; justify-content: space-between; margin-top: 6px; font-size: 20px; font-weight: 800; }
+
+  /* 10 階段 */
+  .stairs { display: flex; flex-direction: column; gap: 12px; }
+  .stairs .s { height: 52px; display: flex; align-items: center; padding: 0 16px; border-radius: 6px; font-weight: 800; font-size: 18px; width: 62%; }
+  .stairs .s small { font-size: 13px; font-weight: 600; margin-left: 10px; }
+  .stairs .s1 { background: #BDE7F7; margin-left: 0; }
+  .stairs .s2 { background: var(--sky); margin-left: 12.67%; }
+  .stairs .s3 { background: var(--blue); color: #fff; margin-left: 25.33%; }
+  .stairs .s4 { background: #00588A; color: #fff; margin-left: 38%; }
+
+  /* 公開ページ用: 各スライドを画面幅に合わせて縮める */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; }
+  .wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 12px; }
+  .head { padding: 16px 0 6px; text-align: center; font-size: 15px; line-height: 1.6; }
+  .head .pdf { display: inline-block; margin-top: 8px; padding: 10px 18px; background: var(--blue); color: #fff;
+    border-radius: 8px; text-decoration: none; font-weight: 800; }
+  .foot { padding: 6px 0 28px; text-align: center; }
+  .foot .pdf { display: inline-block; padding: 10px 18px; background: var(--blue); color: #fff;
+    border-radius: 8px; text-decoration: none; font-weight: 800; }
+  .slide { position: relative; width: 100%; aspect-ratio: 960 / 540; margin: 0 0 14px; overflow: hidden; }
+  .slide .page { margin: 0; position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+  @media print {
+    .head, .foot { display: none; }
+    .wrap { padding: 0; max-width: none; }
+    .slide { width: 960px; height: 540px; aspect-ratio: auto; margin: 0; }
+    .slide .page { transform: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="head">ReLUMI pilates 天王寺 働き方の資料<br><a class="pdf" href="hatarakikata_ReLUMI-pilates.pdf">PDFで見る・保存する</a></div>
+<div class="slide" data-n="1"><section class="page cover">
+  <div class="l">
+    <span class="pl">ReLUMI pilates 天王寺</span>
+    <h1><span class="hlp">働き方の資料</span></h1>
+    <div class="st">予約の取れない人気インストラクター<br>になるための働き方</div>
+    <div class="sm">インストラクター（正社員）を希望される方へ<br>面接の前に、要点だけをまとめました。</div>
+  </div>
+  <div class="r">
+    <div class="box">
+      <ul class="toc">
+        <li><span class="no">1</span>目指す姿</li>
+        <li><span class="no">2</span>仕事の中身</li>
+        <li><span class="no">3</span>やってほしいこと・やらなくていいこと</li>
+        <li><span class="no">4</span>研修</li>
+        <li><span class="no">5</span>働き方の考え方</li>
+        <li><span class="no">6</span>会社が見る数字</li>
+        <li><span class="no">7</span>お給料</li>
+        <li><span class="no">8</span>勤務と休み</li>
+        <li><span class="no">9</span>入社から、その先まで</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft">運営：合同会社アルシェスタイル（美容整体ReLUMI）／2026年11月版</div>
+</section></div>
+<div class="slide" data-n="2"><section class="page">
+  <div class="ttl">姿勢美人になれる店</div>
+  <div class="tab"><span class="tc">第1章</span><span class="tc">目指す姿</span></div>
+  <div class="main">
+    <div class="row" style="flex:1">
+      <div class="col" style="flex:1.15">
+        <div class="eq">
+          <div class="t">美容整体</div><div class="s">＋</div>
+          <div class="t">マシン<br>ピラティス</div><div class="s">＝</div>
+          <div class="t y">姿勢美人</div>
+        </div>
+        <div class="chips">
+          <span class="chip">女性専用</span>
+          <span class="chip">完全マンツーマン・個室</span>
+          <span class="chip">30〜40代の女性</span>
+          <span class="chip">姿勢を撮影して前後を比べる</span>
+          <span class="chip">無理な勧誘なし</span>
+        </div>
+      </div>
+      <div class="box" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+        <div class="hd">あなたの目指す姿（キャリアゴール）</div>
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-top:22px"><span class="no">1</span><div class="tx" style="font-weight:700;font-size:18px">「<span class="hlp">予約の取れない人気インストラクター</span>」<br>として活躍し続ける</div></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-top:26px"><span class="no">2</span><div class="tx" style="font-weight:700;font-size:18px">自分も元気に、<br>プライベートも大切に</div></div>
+      </div>
+    </div>
+    <div class="box" style="height:128px;display:flex;align-items:center;gap:26px">
+      <div class="hd" style="margin:0;flex:none;font-size:24px">今の店</div>
+      <div class="tx" style="flex:1.4">インストラクター 1人 <span style="color:var(--blue);font-weight:800">▶ 2人目を募集</span><br><span class="nt">（立ち上げメンバー）</span><br>同じ店内に美容整体のスタッフ</div>
+      <div class="box y" style="flex:1;text-align:center;padding:10px 12px"><div class="nt" style="font-weight:700">勤務開始</div><div style="font-weight:800;font-size:19px;line-height:1.35">2026年12月〜<br>2027年1月ごろ</div></div>
+    </div>
+  </div>
+  <div class="sum">美容整体×ピラティスで、姿勢美人を増やす<span class="pn">2</span></div>
+</section></div>
+<div class="slide" data-n="3"><section class="page">
+  <div class="ttl">1対1で、姿勢の変化に付き合う</div>
+  <div class="tab"><span class="tc">第2章</span><span class="tc">仕事の中身</span></div>
+  <div class="main">
+    <div class="row" style="height:226px">
+      <div class="box" style="flex:1.35">
+        <div style="display:flex;align-items:baseline;gap:12px"><span class="hd" style="margin:0">会員レッスン（目安）</span><span class="num" style="font-size:64px">60<small>分</small></span></div>
+        <div class="bar">
+          <div class="b1"><b>15分</b>美容整体</div>
+          <div class="b2"><b>35分</b>マシンピラティス</div>
+          <div class="b3"><b>10分</b>着替え・<br>ふり返り</div>
+        </div>
+        <div class="nt" style="margin-top:8px">流れはその方に合わせます</div>
+      </div>
+      <div class="col" style="flex:1">
+        <div class="box" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+          <div class="hd" style="margin-bottom:3px">会員さんのフォロー</div>
+          <div class="tx">月3回・月4回・都度払い<br>姿勢の撮り直し</div>
+        </div>
+        <div class="box" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+          <div class="hd" style="margin-bottom:3px">店の運営</div>
+          <div class="tx">開け閉め・マシンの手入れ<br>受付と予約・掃除</div>
+        </div>
+      </div>
+    </div>
+    <div class="box" style="flex:1;display:flex;gap:16px;align-items:stretch">
+      <div class="c" style="flex:none;width:132px;white-space:nowrap"><div class="hd" style="margin-bottom:2px">初回体験</div><span class="num" style="font-size:60px">90<small>分</small></span></div>
+      <div class="steps">
+        <div class="stp">カウンセリング</div><div class="ar"></div>
+        <div class="stp">姿勢を撮影</div><div class="ar"></div>
+        <div class="stp">リフォーマー<br>体験</div><div class="ar"></div>
+        <div class="stp">もう一度撮影<br>して比べる</div><div class="ar"></div>
+        <div class="stp y">プランのご案内<small>5分ほど・<br>押し売りなし</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="sum">集客は会社、続けてもらうのはインストラクター<span class="pn">3</span></div>
+</section></div>
+<div class="slide" data-n="4"><section class="page">
+  <div class="ttl">やってほしいのは、リピートだけ</div>
+  <div class="tab"><span class="tc">第3章</span><span class="tc">やってほしいこと</span></div>
+  <div class="main">
+    <div class="row" style="flex:1">
+      <div class="box y" style="flex:1.15;display:flex;flex-direction:column;justify-content:center;padding:18px 24px">
+        <div><span class="pill">やってほしいこと</span></div>
+        <div style="font-weight:800;font-size:34px;line-height:1.45">また来たい、と<br>思ってもらうこと</div>
+      </div>
+      <div class="col" style="flex:1">
+        <div class="hd" style="margin:2px 0 0 4px">やらなくていいこと</div>
+        <div class="box" style="flex:1;display:flex;align-items:center;justify-content:space-between;gap:10px"><span class="tx" style="font-weight:800">新しいお客様を集める</span><span class="nt" style="color:var(--blue);font-weight:800">会社がやります</span></div>
+        <div class="box" style="flex:1;display:flex;align-items:center"><span class="tx" style="font-weight:800">売上の目標を追う</span></div>
+        <div class="box" style="flex:1;display:flex;align-items:center"><span class="tx" style="font-weight:800">無理な勧誘</span></div>
+      </div>
+    </div>
+    <div class="row" style="height:128px">
+      <div class="box" style="flex:1.15;display:flex;align-items:center;gap:12px;padding:12px 14px">
+        <div class="c tc-c" style="flex:1"><div class="hd" style="margin-bottom:2px">集客</div><div class="tx" style="font-weight:800">＝ 会社</div></div>
+        <div class="ar"></div>
+        <div class="c tc-c" style="flex:1.5"><div class="hd" style="margin-bottom:2px"><span class="hlp">収客</span></div><div class="tx" style="font-weight:800">＝ あなた</div><div class="nt">来てくださった方をファンに</div></div>
+      </div>
+      <div class="box c tc-c" style="flex:1">
+        <div class="nt" style="font-weight:700">目指すのは、</div>
+        <div style="font-weight:800;font-size:19px;line-height:1.45;margin-top:2px"><span class="hlp">予約の取れない人気インストラクター</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="sum">目の前のお客様に集中してください<span class="pn">4</span></div>
+</section></div>
+<div class="slide" data-n="5"><section class="page">
+  <div class="ttl">未経験・無資格から始められます</div>
+  <div class="tab"><span class="tc">第4章</span><span class="tc">研修</span></div>
+  <div class="main">
+    <div class="row" style="flex:1">
+      <div class="box c tc-c" style="width:96px;flex:none"><div class="hd" style="font-size:26px;margin:0">入社</div></div>
+      <div class="ar"></div>
+      <div class="box" style="width:250px;flex:none;display:flex;flex-direction:column;justify-content:center">
+        <div class="hd" style="font-size:26px">研修</div>
+        <div class="tx" style="font-weight:700"><span style="color:var(--blue);font-weight:800">ピラティス</span><br>今のインストラクターが、<br>レッスンの合間に</div>
+        <div class="tx" style="font-weight:700;margin-top:10px"><span style="color:var(--blue);font-weight:800">美容整体</span><br>整体スタッフが</div>
+      </div>
+      <div class="ar"></div>
+      <div class="box y c tc-c" style="width:256px;flex:none">
+        <div class="num" style="font-size:58px;white-space:nowrap">1〜2<small style="font-size:28px">週間</small></div>
+        <div class="tx" style="font-weight:800;margin-top:10px">お客様の担当を始める目安</div>
+      </div>
+      <div class="ar"></div>
+      <div class="box c" style="flex:1;text-align:center"><div class="hd" style="font-size:24px">自主練習で<br>伸ばす</div><div class="nt" style="font-size:14px">スタジオで練習<br>できます</div></div>
+    </div>
+  </div>
+  <div class="sum">未経験からでも、1〜2週間でデビュー<span class="pn">5</span></div>
+</section></div>
+<div class="slide" data-n="6"><section class="page">
+  <div class="ttl">迷ったら「自分 → お客様 → 店舗」</div>
+  <div class="tab"><span class="tc">第5章</span><span class="tc">働き方の考え方</span></div>
+  <div class="main">
+    <div class="row" style="flex:1.25">
+      <div class="box c" style="flex:1"><div class="hd" style="font-size:30px;margin-bottom:4px">自分</div><div style="font-weight:800;font-size:22px;margin-bottom:6px"><span class="hlp">自分のために</span></div><div class="tx" style="font-weight:700;font-size:16px">元気でいきいきしているから、<br>お客様にも良い対応ができます</div></div>
+      <div class="ar"></div>
+      <div class="box c" style="flex:1"><div class="hd" style="font-size:30px;margin-bottom:4px">お客様</div><div style="font-weight:800;font-size:22px;margin-bottom:6px"><span class="hlp">お客様を大事に</span></div><div class="tx" style="font-weight:700;font-size:16px">大切にすれば感謝されて、<br>その結果が売上になります</div></div>
+      <div class="ar"></div>
+      <div class="box c" style="flex:1"><div class="hd" style="font-size:30px;margin-bottom:4px">店舗</div><div style="font-weight:800;font-size:22px;margin-bottom:6px"><span class="hlp">店舗も大事に</span></div><div class="tx" style="font-weight:700;font-size:16px">店の評判は自分たちに返ります<br>仲間と助け合いましょう</div></div>
+    </div>
+    <div class="row" style="flex:1">
+      <div class="box" style="flex:1">
+        <div class="hd">合う方</div>
+        <ul class="dot" style="margin-top:6px">
+          <li>体の小さな変化に気づくのが好き</li>
+          <li>1対1でじっくり向き合いたい</li>
+          <li>美容整体も覚えたい</li>
+        </ul>
+      </div>
+      <div class="box" style="flex:1">
+        <div class="hd">合わないかもしれない方</div>
+        <ul class="dot" style="margin-top:6px">
+          <li>大人数のグループレッスンを教えたい</li>
+          <li>ピラティスだけを教えたい</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tx tc-c" style="font-size:15px;font-weight:700;height:24px">働くことは楽しい。「ありがとう」が増える店にしたい（代表 八木）</div>
+  </div>
+  <div class="sum">迷ったら、まず自分を大切に<span class="pn">6</span></div>
+</section></div>
+<div class="slide" data-n="7"><section class="page">
+  <div class="ttl">追う数字は、継続率の1つだけ</div>
+  <div class="tab"><span class="tc">第6章</span><span class="tc">会社が見る数字</span></div>
+  <div class="main">
+    <div class="row" style="height:218px">
+      <div class="box" style="flex:1.1;display:flex;flex-direction:column;justify-content:center">
+        <div class="hd">会社が見る</div>
+        <div style="font-weight:900;font-size:40px;line-height:1.25">会員様の<span class="hlp">継続率</span></div>
+        <div class="tx" style="font-size:15px;margin-top:8px">レッスンの質、お客様の満足、<br>インストラクターとしての価値が、<br>いちばん正確に表れる数字です</div>
+      </div>
+      <div class="col" style="flex:1">
+        <div class="box" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+          <div class="hd">なぜ</div>
+          <div class="tx" style="font-weight:800;font-size:20px;line-height:1.45">続けてもらえるほど、<br>お給料に返ってくる</div>
+        </div>
+        <div class="box" style="padding:10px 16px">
+          <div class="nt" style="font-weight:700;margin-bottom:6px">追わないもの</div>
+          <div class="chips"><span class="chip" style="text-decoration:line-through;color:#6a6a6a">売上の目標</span><span class="chip" style="text-decoration:line-through;color:#6a6a6a">新規の数</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height:104px">
+      <div class="box c tc-c" style="flex:1;font-weight:800;font-size:19px;line-height:1.35">満足<br>してもらう</div>
+      <div class="ar"></div>
+      <div class="box c tc-c" style="flex:1;font-weight:800;font-size:19px;line-height:1.35">続けて<br>通ってもらう</div>
+      <div class="ar"></div>
+      <div class="box c tc-c" style="flex:1;font-weight:800;font-size:19px;line-height:1.35">担当レッスンが<br>増える</div>
+      <div class="ar"></div>
+      <div class="box y c tc-c" style="flex:1;font-weight:800;font-size:19px;line-height:1.35">歩合で<br>お給料が上がる</div>
+    </div>
+    <div class="box c" style="flex:1;padding:10px 20px">
+      <div class="tx" style="font-size:16px;line-height:1.6">歩合はレッスンをした分の売上で計算します。目標ではありません。<br>下がったときは責めません。どこで来られなくなったかを一緒に見ます。</div>
+    </div>
+  </div>
+  <div class="sum">入る前に、いちばん大事な数字を伝えます<span class="pn">7</span></div>
+</section></div>
+<div class="slide" data-n="8"><section class="page">
+  <div class="ttl">お給料</div>
+  <div class="tab"><span class="tc">第7章</span><span class="tc">お給料</span></div>
+  <div class="main">
+    <div class="row" style="height:246px">
+      <div class="box c" style="width:400px;flex:none;padding:14px 22px">
+        <div class="hd" style="font-size:26px;margin-bottom:0">月給</div>
+        <div class="num" style="font-size:96px;white-space:nowrap">25<small style="font-size:40px;margin-left:0">万円</small><span style="font-size:30px;font-weight:800;margin-left:10px">＋ 歩合</span></div>
+        <div style="border-top:1px solid var(--line);margin-top:8px;padding-top:8px" class="tx"><span style="font-weight:800">試用6か月は 23万円 ＋ 歩合</span></div>
+        <div class="nt" style="font-weight:700;margin-top:4px">上記額には固定残業代20時間分、40,000円を含みます。<br>超過分は全額支給します。</div>
+      </div>
+      <div class="box c" style="flex:1;padding:8px 20px">
+        <div class="tbl">
+          <div class="r"><div class="k">資格手当</div><div class="v">＋1〜3万円 <small>（資格により）</small></div></div>
+          <div class="r"><div class="k">そのほか</div><div class="v">交通費（上限あり）・社会保険完備<br>月末締め翌月25日払い</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="box" style="flex:1;display:flex;gap:14px;align-items:center">
+      <div class="c" style="flex:none;width:176px"><div class="hd" style="margin:0;font-size:22px">月収の例</div><div class="nt" style="font-weight:700">計算の例・<br>目標ではありません</div></div>
+      <div class="box c tc-c" style="flex:none;width:170px;padding:8px"><div class="nt" style="font-weight:700">消化売上</div><div style="font-weight:800;font-size:22px;white-space:nowrap">100万円の月</div></div>
+      <div class="ar"></div>
+      <div class="box y c tc-c" style="flex:none;width:170px;padding:8px"><div class="nt" style="font-weight:700">月収</div><div class="num" style="font-size:40px">35<small style="font-size:20px">万円</small></div></div>
+      <div class="nt" style="flex:1;font-weight:600">試用のあと。資格手当・交通費は別。<br>消化売上＝実際にレッスンをした分・税別</div>
+    </div>
+  </div>
+  <div class="sum">お客様に選ばれるほど、お給料が上がる<span class="pn">8</span></div>
+</section></div>
+<div class="slide" data-n="9"><section class="page">
+  <div class="ttl">勤務と休み</div>
+  <div class="tab"><span class="tc">第8章</span><span class="tc">勤務と休み</span></div>
+  <div class="main">
+    <div class="box" style="height:172px;display:flex;gap:22px;align-items:center">
+      <div class="c tc-c" style="flex:none;width:214px"><div class="hd" style="font-size:19px;margin-bottom:4px">年間休日（目安）</div><div><span class="num" style="font-size:64px;background:var(--yellow);padding:6px 10px;border-radius:6px;display:inline-block;white-space:nowrap">116<small style="font-size:32px">日</small></span></div></div>
+      <div style="flex:1;min-width:0">
+        <div class="hol"><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i></div>
+        <div class="leg">
+          <span style="font-weight:800"><i class="sw" style="background:var(--blue)"></i>週休104日（完全週休2日）</span>
+        </div>
+        <div class="leg" style="margin-top:4px">
+          <span>＋</span>
+          <span><i class="sw" style="background:var(--sky)"></i>年末年始6日（12/29〜1/3）</span>
+          <span><i class="sw" style="background:#7FD0F0"></i>ゴールデンウィーク3日</span>
+          <span><i class="sw" style="background:#BDE7F7"></i>夏3日</span>
+        </div>
+        <div class="nt" style="margin-top:4px">※GW・夏は入社3か月後から</div>
+      </div>
+    </div>
+    <div class="row" style="flex:1">
+      <div class="box" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+        <div class="hd">勤務時間</div>
+        <div class="hrs">
+          <div class="lr">最終受付 18:00</div>
+          <div class="band"><div class="w">実働8時間・休憩60分</div><div class="e"></div></div>
+          <div class="ax"><span>10:00</span><span>19:00</span></div>
+        </div>
+      </div>
+      <div class="box c" style="flex:1.15;padding:8px 18px">
+        <div class="tbl">
+          <div class="r" style="padding:6px 0"><div class="k" style="width:64px;font-size:18px">休み</div><div class="v" style="font-size:16px">完全週休2日<br>連休は事前に相談</div></div>
+          <div class="r" style="padding:6px 0"><div class="k" style="width:64px;font-size:18px">有給</div><div class="v" style="font-size:16px">入社6か月後に10日<br>産休・育休・慶弔</div></div>
+          <div class="r" style="padding:6px 0"><div class="k" style="width:64px;font-size:18px">場所</div><div class="v" style="font-size:16px">アポロビル7階<br><small>谷町線 天王寺駅 徒歩5分・御堂筋線 徒歩6分<br>大阪市阿倍野区阿倍野筋1-5-31</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sum">休みの決まりまで、入る前に見せます<span class="pn">9</span></div>
+</section></div>
+<div class="slide" data-n="10"><section class="page">
+  <div class="ttl">入社から、その先まで</div>
+  <div class="tab"><span class="tc">第9章</span><span class="tc">入社から、その先まで</span></div>
+  <div class="main">
+    <div class="row" style="height:104px">
+      <div class="box c tc-c" style="flex:1;font-weight:800;font-size:22px">応募</div>
+      <div class="ar"></div>
+      <div class="box c tc-c" style="flex:1;font-weight:800;font-size:22px">面接</div>
+      <div class="ar"></div>
+      <div class="box c tc-c" style="flex:1.7;font-weight:800;font-size:22px;white-space:nowrap">結果のご連絡</div>
+      <div class="ar"></div>
+      <div class="box c tc-c" style="flex:1;font-weight:800;font-size:22px">研修</div>
+      <div class="ar"></div>
+      <div class="box y c tc-c" style="flex:1.9"><div style="font-weight:800;font-size:22px">勤務開始</div><div class="nt" style="font-weight:700;font-size:15px">2026年12月〜<br>2027年1月ごろ</div></div>
+    </div>
+    <div class="row" style="flex:1">
+      <div class="box" style="flex:1.3">
+        <div class="hd">本人の希望に合わせて</div>
+        <div class="stairs" style="margin-top:6px">
+          <div class="s s1">インストラクター</div>
+          <div class="s s2">後輩に教えるリーダー</div>
+          <div class="s s3">店長</div>
+          <div class="s s4">マネージャー<small>店が増えれば</small></div>
+        </div>
+      </div>
+      <div class="col" style="flex:1">
+        <div class="box y c tc-c" style="flex:1">
+          <div style="font-weight:800;font-size:22px;line-height:1.55">「ここで働いてみたい」と<br>思ったら、<br>面接でお会いしましょう</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sum">入社前に、3か月後の目標を一緒に決めます<span class="pn">10</span></div>
+</section></div>
+<div class="foot"><a class="pdf" href="hatarakikata_ReLUMI-pilates.pdf">PDFで見る・保存する</a></div>
+</div>
+<script>
+(function () {
+  function fit() {
+    var s = document.querySelectorAll('.slide');
+    for (var i = 0; i < s.length; i++) {
+      var k = s[i].clientWidth / 960;
+      s[i].firstElementChild.style.transform = 'scale(' + k + ')';
+    }
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+})();
+</script>
+</body>
+</html>

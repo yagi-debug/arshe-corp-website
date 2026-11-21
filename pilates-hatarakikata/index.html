@@ -178,16 +178,27 @@
   .fx { background: var(--gold-wash); border: 1px solid var(--gold); border-radius: 4px; text-align: center; font-weight: 900; font-size: 30px; line-height: 1.3; padding: 9px 12px; white-space: nowrap; }
   /* 7 お給料: 消化売上と月収の抜き出し表 */
   .kt { display: grid; grid-template-columns: 72px repeat(5, 1fr); border: 1px solid var(--gold-pale); border-radius: 4px; overflow: hidden; }
-  .kt > div { display: flex; align-items: center; justify-content: center; padding: 5px 2px; font-size: 15px; font-weight: 700; white-space: nowrap; border-left: 1px solid var(--line); }
+  .kt > div { display: flex; align-items: center; justify-content: center; padding: 14px 2px; font-size: 15px; font-weight: 700; white-space: nowrap; border-left: 1px solid var(--line); }
   .kt > div:nth-child(-n+6) { border-bottom: 1px solid var(--line); }
   .kt .kh { border-left: 0; color: var(--gold-deep); font-weight: 800; justify-content: flex-start; padding-left: 8px; }
-  .kt .kv { font-size: 21px; font-weight: 900; }
+  .kt .kv { font-size: 22px; font-weight: 900; }
   .kt .kv small { font-size: 12px; font-weight: 800; color: var(--gold-deep); margin-left: 1px; }
   .kt .on { background: var(--gold-wash); }
   .sup { display: flex; flex-direction: column; flex: 1; min-height: 0; }
   .sup .it { flex: 1; display: flex; align-items: center; border-top: 1px solid var(--line); font-size: 16px; font-weight: 600; line-height: 1.4; }
   .num.hl.al { align-self: flex-start; }
   .kz { white-space: nowrap; }
+  /* 第13版（2026-11-21）: 3 入社から6か月の目安 */
+  .gt { display: grid; grid-template-columns: 168px 1fr 1fr 1.4fr; grid-template-rows: 38px 72px 58px 44px 44px; border: 1px solid var(--gold-pale); border-radius: 4px; overflow: hidden; background: #fff; }
+  .gt > div { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-left: 1px solid var(--line); border-top: 1px solid var(--line); padding: 2px 6px; min-width: 0; }
+  .gt > div:nth-child(-n+4) { border-top: 0; }
+  .gt > div:nth-child(4n+1) { border-left: 0; }
+  .gt .gh { background: var(--warm); color: var(--gold-deep); font-weight: 800; font-size: 19px; }
+  .gt .gh.on { background: var(--gold-pale); color: var(--ink); }
+  .gt .on { background: var(--gold-wash); }
+  .gt .rk { align-items: flex-start; color: var(--gold-deep); font-weight: 800; font-size: 18px; padding-left: 14px; white-space: nowrap; }
+  .gt .s { font-size: 15px; font-weight: 600; line-height: 1.35; color: var(--muted); }
+  .gt .num small { font-size: 0.5em; }
   @media (max-width: 699px) {
     .kz { white-space: normal; font-size: 32px !important; }
     .fx { white-space: normal; font-size: 20px; }
@@ -198,6 +209,27 @@
     .kt > div:nth-child(n+7) { border-left: 1px solid var(--line); }
     .kt > div:nth-child(6), .kt > div:nth-child(12) { border-bottom: 0; }
     .kt .kh { justify-content: center; padding-left: 2px; }
+    /* 6か月の目安の表はスマホでは「1か月目・3か月後・6か月後」の3つの札に組み替える（順番はorderで並べ替え） */
+    .gt { display: flex; flex-direction: column; }
+    .gt .on { flex-wrap: wrap; }
+    .gt .on .num + .s { flex-basis: 100%; text-align: right; margin-top: -4px; }
+    .gt > div { flex-direction: row; justify-content: space-between; gap: 8px; border-left: 0; border-top: 1px solid var(--line); padding: 8px 14px; min-height: 44px; text-align: right; }
+    .gt > div:nth-child(4n+1) { display: none; }
+    .gt > div > :first-child { margin-left: auto; }
+    .gt .num { font-size: 26px !important; }
+    .gt .gh { justify-content: center; text-align: center; font-size: 18px; border-top: 1px solid var(--gold-pale); }
+    .gt > div:nth-child(2) { order: 10; border-top: 0; }
+    .gt > div:nth-child(3) { order: 20; }
+    .gt > div:nth-child(4) { order: 30; }
+    .gt > div:nth-child(6) { order: 11; } .gt > div:nth-child(10) { order: 12; } .gt > div:nth-child(14) { order: 13; } .gt > div:nth-child(18) { order: 14; }
+    .gt > div:nth-child(7) { order: 21; } .gt > div:nth-child(11) { order: 22; } .gt > div:nth-child(15) { order: 23; } .gt > div:nth-child(19) { order: 24; }
+    .gt > div:nth-child(8) { order: 31; } .gt > div:nth-child(12) { order: 32; } .gt > div:nth-child(16) { order: 33; } .gt > div:nth-child(20) { order: 34; }
+    .gt > div:nth-child(n+6):nth-child(-n+8)::before { content: "担当のお客様"; }
+    .gt > div:nth-child(n+10):nth-child(-n+12)::before { content: "1か月のレッスン"; }
+    .gt > div:nth-child(n+14):nth-child(-n+16)::before { content: "消化売上"; }
+    .gt > div:nth-child(n+18):nth-child(-n+20)::before { content: "月収"; }
+    .gt > div::before { color: var(--gold-deep); font-weight: 800; font-size: 15px; text-align: left; white-space: nowrap; }
+    .box.nw { height: auto !important; flex-direction: column !important; align-items: flex-start !important; gap: 2px !important; padding: 8px 14px !important; }
   }
 
   /* 公開ページ用: 画面幅700px以上は、各スライドを画面幅に合わせて縮める */
@@ -290,13 +322,12 @@
     <ul class="toc">
       <li><span class="n">01</span>目指す姿</li>
       <li><span class="n">02</span>仕事の中身</li>
-      <li><span class="n">03</span>1回のレッスンの流れ</li>
-      <li><span class="n">04</span>やってほしいこと・やらなくていいこと</li>
+      <li><span class="n">03</span>入社から6か月の目安</li>
+      <li><span class="n">04</span>やってほしいこと</li>
       <li><span class="n">05</span>働き方の考え方</li>
-      <li><span class="n">06</span>追う数字（継続率）</li>
-      <li><span class="n">07</span>お給料</li>
-      <li><span class="n">08</span>勤務と休日</li>
-      <li><span class="n">09</span>入社から、その先まで</li>
+      <li><span class="n">06</span>お給料</li>
+      <li><span class="n">07</span>勤務と休日</li>
+      <li><span class="n">08</span>入社から、その先まで</li>
     </ul>
   </div>
   <div class="cft">運営：合同会社アルシェスタイル（美容整体ReLUMI）／2026年11月版</div>
@@ -317,7 +348,6 @@
           <span class="chip">完全マンツーマン・個室</span>
           <span class="chip">30〜40代の女性</span>
           <span class="chip">姿勢を撮影して前後を比べる</span>
-          <span class="chip">無理な勧誘なし</span>
         </div>
       </div>
       <div class="box c" style="flex:1">
@@ -328,8 +358,7 @@
     </div>
     <div class="box hrow stk" style="height:112px;gap:26px">
       <div class="hd" style="margin:0;flex:none;font-size:24px;font-family:var(--serif)">今の店</div>
-      <div class="tx" style="flex:1.4">インストラクター 1人 <span class="gd">› 2人目を募集</span><br><span class="nt">（立ち上げメンバー）</span><br>同じ店内に美容整体のスタッフ</div>
-      <div class="box y tc-c" style="flex:1;padding:10px 12px"><div class="nt" style="font-weight:700">勤務開始</div><div style="font-weight:800;font-size:19px;line-height:1.35">2026年12月〜<br>2027年1月ごろ</div></div>
+      <div class="tx" style="flex:1;font-size:19px">インストラクター 1人 <span class="gd">› 2人目を募集</span><span class="nt">（立ち上げメンバー）</span><br>同じ店内に美容整体のスタッフ</div>
     </div>
   </div>
   <div class="sum">美容整体×ピラティスで、姿勢美人を増やす</div>
@@ -339,98 +368,102 @@
   <div class="ch"><b>02</b>　仕事の中身</div>
   <div class="ttl">1対1のレッスンと、続けてもらう仕事</div>
   <div class="main">
-    <div class="row" style="flex:1;gap:12px">
-      <div class="col" style="width:578px;flex:none;gap:12px">
-        <div class="row" style="height:170px">
-          <div class="box c" style="flex:0.7">
-            <div class="hd" style="margin-bottom:2px">レッスン</div>
-            <div class="tx" style="font-weight:600">マンツーマンで1日</div>
-            <span class="num" style="--fs:46px;margin-top:6px">5〜6<small>本</small></span>
-          </div>
-          <div class="ar"></div>
-          <div class="box c" style="flex:1.5">
-            <div class="hd" style="margin-bottom:2px">レッスン</div>
-            <div class="tx" style="font-weight:600">勤務20日ほどで月</div>
-            <span class="num hl al" style="--fs:48px;margin-top:6px">100〜120<small>本</small></span>
-          </div>
-        </div>
-        <div class="row" style="flex:1">
-          <div class="box c" style="flex:1">
-            <div class="hd" style="margin-bottom:6px">新しいお客様</div>
-            <div class="tx" style="font-weight:800;font-size:19px">会社が責任を持って<br>集めます</div>
-          </div>
-          <div class="box c" style="flex:1.1">
-            <div class="hd" style="margin-bottom:2px">担当のお客様</div>
-            <div class="tx" style="font-weight:600">月3〜4回通う方の場合</div>
-            <span class="num" style="--fs:56px;margin-top:6px">30〜40<small>名</small></span>
-          </div>
-        </div>
-      </div>
-      <div class="box" style="flex:1;display:flex;flex-direction:column;padding:12px 16px">
-        <div class="hd" style="margin-bottom:6px">サポートの仕事</div>
-        <div class="sup">
-          <div class="it">会員さんのフォロー<br>（月3回・月4回・都度払い）</div>
-          <div class="it">姿勢の撮り直し</div>
-          <div class="it">受付と予約</div>
-          <div class="it">開け閉め・マシンの手入れ</div>
-          <div class="it">掃除</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="sum">集客は会社、続けてもらうのはインストラクター</div>
-  <div class="ft"><span>ReLUMI pilates 天王寺</span><span>3</span></div>
-</section></div>
-<div class="slide" data-n="4"><section class="page">
-  <div class="ch"><b>03</b>　1回のレッスンの流れ</div>
-  <div class="ttl">1回のレッスンの流れ</div>
-  <div class="main">
-    <div class="box hrow stk" style="flex:1;align-items:stretch;gap:20px">
-      <div class="c" style="flex:none;width:150px;white-space:nowrap"><div class="hd" style="margin-bottom:2px">会員レッスン<br><span class="nt" style="font-weight:600">（目安）</span></div><span class="num" style="--fs:64px">60<small>分</small></span></div>
-      <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center">
-        <div class="bar lg">
+    <div class="row" style="height:196px;gap:12px">
+      <div class="box" style="flex:1.45;display:flex;flex-direction:column;justify-content:center">
+        <div class="hw" style="flex-wrap:nowrap"><span class="hd" style="margin:0">会員レッスン（目安）</span><span class="num" style="--fs:52px">60<small>分</small></span></div>
+        <div class="bar" style="height:74px;margin-top:10px">
           <div class="b1"><b>15分</b>美容整体</div>
           <div class="b2"><b>35分</b>マシンピラティス</div>
           <div class="b3"><b>10分</b>着替え・<br>ふり返り</div>
         </div>
         <div class="nt" style="margin-top:8px">流れはその方に合わせます</div>
       </div>
+      <div class="box" style="flex:1;display:flex;flex-direction:column;padding:10px 16px">
+        <div class="hd" style="margin-bottom:4px">サポートの仕事</div>
+        <div class="sup">
+          <div class="it" style="font-size:15px">会員さんのフォロー<br>（月3回・月4回・都度払い）</div>
+          <div class="it" style="font-size:15px">姿勢の撮り直し</div>
+          <div class="it" style="font-size:15px">受付と予約</div>
+          <div class="it" style="font-size:15px">開け閉め・マシンの手入れ</div>
+          <div class="it" style="font-size:15px">掃除</div>
+        </div>
+      </div>
     </div>
-    <div class="box hrow stk" style="flex:1;align-items:stretch;gap:20px">
-      <div class="c" style="flex:none;width:150px;white-space:nowrap"><div class="hd" style="margin-bottom:2px">初回体験</div><span class="num" style="--fs:64px">90<small>分</small></span></div>
+    <div class="box hrow stk" style="flex:1;align-items:stretch;gap:16px;padding:10px 16px">
+      <div class="c" style="flex:none;width:128px;white-space:nowrap"><div class="hd" style="margin-bottom:2px">初回体験</div><span class="num" style="--fs:56px">90<small>分</small></span></div>
       <div class="steps">
-        <div class="stp" style="flex:1.2"><span class="no">1</span>カウンセリング</div><div class="ar"></div>
-        <div class="stp"><span class="no">2</span>姿勢を撮影</div><div class="ar"></div>
-        <div class="stp"><span class="no">3</span>リフォーマー<br>体験</div><div class="ar"></div>
-        <div class="stp"><span class="no">4</span>もう一度撮影<br>して比べる</div><div class="ar"></div>
-        <div class="stp y" style="flex:1.2"><span class="no">5</span>プランのご案内<small>5分ほど・<br>押し売りなし</small></div>
+        <div class="stp" style="flex:1.2">カウンセリング</div><div class="ar"></div>
+        <div class="stp">姿勢を撮影</div><div class="ar"></div>
+        <div class="stp">リフォーマー<br>体験</div><div class="ar"></div>
+        <div class="stp">もう一度撮影<br>して比べる</div><div class="ar"></div>
+        <div class="stp y" style="flex:1.2">プランのご案内<small>5分ほど・<br>押し売りなし</small></div>
       </div>
     </div>
   </div>
-  <div class="sum">初回は90分、会員さんは60分</div>
+  <div class="sum">1対1で、姿勢の変化に付き合う</div>
+  <div class="ft"><span>ReLUMI pilates 天王寺</span><span>3</span></div>
+</section></div>
+<div class="slide" data-n="4"><section class="page">
+  <div class="ch"><b>03</b>　入社から6か月の目安</div>
+  <div class="ttl">入社から6か月の目安</div>
+  <div class="main" style="gap:10px">
+    <div class="gt">
+      <div class="gh"></div><div class="gh">1か月目</div><div class="gh">3か月後</div><div class="gh on">6か月後（目標）</div>
+      <div class="rk">担当のお客様</div>
+      <div class="s">研修しながら<br>担当を持ち始める</div>
+      <div><span class="num" style="--fs:36px">25〜30<small>名</small></span></div>
+      <div class="on"><span class="num" style="--fs:56px">50〜60<small>名</small></span></div>
+      <div class="rk">1か月のレッスン</div>
+      <div class="s">—</div>
+      <div><span class="num" style="--fs:26px">60<small>本ほど</small></span></div>
+      <div class="on"><span class="num" style="--fs:34px">110〜130<small>本</small></span><span class="s" style="font-size:14px">1日5〜6本</span></div>
+      <div class="rk">消化売上</div>
+      <div class="s">—</div>
+      <div><span class="num" style="--fs:26px">約50<small>万円</small></span></div>
+      <div class="on"><span class="num" style="--fs:30px">約95〜112<small>万円</small></span></div>
+      <div class="rk">月収</div>
+      <div style="flex-direction:row;gap:6px"><span class="num" style="--fs:26px">23<small>万円</small></span><span class="s">試用中</span></div>
+      <div style="flex-direction:row;gap:6px"><span class="num" style="--fs:26px">23<small>万円</small></span><span class="s">試用中</span></div>
+      <div class="on"><span class="num" style="--fs:30px">約32〜36<small>万円</small></span></div>
+    </div>
+    <div class="box c nw" style="height:38px;flex:none;padding:4px 18px;flex-direction:row;align-items:center;gap:0"><span class="hd" style="margin:0;font-size:18px">新しいお客様</span><span class="tx" style="font-weight:700">は、会社が責任を持って集めます</span></div>
+    <div class="nt" style="font-size:13px;line-height:1.45">※1か月のレッスンは、お一人が月2回ほど通う場合。消化売上は月4回プランの1回分の料金（税抜8,636円）で計算。月収は雇用契約書の別紙の表から（表は消化売上70万円から）。試用は6か月。資格手当・交通費は別。</div>
+  </div>
+  <div class="sum">6か月で、担当50〜60名をめざします</div>
   <div class="ft"><span>ReLUMI pilates 天王寺</span><span>4</span></div>
 </section></div>
 <div class="slide" data-n="5"><section class="page">
   <div class="ch"><b>04</b>　やってほしいこと</div>
-  <div class="ttl">やってほしいのは、リピートだけ</div>
+  <div class="ttl">やってほしいのは、続けて通ってもらうことだけ</div>
   <div class="main">
-    <div class="row" style="flex:1;gap:28px">
-      <div class="box y c" style="flex:1;align-items:center;text-align:center;padding:20px 24px">
-        <div><span class="pill" style="font-size:20px;padding:6px 22px">やってほしいこと</span></div>
-        <div style="font-family:var(--serif);font-weight:800;font-size:38px;line-height:1.45;margin-top:18px">また来たい、と<br>思ってもらうこと</div>
-        <div class="tx" style="font-weight:700;margin-top:16px">来てくださった方を、あなたのファンに</div>
+    <div class="row" style="flex:1;gap:16px">
+      <div class="box y c" style="flex:1.3;align-items:center;text-align:center;padding:14px 20px">
+        <div><span class="pill" style="font-size:17px;padding:2px 18px;margin-bottom:6px">やってほしいこと</span></div>
+        <div class="kz" style="font-family:var(--serif);font-weight:800;font-size:31px;line-height:1.35">また来たい、と思ってもらうこと</div>
+        <div style="width:80%;border-top:1px solid var(--gold);margin:14px 0 12px"></div>
+        <div><span class="pill" style="font-size:17px;padding:2px 18px;margin-bottom:6px">追う数字は、これだけ</span></div>
+        <div class="kz" style="font-family:var(--serif);font-weight:900;font-size:42px;line-height:1.3"><span class="em">既存会員様の継続率</span></div>
+        <div class="tx" style="margin-top:8px">お客様が、どれだけ続けて通ってくださるか</div>
       </div>
-      <div class="box c" style="flex:1;align-items:center;padding:20px 24px">
-        <div><span class="pill off" style="font-size:20px;padding:6px 22px">やらなくていいこと</span></div>
-        <div style="width:100%;margin-top:14px">
-          <div class="ln" style="border-bottom:1px solid var(--line);padding:14px 4px"><span style="font-weight:800;font-size:24px">新しいお客様を集める</span><span class="gd" style="font-size:17px">会社がやります</span></div>
-          <div style="border-bottom:1px solid var(--line);padding:14px 4px"><span style="font-weight:800;font-size:24px">売上の目標を追う</span></div>
-          <div style="padding:14px 4px"><span style="font-weight:800;font-size:24px">無理な勧誘</span></div>
+      <div class="col" style="flex:1;gap:12px">
+        <div class="box c" style="flex:1;padding:12px 18px">
+          <div class="hd" style="margin-bottom:2px">なぜ</div>
+          <div class="tx" style="font-weight:700;line-height:1.5">レッスンの質、お客様の満足、インストラクターとしての価値が、いちばん正確に表れる数字です</div>
+        </div>
+        <div class="box c" style="flex:1;padding:10px 18px">
+          <div><span class="pill off" style="font-size:17px;padding:2px 18px;margin-bottom:4px">やらなくていいこと</span></div>
+          <div style="width:100%">
+            <div style="border-bottom:1px solid var(--line);padding:8px 4px"><span style="font-weight:800;font-size:22px">売上の目標を追う</span></div>
+            <div style="padding:8px 4px 2px"><span style="font-weight:800;font-size:22px">無理な勧誘</span></div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="box c" style="height:52px;flex:none;padding:6px 20px">
+      <div class="tx" style="font-weight:700">下がったときは責めません。どこで来られなくなったかを一緒に見ます。</div>
+    </div>
   </div>
-  <div class="sum">目の前のお客様に集中してください</div>
+  <div class="sum">入る前に、いちばん大事な数字を伝えます</div>
   <div class="ft"><span>ReLUMI pilates 天王寺</span><span>5</span></div>
 </section></div>
 <div class="slide" data-n="6"><section class="page">
@@ -466,44 +499,7 @@
   <div class="ft"><span>ReLUMI pilates 天王寺</span><span>6</span></div>
 </section></div>
 <div class="slide" data-n="7"><section class="page">
-  <div class="ch"><b>06</b>　追う数字</div>
-  <div class="ttl">追う数字は、既存会員様の継続率だけ</div>
-  <div class="main">
-    <div class="row" style="height:206px">
-      <div class="box y c" style="flex:1.45;padding:12px 24px">
-        <div class="kz" style="font-family:var(--serif);font-weight:900;font-size:46px;line-height:1.25"><span class="em">既存会員様の継続率</span></div>
-        <div style="font-weight:800;font-size:22px;line-height:1.4;margin-top:12px">追う数字は、これだけです。</div>
-        <div class="tx" style="margin-top:6px">お客様が、どれだけ続けて通ってくださるか</div>
-      </div>
-      <div class="col" style="flex:1">
-        <div class="box c" style="flex:1;padding:10px 16px">
-          <div class="hd" style="margin-bottom:2px">なぜ</div>
-          <div class="tx" style="font-weight:700;line-height:1.45">レッスンの質、お客様の満足、インストラクターとしての価値が、いちばん正確に表れる数字です</div>
-        </div>
-        <div class="box hrow" style="padding:8px 16px;gap:10px">
-          <div class="nt" style="font-weight:700;flex:none">追わないもの</div>
-          <div class="chips" style="flex-wrap:nowrap;gap:6px"><span class="chip off" style="font-size:15px;padding:5px 10px;white-space:nowrap">売上の目標</span><span class="chip off" style="font-size:15px;padding:5px 10px;white-space:nowrap">新規の数</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="row" style="height:76px">
-      <div class="box c tc-c fl" style="flex:1">満足<br>してもらう</div>
-      <div class="ar"></div>
-      <div class="box c tc-c fl" style="flex:1">続けて<br>通ってもらう</div>
-      <div class="ar"></div>
-      <div class="box c tc-c fl" style="flex:1">担当レッスンが<br>増える</div>
-      <div class="ar"></div>
-      <div class="box y c tc-c fl" style="flex:1">歩合で<br>お給料が上がる</div>
-    </div>
-    <div class="box c" style="flex:1;padding:8px 20px">
-      <div class="tx" style="line-height:1.55;font-weight:700">下がったときは責めません。どこで来られなくなったかを一緒に見ます。</div>
-    </div>
-  </div>
-  <div class="sum">入る前に、いちばん大事な数字を伝えます</div>
-  <div class="ft"><span>ReLUMI pilates 天王寺</span><span>7</span></div>
-</section></div>
-<div class="slide" data-n="8"><section class="page">
-  <div class="ch"><b>07</b>　お給料</div>
+  <div class="ch"><b>06</b>　お給料</div>
   <div class="ttl">お給料：月給25万円＋歩合</div>
   <div class="main" style="gap:10px">
     <div class="fx">月収は、月の消化売上（税別）に応じた表で決まります</div>
@@ -521,18 +517,17 @@
           <div class="kh">月収</div><div class="kv">31.5<small>万円</small></div><div class="kv on">35<small>万円</small></div><div class="kv">40<small>万円</small></div><div class="kv">49<small>万円</small></div><div class="kv">66<small>万円</small></div>
         </div>
         <div class="tbl" style="margin-top:6px">
-          <div class="r" style="padding:6px 0"><div class="k" style="width:88px">目安</div><div class="v" style="font-size:16px">担当30〜40名・月100〜120本で、<br>消化売上は月100万円ほど</div></div>
-          <div class="r" style="padding:6px 0"><div class="k" style="width:88px">お支払い</div><div class="v" style="font-size:16px">月末締め・翌月25日払い</div></div>
+          <div class="r" style="padding:10px 0"><div class="k" style="width:88px">お支払い</div><div class="v" style="font-size:19px;font-weight:700">月末締め・翌月25日払い</div></div>
         </div>
       </div>
     </div>
-    <div class="nt">※表は雇用契約書の別紙「施術手当」より（消化売上70万〜500万円まで10万円ごと）。消化売上＝実際にレッスンをした分の売上（税別）。数字は例で、目標ではありません。資格手当・交通費は別です。</div>
+    <div class="nt">※表は雇用契約書の別紙「施術手当」より（消化売上70万〜500万円まで10万円ごと）。消化売上＝実際にレッスンをした分の売上（税別）。資格手当・交通費は別です。</div>
   </div>
   <div class="sum">お客様に選ばれるほど、お給料が上がる</div>
-  <div class="ft"><span>ReLUMI pilates 天王寺</span><span>8</span></div>
+  <div class="ft"><span>ReLUMI pilates 天王寺</span><span>7</span></div>
 </section></div>
-<div class="slide" data-n="9"><section class="page">
-  <div class="ch"><b>08</b>　勤務と休日</div>
+<div class="slide" data-n="8"><section class="page">
+  <div class="ch"><b>07</b>　勤務と休日</div>
   <div class="ttl">勤務と休日：実働8時間・年間休日116日</div>
   <div class="main">
     <div class="box hrow stk" style="height:136px;gap:22px">
@@ -571,10 +566,10 @@
     </div>
   </div>
   <div class="sum">休みの決まりまで、入る前に見せます</div>
-  <div class="ft"><span>ReLUMI pilates 天王寺</span><span>9</span></div>
+  <div class="ft"><span>ReLUMI pilates 天王寺</span><span>8</span></div>
 </section></div>
-<div class="slide" data-n="10"><section class="page">
-  <div class="ch"><b>09</b>　入社から、その先まで</div>
+<div class="slide" data-n="9"><section class="page">
+  <div class="ch"><b>08</b>　入社から、その先まで</div>
   <div class="ttl">入社から、その先まで</div>
   <div class="main">
     <div class="row" style="height:88px">
@@ -606,7 +601,7 @@
     </div>
   </div>
   <div class="sum">入社前に、3か月後の目標を一緒に決めます</div>
-  <div class="ft"><span>ReLUMI pilates 天王寺</span><span>10</span></div>
+  <div class="ft"><span>ReLUMI pilates 天王寺</span><span>9</span></div>
 </section></div>
 <div class="foot"><a class="pdf" href="hatarakikata_ReLUMI-pilates.pdf">PDFで見る・保存する</a></div>
 </div>

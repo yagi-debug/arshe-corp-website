@@ -170,6 +170,36 @@
   .stairs .s3 { background: var(--gold); margin-left: 25.33%; }
   .stairs .s4 { background: var(--gold-deep); color: #fff; margin-left: 38%; }
 
+  /* 第11版（2026-11-21）: 仕事の中身・レッスンの流れ・お給料 */
+  .bar.lg { height: 84px; margin-top: 0; }
+  .bar.lg > div { font-size: 16px; }
+  .bar.lg b { font-size: 26px; }
+  .stp .no { margin: 0 auto 8px; width: 30px; height: 30px; font-size: 16px; }
+  .fx { background: var(--gold-wash); border: 1px solid var(--gold); border-radius: 4px; text-align: center; font-weight: 900; font-size: 30px; line-height: 1.3; padding: 9px 12px; white-space: nowrap; }
+  /* 7 お給料: 消化売上と月収の抜き出し表 */
+  .kt { display: grid; grid-template-columns: 72px repeat(5, 1fr); border: 1px solid var(--gold-pale); border-radius: 4px; overflow: hidden; }
+  .kt > div { display: flex; align-items: center; justify-content: center; padding: 5px 2px; font-size: 15px; font-weight: 700; white-space: nowrap; border-left: 1px solid var(--line); }
+  .kt > div:nth-child(-n+6) { border-bottom: 1px solid var(--line); }
+  .kt .kh { border-left: 0; color: var(--gold-deep); font-weight: 800; justify-content: flex-start; padding-left: 8px; }
+  .kt .kv { font-size: 21px; font-weight: 900; }
+  .kt .kv small { font-size: 12px; font-weight: 800; color: var(--gold-deep); margin-left: 1px; }
+  .kt .on { background: var(--gold-wash); }
+  .sup { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+  .sup .it { flex: 1; display: flex; align-items: center; border-top: 1px solid var(--line); font-size: 16px; font-weight: 600; line-height: 1.4; }
+  .num.hl.al { align-self: flex-start; }
+  .kz { white-space: nowrap; }
+  @media (max-width: 699px) {
+    .kz { white-space: normal; font-size: 32px !important; }
+    .fx { white-space: normal; font-size: 20px; }
+    .sup .it { padding: 8px 0; }
+    /* 抜き出し表はスマホでは縦2列（消化売上｜月収）に組み替える */
+    .kt { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(6, auto); grid-auto-flow: column; }
+    .kt > div { border-left: 0; border-bottom: 1px solid var(--line); }
+    .kt > div:nth-child(n+7) { border-left: 1px solid var(--line); }
+    .kt > div:nth-child(6), .kt > div:nth-child(12) { border-bottom: 0; }
+    .kt .kh { justify-content: center; padding-left: 2px; }
+  }
+
   /* 公開ページ用: 画面幅700px以上は、各スライドを画面幅に合わせて縮める */
   html { -webkit-text-size-adjust: 100%; }
   body { overflow-x: hidden; }
@@ -260,12 +290,12 @@
     <ul class="toc">
       <li><span class="n">01</span>目指す姿</li>
       <li><span class="n">02</span>仕事の中身</li>
-      <li><span class="n">03</span>仕事の量の目安</li>
+      <li><span class="n">03</span>1回のレッスンの流れ</li>
       <li><span class="n">04</span>やってほしいこと・やらなくていいこと</li>
       <li><span class="n">05</span>働き方の考え方</li>
-      <li><span class="n">06</span>会社が見る数字</li>
+      <li><span class="n">06</span>追う数字（継続率）</li>
       <li><span class="n">07</span>お給料</li>
-      <li><span class="n">08</span>勤務と休み</li>
+      <li><span class="n">08</span>勤務と休日</li>
       <li><span class="n">09</span>入社から、その先まで</li>
     </ul>
   </div>
@@ -307,37 +337,44 @@
 </section></div>
 <div class="slide" data-n="3"><section class="page">
   <div class="ch"><b>02</b>　仕事の中身</div>
-  <div class="ttl">1対1で、姿勢の変化に付き合う</div>
+  <div class="ttl">1対1のレッスンと、続けてもらう仕事</div>
   <div class="main">
-    <div class="row" style="height:224px">
-      <div class="box" style="flex:1.35">
-        <div class="hw"><span class="hd" style="margin:0">会員レッスン（目安）</span><span class="num" style="--fs:60px">60<small>分</small></span></div>
-        <div class="bar">
-          <div class="b1"><b>15分</b>美容整体</div>
-          <div class="b2"><b>35分</b>マシンピラティス</div>
-          <div class="b3"><b>10分</b>着替え・<br>ふり返り</div>
+    <div class="row" style="flex:1;gap:12px">
+      <div class="col" style="width:578px;flex:none;gap:12px">
+        <div class="row" style="height:170px">
+          <div class="box c" style="flex:0.7">
+            <div class="hd" style="margin-bottom:2px">レッスン</div>
+            <div class="tx" style="font-weight:600">マンツーマンで1日</div>
+            <span class="num" style="--fs:46px;margin-top:6px">5〜6<small>本</small></span>
+          </div>
+          <div class="ar"></div>
+          <div class="box c" style="flex:1.5">
+            <div class="hd" style="margin-bottom:2px">レッスン</div>
+            <div class="tx" style="font-weight:600">勤務20日ほどで月</div>
+            <span class="num hl al" style="--fs:48px;margin-top:6px">100〜120<small>本</small></span>
+          </div>
         </div>
-        <div class="nt" style="margin-top:8px">流れはその方に合わせます</div>
+        <div class="row" style="flex:1">
+          <div class="box c" style="flex:1">
+            <div class="hd" style="margin-bottom:6px">新しいお客様</div>
+            <div class="tx" style="font-weight:800;font-size:19px">会社が責任を持って<br>集めます</div>
+          </div>
+          <div class="box c" style="flex:1.1">
+            <div class="hd" style="margin-bottom:2px">担当のお客様</div>
+            <div class="tx" style="font-weight:600">月3〜4回通う方の場合</div>
+            <span class="num" style="--fs:56px;margin-top:6px">30〜40<small>名</small></span>
+          </div>
+        </div>
       </div>
-      <div class="col" style="flex:1">
-        <div class="box c" style="flex:1">
-          <div class="hd" style="margin-bottom:3px">会員さんのフォロー</div>
-          <div class="tx">月3回・月4回・都度払い<br>姿勢の撮り直し</div>
+      <div class="box" style="flex:1;display:flex;flex-direction:column;padding:12px 16px">
+        <div class="hd" style="margin-bottom:6px">サポートの仕事</div>
+        <div class="sup">
+          <div class="it">会員さんのフォロー<br>（月3回・月4回・都度払い）</div>
+          <div class="it">姿勢の撮り直し</div>
+          <div class="it">受付と予約</div>
+          <div class="it">開け閉め・マシンの手入れ</div>
+          <div class="it">掃除</div>
         </div>
-        <div class="box c" style="flex:1">
-          <div class="hd" style="margin-bottom:3px">店の運営</div>
-          <div class="tx">開け閉め・マシンの手入れ<br>受付と予約・掃除</div>
-        </div>
-      </div>
-    </div>
-    <div class="box hrow stk" style="flex:1;align-items:stretch;gap:12px">
-      <div class="c" style="flex:none;width:122px;white-space:nowrap"><div class="hd" style="margin-bottom:2px">初回体験</div><span class="num" style="--fs:56px">90<small>分</small></span></div>
-      <div class="steps">
-        <div class="stp">カウンセリング</div><div class="ar"></div>
-        <div class="stp">姿勢を撮影</div><div class="ar"></div>
-        <div class="stp">リフォーマー<br>体験</div><div class="ar"></div>
-        <div class="stp">もう一度撮影<br>して比べる</div><div class="ar"></div>
-        <div class="stp y">プランのご案内<small>5分ほど・<br>押し売りなし</small></div>
       </div>
     </div>
   </div>
@@ -345,38 +382,32 @@
   <div class="ft"><span>ReLUMI pilates 天王寺</span><span>3</span></div>
 </section></div>
 <div class="slide" data-n="4"><section class="page">
-  <div class="ch"><b>03</b>　仕事の量の目安</div>
-  <div class="ttl">仕事の量の目安</div>
+  <div class="ch"><b>03</b>　1回のレッスンの流れ</div>
+  <div class="ttl">1回のレッスンの流れ</div>
   <div class="main">
-    <div class="row" style="flex:1">
-      <div class="box c tc-c" style="flex:0.85">
-        <div class="hd">1日のレッスン</div>
-        <span class="num" style="--fs:50px">5〜6<small>本</small></span>
-        <div class="nt" style="margin-top:6px">1本60分のマンツーマン</div>
-      </div>
-      <div class="box c tc-c" style="flex:1.6">
-        <div class="hd">1か月のレッスン</div>
-        <span class="num" style="--fs:50px">100〜120<small>本</small></span>
-        <div class="nt" style="margin-top:6px">勤務は月20日ほど</div>
-      </div>
-      <div class="box y c tc-c" style="flex:1.2">
-        <div class="hd">担当のお客様</div>
-        <span class="num" style="--fs:50px">30〜40<small>名</small></span>
-        <div class="nt" style="margin-top:6px">月3〜4回通う方の場合</div>
+    <div class="box hrow stk" style="flex:1;align-items:stretch;gap:20px">
+      <div class="c" style="flex:none;width:150px;white-space:nowrap"><div class="hd" style="margin-bottom:2px">会員レッスン<br><span class="nt" style="font-weight:600">（目安）</span></div><span class="num" style="--fs:64px">60<small>分</small></span></div>
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center">
+        <div class="bar lg">
+          <div class="b1"><b>15分</b>美容整体</div>
+          <div class="b2"><b>35分</b>マシンピラティス</div>
+          <div class="b3"><b>10分</b>着替え・<br>ふり返り</div>
+        </div>
+        <div class="nt" style="margin-top:8px">流れはその方に合わせます</div>
       </div>
     </div>
-    <div class="row" style="height:112px">
-      <div class="box hrow" style="flex:1">
-        <div class="hd" style="margin:0;flex:none">新しいお客様</div>
-        <div class="tx" style="font-weight:800">会社が集めます</div>
-      </div>
-      <div class="box c" style="flex:1.6">
-        <div class="tx" style="font-weight:800">この本数で、消化売上は月100万円ほど<br><span class="gd">月収35万円の例</span>（お給料のページ）になります</div>
-        <div class="nt" style="margin-top:4px">1回あたりの売上は、月4回プランの通常料金で計算した目安です</div>
+    <div class="box hrow stk" style="flex:1;align-items:stretch;gap:20px">
+      <div class="c" style="flex:none;width:150px;white-space:nowrap"><div class="hd" style="margin-bottom:2px">初回体験</div><span class="num" style="--fs:64px">90<small>分</small></span></div>
+      <div class="steps">
+        <div class="stp" style="flex:1.2"><span class="no">1</span>カウンセリング</div><div class="ar"></div>
+        <div class="stp"><span class="no">2</span>姿勢を撮影</div><div class="ar"></div>
+        <div class="stp"><span class="no">3</span>リフォーマー<br>体験</div><div class="ar"></div>
+        <div class="stp"><span class="no">4</span>もう一度撮影<br>して比べる</div><div class="ar"></div>
+        <div class="stp y" style="flex:1.2"><span class="no">5</span>プランのご案内<small>5分ほど・<br>押し売りなし</small></div>
       </div>
     </div>
   </div>
-  <div class="sum">数字は目安。目標として追うのは継続率だけです</div>
+  <div class="sum">初回は90分、会員さんは60分</div>
   <div class="ft"><span>ReLUMI pilates 天王寺</span><span>4</span></div>
 </section></div>
 <div class="slide" data-n="5"><section class="page">
@@ -435,27 +466,27 @@
   <div class="ft"><span>ReLUMI pilates 天王寺</span><span>6</span></div>
 </section></div>
 <div class="slide" data-n="7"><section class="page">
-  <div class="ch"><b>06</b>　会社が見る数字</div>
-  <div class="ttl">追う数字は、継続率の1つだけ</div>
+  <div class="ch"><b>06</b>　追う数字</div>
+  <div class="ttl">追う数字は、既存会員様の継続率だけ</div>
   <div class="main">
-    <div class="row" style="height:182px">
-      <div class="box c" style="flex:1.4">
-        <div class="hd">会社が見る</div>
-        <div style="font-family:var(--serif);font-weight:900;font-size:40px;line-height:1.25">会員様の<span class="em">継続率</span></div>
-        <div class="tx" style="margin-top:8px">レッスンの質、お客様の満足、インストラクターとしての価値が、いちばん正確に表れる数字です</div>
+    <div class="row" style="height:206px">
+      <div class="box y c" style="flex:1.45;padding:12px 24px">
+        <div class="kz" style="font-family:var(--serif);font-weight:900;font-size:46px;line-height:1.25"><span class="em">既存会員様の継続率</span></div>
+        <div style="font-weight:800;font-size:22px;line-height:1.4;margin-top:12px">追う数字は、これだけです。</div>
+        <div class="tx" style="margin-top:6px">お客様が、どれだけ続けて通ってくださるか</div>
       </div>
       <div class="col" style="flex:1">
         <div class="box c" style="flex:1;padding:10px 16px">
           <div class="hd" style="margin-bottom:2px">なぜ</div>
-          <div class="tx" style="font-weight:700;font-size:19px;line-height:1.45">続けてもらえるほど、<br>お給料に返ってくる</div>
+          <div class="tx" style="font-weight:700;line-height:1.45">レッスンの質、お客様の満足、インストラクターとしての価値が、いちばん正確に表れる数字です</div>
         </div>
         <div class="box hrow" style="padding:8px 16px;gap:10px">
           <div class="nt" style="font-weight:700;flex:none">追わないもの</div>
-          <div class="chips"><span class="chip off">売上の目標</span><span class="chip off">新規の数</span></div>
+          <div class="chips" style="flex-wrap:nowrap;gap:6px"><span class="chip off" style="font-size:15px;padding:5px 10px;white-space:nowrap">売上の目標</span><span class="chip off" style="font-size:15px;padding:5px 10px;white-space:nowrap">新規の数</span></div>
         </div>
       </div>
     </div>
-    <div class="row" style="height:80px">
+    <div class="row" style="height:76px">
       <div class="box c tc-c fl" style="flex:1">満足<br>してもらう</div>
       <div class="ar"></div>
       <div class="box c tc-c fl" style="flex:1">続けて<br>通ってもらう</div>
@@ -465,7 +496,7 @@
       <div class="box y c tc-c fl" style="flex:1">歩合で<br>お給料が上がる</div>
     </div>
     <div class="box c" style="flex:1;padding:8px 20px">
-      <div class="tx" style="line-height:1.55">歩合はレッスンをした分の売上で計算します。目標ではありません。<br>下がったときは責めません。どこで来られなくなったかを一緒に見ます。</div>
+      <div class="tx" style="line-height:1.55;font-weight:700">下がったときは責めません。どこで来られなくなったかを一緒に見ます。</div>
     </div>
   </div>
   <div class="sum">入る前に、いちばん大事な数字を伝えます</div>
@@ -473,38 +504,38 @@
 </section></div>
 <div class="slide" data-n="8"><section class="page">
   <div class="ch"><b>07</b>　お給料</div>
-  <div class="ttl">お給料</div>
-  <div class="main">
-    <div class="row" style="height:236px">
-      <div class="box c" style="width:452px;flex:none;padding:12px 22px">
-        <div class="hd" style="font-size:24px;margin-bottom:0">月給</div>
-        <div class="num" style="--fs:88px">25<small style="font-size:38px;margin-left:0">万円</small><span class="sub">＋ 歩合</span></div>
-        <div style="border-top:1px solid var(--line);margin-top:8px;padding-top:6px" class="tx"><span style="font-weight:800">試用6か月は 23万円 ＋ 歩合</span></div>
-        <div class="nt" style="font-weight:600;margin-top:4px;color:var(--ink)">上記額には固定残業代20時間分、40,000円を含みます。<br>超過分は全額支給します。</div>
+  <div class="ttl">お給料：月給25万円＋歩合</div>
+  <div class="main" style="gap:10px">
+    <div class="fx">月収は、月の消化売上（税別）に応じた表で決まります</div>
+    <div class="row" style="flex:1">
+      <div class="box c" style="width:364px;flex:none;padding:10px 18px">
+        <div class="hw" style="flex-wrap:nowrap;align-items:baseline;gap:10px"><span class="hd" style="margin:0;font-size:24px">月給</span><span class="num" style="--fs:68px">25<small>万円</small></span></div>
+        <div class="nt" style="font-weight:600;margin-top:4px;color:var(--ink);font-size:15px">固定残業代20時間分、40,000円を含みます。超過分は全額支給します。</div>
+        <div style="border-top:1px solid var(--line);margin-top:8px;padding-top:6px" class="tx"><span style="font-weight:800;font-size:16px">試用6か月は 月給23万円 ＋ 歩合</span></div>
+        <div class="tx" style="font-size:16px;margin-top:2px"><span class="gd">資格手当</span> ＋1〜3万円<small class="nt">（資格により）</small></div>
       </div>
-      <div class="box c" style="flex:1;padding:8px 20px">
-        <div class="tbl">
-          <div class="r"><div class="k">資格手当</div><div class="v">＋1〜3万円 <small>（資格により）</small></div></div>
-          <div class="r"><div class="k">そのほか</div><div class="v">交通費（上限あり）・社会保険完備<br>月末締め翌月25日払い</div></div>
+      <div class="box c" style="flex:1;padding:8px 16px">
+        <div class="hd" style="font-size:18px;margin-bottom:6px">消化売上と月収（表から抜き出し）</div>
+        <div class="kt">
+          <div class="kh">消化売上</div><div>80万円</div><div class="on">100万円</div><div>120万円</div><div>150万円</div><div>200万円</div>
+          <div class="kh">月収</div><div class="kv">31.5<small>万円</small></div><div class="kv on">35<small>万円</small></div><div class="kv">40<small>万円</small></div><div class="kv">49<small>万円</small></div><div class="kv">66<small>万円</small></div>
+        </div>
+        <div class="tbl" style="margin-top:6px">
+          <div class="r" style="padding:6px 0"><div class="k" style="width:88px">目安</div><div class="v" style="font-size:16px">担当30〜40名・月100〜120本で、<br>消化売上は月100万円ほど</div></div>
+          <div class="r" style="padding:6px 0"><div class="k" style="width:88px">お支払い</div><div class="v" style="font-size:16px">月末締め・翌月25日払い</div></div>
         </div>
       </div>
     </div>
-    <div class="box hrow stk" style="flex:1;gap:14px;padding:8px 16px">
-      <div class="c" style="flex:none;width:150px"><div class="hd" style="margin:0;font-size:22px">月収の例</div><div class="nt" style="font-weight:600">計算の例・<br>目標ではありません</div></div>
-      <div class="box c tc-c" style="flex:none;width:156px;padding:6px"><div class="nt" style="font-weight:600">消化売上</div><div style="font-weight:800;font-size:22px;white-space:nowrap">100万円の月</div></div>
-      <div class="ar"></div>
-      <div class="box y c tc-c" style="flex:none;width:156px;padding:6px"><div class="nt" style="font-weight:600">月収</div><div class="num" style="--fs:36px">35<small>万円</small></div></div>
-      <div class="nt" style="flex:1">試用のあと。資格手当・交通費は別。<br>消化売上＝実際にレッスンをした分・税別</div>
-    </div>
+    <div class="nt">※表は雇用契約書の別紙「施術手当」より（消化売上70万〜500万円まで10万円ごと）。消化売上＝実際にレッスンをした分の売上（税別）。数字は例で、目標ではありません。資格手当・交通費は別です。</div>
   </div>
   <div class="sum">お客様に選ばれるほど、お給料が上がる</div>
   <div class="ft"><span>ReLUMI pilates 天王寺</span><span>8</span></div>
 </section></div>
 <div class="slide" data-n="9"><section class="page">
-  <div class="ch"><b>08</b>　勤務と休み</div>
-  <div class="ttl">勤務と休み</div>
+  <div class="ch"><b>08</b>　勤務と休日</div>
+  <div class="ttl">勤務と休日：実働8時間・年間休日116日</div>
   <div class="main">
-    <div class="box hrow stk" style="height:150px;gap:22px">
+    <div class="box hrow stk" style="height:136px;gap:22px">
       <div class="c tc-c" style="flex:none;width:214px"><div class="hd" style="margin-bottom:4px">年間休日（目安）</div><div><span class="num hl" style="--fs:60px">116<small>日</small></span></div></div>
       <div style="flex:1;min-width:0">
         <div class="hol"><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i></div>
@@ -529,11 +560,12 @@
           <div class="ax"><span>10:00</span><span>19:00</span></div>
         </div>
       </div>
-      <div class="box c" style="flex:1.15;padding:6px 18px">
+      <div class="box c" style="flex:1.15;padding:4px 18px">
         <div class="tbl">
-          <div class="r" style="padding:6px 0"><div class="k" style="width:64px;font-size:18px">休み</div><div class="v">完全週休2日<span class="sp"></span>連休は事前に相談</div></div>
-          <div class="r" style="padding:6px 0"><div class="k" style="width:64px;font-size:18px">有給</div><div class="v">入社6か月後に10日<span class="sp"></span>産休・育休・慶弔</div></div>
-          <div class="r" style="padding:6px 0"><div class="k" style="width:64px;font-size:18px">場所</div><div class="v">アポロビル7階<br><small>谷町線 天王寺駅 徒歩5分・御堂筋線 徒歩6分<br>大阪市阿倍野区阿倍野筋1-5-31</small></div></div>
+          <div class="r" style="padding:5px 0"><div class="k" style="width:74px;font-size:17px">休み</div><div class="v">完全週休2日<span class="sp"></span>連休は事前に相談</div></div>
+          <div class="r" style="padding:5px 0"><div class="k" style="width:74px;font-size:17px">有給</div><div class="v">入社6か月後に10日<span class="sp"></span>産休・育休・慶弔</div></div>
+          <div class="r" style="padding:5px 0"><div class="k" style="width:74px;font-size:17px">福利厚生</div><div class="v">社会保険完備・交通費（上限あり）</div></div>
+          <div class="r" style="padding:5px 0"><div class="k" style="width:74px;font-size:17px">場所</div><div class="v">アポロビル7階<br><small>谷町線 天王寺駅 徒歩5分・御堂筋線 徒歩6分<br>大阪市阿倍野区阿倍野筋1-5-31</small></div></div>
         </div>
       </div>
     </div>
